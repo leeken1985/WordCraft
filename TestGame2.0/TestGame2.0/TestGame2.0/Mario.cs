@@ -35,6 +35,8 @@ namespace TestGame2._0
 
         private void UpdateMovement(KeyboardState aCurrentKeyboardState)
         {
+            speed = Vector2.Zero;
+            direction = Vector2.Zero;
              if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true)
              {
                  speed.X = SPEED;

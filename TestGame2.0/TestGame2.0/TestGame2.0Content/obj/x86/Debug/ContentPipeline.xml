@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
       <Time>2013-02-21T12:36:44.2178445-08:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
       <Time>2013-02-21T12:36:44.2959671-08:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
       <Time>2013-02-21T12:36:44.2959671-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -34,10 +34,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

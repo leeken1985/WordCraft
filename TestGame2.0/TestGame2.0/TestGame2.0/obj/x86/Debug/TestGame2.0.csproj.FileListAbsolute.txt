@@ -7,3 +7,12 @@ C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\obj
 C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb
 C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb
 C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\TestGame2.0.exe
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\TestGame2.0.pdb
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.csprojResolveAssemblyReference.cache
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.exe
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.pdb

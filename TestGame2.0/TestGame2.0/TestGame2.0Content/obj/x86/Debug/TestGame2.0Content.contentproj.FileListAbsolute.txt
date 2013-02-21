@@ -1,1 +1,2 @@
 C:\Users\Aaron\Dropbox\School Sucks\3951\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\TestGame2.0Content.contentprojResolveAssemblyReference.cache
+C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\TestGame2.0Content.contentprojResolveAssemblyReference.cache
