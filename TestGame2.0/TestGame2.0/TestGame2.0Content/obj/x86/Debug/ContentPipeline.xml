@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
-      <Time>2013-02-21T12:36:44.2178445-08:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
+      <Time>2013-02-21T13:04:41.376948-08:00</Time>
     </Item>
     <Item>
       <Source>bomb.jpg</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
-      <Time>2013-02-21T12:36:44.2959671-08:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
+      <Time>2013-02-21T13:04:41.3789481-08:00</Time>
     </Item>
     <Item>
       <Source>mariosprite.jpg</Source>
@@ -25,8 +25,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
-      <Time>2013-02-21T12:36:44.2959671-08:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
+      <Time>2013-02-21T13:04:41.3819483-08:00</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2013-02-25T18:24:51.4294893-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fireball.png</Source>
+      <Name>Fireball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Fireball.xnb</Output>
+      <Time>2013-02-25T19:19:41.2736576-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -34,10 +52,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -65,8 +83,8 @@
         <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-02-07T11:03:56.4636769-08:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-02-21T12:45:58.4407197-08:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
