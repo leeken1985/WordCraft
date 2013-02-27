@@ -1,3 +1,5 @@
 Content\blocks.xnb
 Content\bomb.xnb
 Content\mariosprite.xnb
+Content\background.xnb
+Content\Fireball.xnb

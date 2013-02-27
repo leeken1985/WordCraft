@@ -19,6 +19,9 @@ namespace TestGame2._0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Mario marioSprite;
+        Texture2D background;
+        Rectangle mainFrame;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -48,6 +51,8 @@ namespace TestGame2._0
             spriteBatch = new SpriteBatch(GraphicsDevice);
             marioSprite = new Mario();
             marioSprite.LoadContent(this.Content);
+            background = Content.Load<Texture2D>("background");
+            mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             // TODO: use this.Content to load your game content here
         }
 
@@ -88,6 +93,7 @@ namespace TestGame2._0
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            spriteBatch.Draw(background, mainFrame, Color.White);
             marioSprite.Draw(this.spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
