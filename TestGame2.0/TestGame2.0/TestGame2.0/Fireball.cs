@@ -10,7 +10,7 @@ namespace TestGame2._0
 {
     class Fireball : Sprite
     {
-        const int MAX_DISTANCE = 500;
+        const int MAX_DISTANCE = 200;
 
         public bool Visible = false;
 

@@ -23,9 +23,8 @@ namespace TestGame2._0
         Vector2 speed = Vector2.Zero;
         Vector2 direction = Vector2.Zero;
 
-        KeyboardState oldState = Keyboard.GetState();
+        KeyboardState oldState ;
         ContentManager mContentManager;
-        KeyboardState mPreviousKeyboardState;
 
         Vector2 mStartingPosition = Vector2.Zero;
 
@@ -38,7 +37,10 @@ namespace TestGame2._0
             Position = new Vector2(380, 330);
 
             // TODO: use this.Content to load your game content here
-
+            foreach (Fireball aFireball in mFireballs)
+            {
+                aFireball.LoadContent(theContentManager);
+            }
             base.LoadContent(theContentManager, "mariosprite");
             
         }
@@ -47,7 +49,6 @@ namespace TestGame2._0
         {
              speed = Vector2.Zero;
              direction = Vector2.Zero;
-             newState = Keyboard.GetState();
              //Move Left one key press at a time
              if (newState.IsKeyDown(Keys.Left))
              {
@@ -56,9 +57,6 @@ namespace TestGame2._0
                      speed.X = SPEED;
                      direction.X = MOVE_LEFT;
                  }
-             }
-             else if (newState.IsKeyDown(Keys.Left))
-             {
              }
              //Move right one key press at a time
              else if (newState.IsKeyDown(Keys.Right))
@@ -69,22 +67,21 @@ namespace TestGame2._0
                       direction.X = MOVE_RIGHT;
                   }
              }
-             else if (newState.IsKeyDown(Keys.Right))
-             {
-             }
-             oldState = newState;
         }
 
-        private void UpdateFireball(GameTime theGameTime, KeyboardState aCurrentKeyboardState)
+        private void UpdateFireball(GameTime theGameTime, KeyboardState newState)
         {
             foreach (Fireball aFireball in mFireballs)
             {
                 aFireball.Update(theGameTime);
             }
 
-            if (aCurrentKeyboardState.IsKeyDown(Keys.Space) == true && mPreviousKeyboardState.IsKeyDown(Keys.Space) == false)
+            if (newState.IsKeyDown(Keys.Space))
             {
-                ShootFireball();
+                if (!oldState.IsKeyDown(Keys.Space))
+                {
+                    ShootFireball();
+                }
             }
         }
 
@@ -98,7 +95,7 @@ namespace TestGame2._0
                     {
                         aCreateNew = false;
                         aFireball.Fire(Position + new Vector2(0, -Size.Height),
-                            new Vector2(200, 0), new Vector2(0, -1));
+                            new Vector2(0, 200), new Vector2(0, -1));
                         break;
                     }
                 }
@@ -125,8 +122,12 @@ namespace TestGame2._0
         public void Update(GameTime gameTime)
         {
             KeyboardState newState = Keyboard.GetState();
+
             UpdateMovement(newState);
             UpdateFireball(gameTime, newState);
+
+            oldState = newState;
+
             base.Update(gameTime, speed, direction);
         }
         
