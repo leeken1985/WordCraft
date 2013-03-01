@@ -18,13 +18,19 @@ namespace TestGame2._0
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Mario marioSprite;
-        Texture2D background;
+        Cannon cannonSprite;
+        //Texture2D background;
+        Texture2D gridLine;
         Rectangle mainFrame;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            Window.Title = "WordCraft";
+            graphics.IsFullScreen = false;
+            //set window size
+            graphics.PreferredBackBufferHeight = 701;
+            graphics.PreferredBackBufferWidth = 401;
             Content.RootDirectory = "Content";
         }
 
@@ -49,9 +55,11 @@ namespace TestGame2._0
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            marioSprite = new Mario();
-            marioSprite.LoadContent(this.Content);
-            background = Content.Load<Texture2D>("background");
+            cannonSprite = new Cannon();
+            cannonSprite.LoadContent(this.Content);
+            //background = Content.Load<Texture2D>("background");
+            gridLine = new Texture2D(graphics.GraphicsDevice, 1, 1);
+            gridLine.SetData(new Color[] { Color.White });
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             // TODO: use this.Content to load your game content here
         }
@@ -78,7 +86,7 @@ namespace TestGame2._0
 
             // TODO: Add your update logic here
 
-            marioSprite.Update(gameTime);
+            cannonSprite.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -93,8 +101,20 @@ namespace TestGame2._0
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.Draw(background, mainFrame, Color.White);
-            marioSprite.Draw(this.spriteBatch);
+            //spriteBatch.Draw(background, mainFrame, Color.White);
+            cannonSprite.Draw(this.spriteBatch);
+            //draw a red grid 50 x 50
+            for (float x = -4; x < 5; x++)
+            {
+                Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 700);
+                spriteBatch.Draw(gridLine, rectangle, Color.Red);
+            }
+            for (float y = -7; y < 8; y++)
+            {
+                Rectangle rectangle = new Rectangle(0, (int)(350 + y * 50), 400, 1);
+                spriteBatch.Draw(gridLine, rectangle, Color.Red);
+            }
+            cannonSprite.Draw(this.spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
