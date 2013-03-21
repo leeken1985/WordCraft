@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
-      <Time>2013-03-11T20:14:23.5941363-07:00</Time>
+      <Time>2013-03-21T09:33:14.2023053-07:00</Time>
     </Item>
     <Item>
       <Source>bomb.jpg</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
-      <Time>2013-03-11T20:14:23.5951366-07:00</Time>
+      <Time>2013-03-21T09:33:14.3003711-07:00</Time>
     </Item>
     <Item>
       <Source>mariosprite.jpg</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
-      <Time>2013-03-11T20:14:23.5961376-07:00</Time>
+      <Time>2013-03-21T09:33:15.0158574-07:00</Time>
     </Item>
     <Item>
       <Source>background.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2013-03-21T09:07:26.1737375-07:00</Time>
+      <Time>2013-03-21T09:33:14.1002368-07:00</Time>
     </Item>
     <Item>
       <Source>Fireball.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Fireball.xnb</Output>
-      <Time>2013-03-21T09:07:26.1647288-07:00</Time>
+      <Time>2013-03-21T09:33:14.0001721-07:00</Time>
     </Item>
     <Item>
       <Source>tShape.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\tShape.xnb</Output>
-      <Time>2013-03-21T09:08:10.0581788-07:00</Time>
+      <Time>2013-03-21T09:34:52.2360806-07:00</Time>
     </Item>
     <Item>
       <Source>Awesome_Face.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Awesome_Face.xnb</Output>
-      <Time>2013-03-21T09:08:10.0211549-07:00</Time>
+      <Time>2013-03-21T09:34:52.2120596-07:00</Time>
     </Item>
     <Item>
       <Source>myFont.spritefont</Source>
@@ -71,7 +71,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
-      <Time>2013-03-21T09:08:10.0271547-07:00</Time>
+      <Time>2013-03-21T09:34:52.2170663-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -128,9 +128,6 @@ namespace TestGame2._0
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.Draw(background, Vector2.Zero, Color.White);
-           
-                    marioSprite.Draw(this.spriteBatch);
             //spriteBatch.Draw(background, mainFrame, Color.White);
             switch (currentScreen)
             {

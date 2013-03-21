@@ -27,7 +27,7 @@ namespace TestGame2._0.GameScreens
 
             cannonSprite = new Cannon();
             cannonSprite.LoadContent(game.Content);
-            //background = Content.Load<Texture2D>("background");
+            //background = game.Content.Load<Texture2D>("background");
             gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
             gridLine.SetData(new Color[] { Color.White });
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
