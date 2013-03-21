@@ -29,14 +29,10 @@ namespace TestGame2._0
         MainGame mainGame;
         MainMenu mainMenu;
         SpriteBatch spriteBatch;
-<<<<<<< HEAD
         Mario marioSprite;
         Texture2D background;
-=======
         Screen currentScreen;
         GraphicsDeviceManager graphics;
-
->>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
 
         public Game1()
         {
@@ -70,7 +66,6 @@ namespace TestGame2._0
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-<<<<<<< HEAD
             marioSprite = new Mario();
             marioSprite.LoadContent(this.Content);
 
@@ -78,11 +73,9 @@ namespace TestGame2._0
             background = Content.Load<Texture2D>("background");
 
             // TODO: use this.Content to load your game content here
-=======
             mainMenu = new MainMenu(this);
             currentScreen = Screen.MainMenu;
             base.LoadContent();
->>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
         }
 
         /// <summary>
@@ -135,12 +128,9 @@ namespace TestGame2._0
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-<<<<<<< HEAD
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
            
                     marioSprite.Draw(this.spriteBatch);
-           
-=======
             //spriteBatch.Draw(background, mainFrame, Color.White);
             switch (currentScreen)
             {
@@ -157,7 +147,6 @@ namespace TestGame2._0
                     }
                     break;
             }
->>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
             spriteBatch.End();
             base.Draw(gameTime);
         }
