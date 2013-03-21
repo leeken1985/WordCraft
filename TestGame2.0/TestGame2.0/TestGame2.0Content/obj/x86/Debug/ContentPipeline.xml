@@ -7,8 +7,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
       <Time>2013-02-21T13:04:41.376948-08:00</Time>
+=======
+      <Output>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
+      <Time>2013-02-21T16:39:10.4076094-08:00</Time>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
     </Item>
     <Item>
       <Source>bomb.jpg</Source>
@@ -16,8 +21,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
       <Time>2013-02-21T13:04:41.3789481-08:00</Time>
+=======
+      <Output>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\bomb.xnb</Output>
+      <Time>2013-02-21T16:39:10.4096095-08:00</Time>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
     </Item>
     <Item>
       <Source>mariosprite.jpg</Source>
@@ -25,8 +35,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
       <Time>2013-02-21T13:04:41.3819483-08:00</Time>
+=======
+      <Output>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\mariosprite.xnb</Output>
+      <Time>2013-02-21T16:39:10.4116097-08:00</Time>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
     </Item>
     <Item>
       <Source>background.png</Source>
@@ -34,8 +49,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\background.xnb</Output>
       <Time>2013-02-25T18:24:51.4294893-08:00</Time>
+=======
+      <Output>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2013-02-27T09:20:59.11088-08:00</Time>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
     </Item>
     <Item>
       <Source>Fireball.png</Source>
@@ -43,19 +63,40 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Fireball.xnb</Output>
       <Time>2013-02-25T19:19:41.2736576-08:00</Time>
+=======
+      <Output>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Fireball.xnb</Output>
+      <Time>2013-02-28T11:37:39.9481036-08:00</Time>
+    </Item>
+    <Item>
+      <Source>tShape.png</Source>
+      <Name>tShape</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\tShape.xnb</Output>
+      <Time>2013-02-28T15:28:45.5648943-08:00</Time>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>HiDef</TargetProfile>
+      <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
+<<<<<<< HEAD
       <RootDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
       <LoggerRootDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
       <IntermediateDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
       <OutputDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
+=======
+      <RootDirectory>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
     </Settings>
     <Assemblies>
       <Assembly>
@@ -84,7 +125,11 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+<<<<<<< HEAD
         <Value>2013-02-21T12:45:58.4407197-08:00</Value>
+=======
+        <Value>2013-02-18T17:34:38.343294-08:00</Value>
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
       </Assembly>
     </Assemblies>
   </Asset>

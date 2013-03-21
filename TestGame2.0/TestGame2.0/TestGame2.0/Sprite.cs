@@ -35,7 +35,6 @@ namespace TestGame2._0
             }
         }
 
-
         //The amount to increase/decrease the size of the original sprite. When
         //modified throught he property, the Size of the sprite is recalculated
         //with the new scale applied.
@@ -60,10 +59,16 @@ namespace TestGame2._0
             Size = new Rectangle(0, 0, (int)(mSpriteTexture.Width * Scale), (int)(mSpriteTexture.Height * Scale));
         }
 
+        /*Might need a separate update() for fireball/letterBlocks so I there's two*/
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public void Update(GameTime theGameTime, Vector2 theSpeed, Vector2 theDirection)
         {
-            Position += theDirection * theSpeed * (float)theGameTime.ElapsedGameTime.TotalSeconds;
+            Position += theDirection* theSpeed * (float)theGameTime.ElapsedGameTime.TotalSeconds;
+        }
+        //Update the Sprite and change it's position based on the direction.
+        public void Update(Vector2 theDirection)
+        {
+            Position += theDirection;
         }
 
         //Draw the sprite to the screen
@@ -72,6 +77,5 @@ namespace TestGame2._0
             theSpriteBatch.Draw(mSpriteTexture, Position, Source,
                 Color.White, 0.0f, Vector2.Zero, Scale, SpriteEffects.None, 0);
         }
-
     }
 }

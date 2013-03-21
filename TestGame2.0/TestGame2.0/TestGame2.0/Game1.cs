@@ -8,22 +8,44 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using TestGame2._0.GameScreens;
 
 namespace TestGame2._0
 {
+
+    enum Screen
+    {
+        MainMenu,
+        MainGame,
+        GameOver
+    }
+
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+        MainGame mainGame;
+        MainMenu mainMenu;
         SpriteBatch spriteBatch;
+<<<<<<< HEAD
         Mario marioSprite;
         Texture2D background;
+=======
+        Screen currentScreen;
+        GraphicsDeviceManager graphics;
+
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            Window.Title = "WordCraft";
+            graphics.IsFullScreen = false;
+            //set window size
+            graphics.PreferredBackBufferHeight = 701;
+            graphics.PreferredBackBufferWidth = 401;
             Content.RootDirectory = "Content";
         }
 
@@ -48,6 +70,7 @@ namespace TestGame2._0
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+<<<<<<< HEAD
             marioSprite = new Mario();
             marioSprite.LoadContent(this.Content);
 
@@ -55,6 +78,11 @@ namespace TestGame2._0
             background = Content.Load<Texture2D>("background");
 
             // TODO: use this.Content to load your game content here
+=======
+            mainMenu = new MainMenu(this);
+            currentScreen = Screen.MainMenu;
+            base.LoadContent();
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
         }
 
         /// <summary>
@@ -78,8 +106,21 @@ namespace TestGame2._0
                 this.Exit();
 
             // TODO: Add your update logic here
-
-            marioSprite.Update(gameTime);
+            switch (currentScreen)
+            {
+                case Screen.MainMenu:
+                    if (mainMenu != null)
+                    {
+                        mainMenu.Update();
+                    }
+                    break;
+                case Screen.MainGame:
+                    if (mainGame != null)
+                    {
+                        mainGame.Update(gameTime);
+                    }
+                    break;
+            }
 
             base.Update(gameTime);
         }
@@ -94,12 +135,38 @@ namespace TestGame2._0
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+<<<<<<< HEAD
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
            
                     marioSprite.Draw(this.spriteBatch);
            
+=======
+            //spriteBatch.Draw(background, mainFrame, Color.White);
+            switch (currentScreen)
+            {
+                case Screen.MainMenu:
+                    if (mainMenu != null)
+                    {
+                        mainMenu.Draw(spriteBatch);
+                    }
+                    break;
+                case Screen.MainGame:
+                    if (mainGame != null)
+                    {
+                        mainGame.Draw(spriteBatch);
+                    }
+                    break;
+            }
+>>>>>>> caa3c9f7d3e06691ffc3dd1d7b13640a771e3cff
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void StartGame()
+        {
+            mainGame = new MainGame(this);
+            currentScreen = Screen.MainGame;
+            mainMenu = null;
         }
     }
 }
