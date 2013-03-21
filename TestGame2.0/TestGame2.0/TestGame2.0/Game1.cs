@@ -8,20 +8,30 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using TestGame2._0.GameScreens;
 
 namespace TestGame2._0
 {
+
+    enum Screen
+    {
+        MainMenu,
+        MainGame,
+        GameOver
+    }
+
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+        MainGame mainGame;
+        MainMenu mainMenu;
         SpriteBatch spriteBatch;
-        Cannon cannonSprite;
-        //Texture2D background;
-        Texture2D gridLine;
-        Rectangle mainFrame;
+        Screen currentScreen;
+        GraphicsDeviceManager graphics;
+
 
         public Game1()
         {
@@ -55,13 +65,9 @@ namespace TestGame2._0
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            cannonSprite = new Cannon();
-            cannonSprite.LoadContent(this.Content);
-            //background = Content.Load<Texture2D>("background");
-            gridLine = new Texture2D(graphics.GraphicsDevice, 1, 1);
-            gridLine.SetData(new Color[] { Color.White });
-            mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            // TODO: use this.Content to load your game content here
+            mainMenu = new MainMenu(this);
+            currentScreen = Screen.MainMenu;
+            base.LoadContent();
         }
 
         /// <summary>
@@ -85,8 +91,21 @@ namespace TestGame2._0
                 this.Exit();
 
             // TODO: Add your update logic here
-
-            cannonSprite.Update(gameTime);
+            switch (currentScreen)
+            {
+                case Screen.MainMenu:
+                    if (mainMenu != null)
+                    {
+                        mainMenu.Update();
+                    }
+                    break;
+                case Screen.MainGame:
+                    if (mainGame != null)
+                    {
+                        mainGame.Update(gameTime);
+                    }
+                    break;
+            }
 
             base.Update(gameTime);
         }
@@ -102,21 +121,30 @@ namespace TestGame2._0
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             //spriteBatch.Draw(background, mainFrame, Color.White);
-            cannonSprite.Draw(this.spriteBatch);
-            //draw a red grid 50 x 50
-            for (float x = -4; x < 5; x++)
+            switch (currentScreen)
             {
-                Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 700);
-                spriteBatch.Draw(gridLine, rectangle, Color.Red);
+                case Screen.MainMenu:
+                    if (mainMenu != null)
+                    {
+                        mainMenu.Draw(spriteBatch);
+                    }
+                    break;
+                case Screen.MainGame:
+                    if (mainGame != null)
+                    {
+                        mainGame.Draw(spriteBatch);
+                    }
+                    break;
             }
-            for (float y = -7; y < 8; y++)
-            {
-                Rectangle rectangle = new Rectangle(0, (int)(350 + y * 50), 400, 1);
-                spriteBatch.Draw(gridLine, rectangle, Color.Red);
-            }
-            cannonSprite.Draw(this.spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void StartGame()
+        {
+            mainGame = new MainGame(this);
+            currentScreen = Screen.MainGame;
+            mainMenu = null;
         }
     }
 }

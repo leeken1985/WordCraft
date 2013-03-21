@@ -4,3 +4,4 @@ Content\mariosprite.xnb
 Content\background.xnb
 Content\Fireball.xnb
 Content\tShape.xnb
+Content\Awesome_Face.xnb
