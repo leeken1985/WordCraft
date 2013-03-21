@@ -24,7 +24,7 @@ namespace TestGame2._0
         KeyboardState oldState ;
         ContentManager mContentManager;
 
-        List<Fireball> mFireballs = new List<Fireball>();
+        List<Block> mFireballs = new List<Block>();
 
         public void LoadContent(ContentManager theContentManager)
         {
@@ -33,7 +33,7 @@ namespace TestGame2._0
             Position = new Vector2(START_X_POSITION, START_Y_POSITION);
 
             // TODO: use this.Content to load your game content here
-            foreach (Fireball aFireball in mFireballs)
+            foreach (Block aFireball in mFireballs)
             {
                 aFireball.LoadContent(theContentManager);
             }
@@ -68,7 +68,7 @@ namespace TestGame2._0
 
         private void UpdateFireball(GameTime theGameTime, KeyboardState newState)
         {
-            foreach (Fireball aFireball in mFireballs)
+            foreach (Block aFireball in mFireballs)
             {
                 aFireball.Update(theGameTime);
             }
@@ -88,12 +88,12 @@ namespace TestGame2._0
 
             //recycles the fireballs. Reuses/fires again the fireballs that
             //were fired earlier and were hidden(hit the max distance)
-            foreach (Fireball aFireball in mFireballs)
+            foreach (Block aFireball in mFireballs)
             {
                 if (aFireball.Visible == false)
                 {
                     aCreateNew = false;
-                    aFireball.Fire(Position + new Vector2(50, 0) + new Vector2(-5, -Size.Height),
+                    aFireball.Fire(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height+50),
                         new Vector2(0, 200), new Vector2(0, -1));
                     break;
                 }
@@ -101,9 +101,9 @@ namespace TestGame2._0
 
             if (aCreateNew == true)
             {
-                Fireball aFireball = new Fireball();
+                Block aFireball = new Block();
                 aFireball.LoadContent(mContentManager);
-                aFireball.Fire(Position + new Vector2(50, 0) + new Vector2(-5, -Size.Height),
+                aFireball.Fire(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height+50),
                     new Vector2(200, 200), new Vector2(0, -1));
                 mFireballs.Add(aFireball);
             }
@@ -111,7 +111,7 @@ namespace TestGame2._0
 
         public override void Draw(SpriteBatch theSpriteBatch)
         {
-            foreach (Fireball aFireball in mFireballs)
+            foreach (Block aFireball in mFireballs)
             {
                 aFireball.Draw(theSpriteBatch);
             }

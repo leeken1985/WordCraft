@@ -109,7 +109,7 @@
   <ItemGroup>
     <Compile Include="Bullet.cs" />
     <Compile Include="Mario.cs" />
-    <Compile Include="Fireball.cs" />
+    <Compile Include="Block.cs" />
     <Compile Include="Cannon.cs" />
     <Compile Include="GameScreens\MainGame.cs" />
     <Compile Include="GameScreens\MainMenu.cs" />

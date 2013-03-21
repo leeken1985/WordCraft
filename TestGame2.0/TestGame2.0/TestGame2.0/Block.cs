@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TestGame2._0
 {
-    class Fireball : Sprite
+    class Block : Sprite
     {
-        const int MAX_DISTANCE = 500;
+        const int MAX_DISTANCE = 550;
 
         public bool Visible = false;
 
@@ -20,8 +20,8 @@ namespace TestGame2._0
 
         public void LoadContent(ContentManager theContentManager)
         {
-            base.LoadContent(theContentManager, "Fireball");
-            Scale = 0.3f;
+            base.LoadContent(theContentManager, "aBlock");
+            //Scale = 0.3f;
         }
 
         public void Update(GameTime theGameTime)
