@@ -1,0 +1,9 @@
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.exe
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.pdb
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Form1.resources
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Properties.Resources.resources
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
+c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
