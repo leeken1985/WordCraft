@@ -1,0 +1,9 @@
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\bin\Debug\RandomLetter.exe
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\bin\Debug\RandomLetter.pdb
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\RandomLetter.Form1.resources
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\RandomLetter.Properties.Resources.resources
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\RandomLetter.exe
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\RandomLetter\obj\x86\Debug\RandomLetter.pdb

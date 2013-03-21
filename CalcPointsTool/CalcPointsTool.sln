@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcPointsTool", "CalcPointsTool\CalcPointsTool.csproj", "{A86B9E3D-1016-4992-BE14-69203544D72E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomLetter", "RandomLetter\RandomLetter.csproj", "{B6F0758F-AC0D-4D7A-84C9-908DF9BC159D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindWord", "FindWord\FindWord.csproj", "{96E7DA62-73FA-49C7-A865-8574A3A7172B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +17,14 @@ Global
 		{A86B9E3D-1016-4992-BE14-69203544D72E}.Debug|x86.Build.0 = Debug|x86
 		{A86B9E3D-1016-4992-BE14-69203544D72E}.Release|x86.ActiveCfg = Release|x86
 		{A86B9E3D-1016-4992-BE14-69203544D72E}.Release|x86.Build.0 = Release|x86
+		{B6F0758F-AC0D-4D7A-84C9-908DF9BC159D}.Debug|x86.ActiveCfg = Debug|x86
+		{B6F0758F-AC0D-4D7A-84C9-908DF9BC159D}.Debug|x86.Build.0 = Debug|x86
+		{B6F0758F-AC0D-4D7A-84C9-908DF9BC159D}.Release|x86.ActiveCfg = Release|x86
+		{B6F0758F-AC0D-4D7A-84C9-908DF9BC159D}.Release|x86.Build.0 = Release|x86
+		{96E7DA62-73FA-49C7-A865-8574A3A7172B}.Debug|x86.ActiveCfg = Debug|x86
+		{96E7DA62-73FA-49C7-A865-8574A3A7172B}.Debug|x86.Build.0 = Debug|x86
+		{96E7DA62-73FA-49C7-A865-8574A3A7172B}.Release|x86.ActiveCfg = Release|x86
+		{96E7DA62-73FA-49C7-A865-8574A3A7172B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

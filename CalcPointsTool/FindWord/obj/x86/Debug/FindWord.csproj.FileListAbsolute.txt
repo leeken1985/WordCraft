@@ -1,0 +1,9 @@
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\bin\Debug\FindWord.exe
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\bin\Debug\FindWord.pdb
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.FindLetter.resources
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.Properties.Resources.resources
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.exe
+C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.pdb
