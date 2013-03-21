@@ -5,3 +5,4 @@ Content\background.xnb
 Content\Fireball.xnb
 Content\tShape.xnb
 Content\Awesome_Face.xnb
+Content\myFont.xnb

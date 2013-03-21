@@ -17,12 +17,14 @@ namespace TestGame2._0.GameScreens
         private Texture2D texture;
         private Game1 game;
         private KeyboardState lastState;
+        private SpriteFont myFont;
 
         public MainMenu(Game1 game)
         {
             this.game = game;
             lastState = Keyboard.GetState();
             texture = game.Content.Load<Texture2D>("Awesome_Face");
+            myFont = game.Content.Load<SpriteFont>("myFont");
         }
 
         public void Update()
@@ -39,7 +41,8 @@ namespace TestGame2._0.GameScreens
         {
             if (texture != null)
             {
-                spriteBatch.Draw(texture, new Vector2(0f, 0f), Color.White);
+                spriteBatch.Draw(texture, new Vector2(35, 0f), Color.White);
+                spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(100, 600), Color.White);
             }
         }
     }

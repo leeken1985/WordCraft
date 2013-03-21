@@ -64,6 +64,15 @@
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Awesome_Face.xnb</Output>
       <Time>2013-03-20T21:34:46.5076901-07:00</Time>
     </Item>
+    <Item>
+      <Source>myFont.spritefont</Source>
+      <Name>myFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
+      <Time>2013-03-20T23:10:38.9983369-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{73E0F13B-FAB8-49BF-B1AB-1C536DEA6F9B}</ContentProjectGUID>
