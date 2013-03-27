@@ -73,6 +73,15 @@
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
       <Time>2013-03-21T09:34:52.2170663-07:00</Time>
     </Item>
+    <Item>
+      <Source>aBlock.png</Source>
+      <Name>aBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\aBlock.xnb</Output>
+      <Time>2013-03-21T13:29:01.8712681-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{73E0F13B-FAB8-49BF-B1AB-1C536DEA6F9B}</ContentProjectGUID>
