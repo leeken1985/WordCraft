@@ -16,11 +16,21 @@ namespace TestGame2._0.Backend
     {
         private const int blockWidth = 50;
         private const int blockHeight = 50;
-        private string value;
+        private string blockName;
+
+        
+        public string getValue(){
+            return blockName;
+        }
+
+        public void setValue(string value)
+        {
+            this.blockName = value;
+        }
 
         public GamePiece(string value)
         {
-
+            this.blockName = value;
         }
     }
 }
