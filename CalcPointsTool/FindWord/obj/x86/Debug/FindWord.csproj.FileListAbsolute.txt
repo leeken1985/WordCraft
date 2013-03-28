@@ -7,3 +7,5 @@ C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x
 C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.exe
 C:\Users\dkl\Documents\Visual Studio 2010\Projects\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.pdb
+C:\Users\dkl\Documents\GitHub\WordCraft\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.exe
+C:\Users\dkl\Documents\GitHub\WordCraft\CalcPointsTool\FindWord\obj\x86\Debug\FindWord.pdb

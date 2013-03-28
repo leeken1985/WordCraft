@@ -8,7 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace RandomLetter
-{
+{   
+    /// <summary>
+    /// Generate a random letter based on a weighted probability.
+    /// This letter probabiltiy is the same as that found in the game of Scrabble.
+    /// 
+    /// </summary>
     public partial class Form1 : Form
     {
         public Form1()
@@ -16,10 +21,15 @@ namespace RandomLetter
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Generates a random letter.
+        /// </summary>
         public void generateLetter()
         {
+            /// List for storing all available letters.
             List<char> list = new List<char>();
 
+            // Adds each letter a certain amount of times based on how many are in a Scrabble set.
             for (int i = 0; i < 12; i++)
             {
                 list.Add('e');
@@ -69,12 +79,15 @@ namespace RandomLetter
             list.Add('q');
             list.Add('z');
 
+            // Generate a random number
             Random random = new Random();
             int result = random.Next(list.Count);
 
+            // Use random number as index and retrieve letter from list.
             textBox1.Text = list[result] + "";
         }
 
+        // Call GenerateLetter method.
         private void button1_Click(object sender, EventArgs e)
         {
             generateLetter();
