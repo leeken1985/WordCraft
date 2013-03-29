@@ -1,0 +1,5 @@
+c:\users\dkl\documents\visual studio 2010\Projects\GarbageTest\GarbageTest\bin\Debug\GarbageTest.exe
+c:\users\dkl\documents\visual studio 2010\Projects\GarbageTest\GarbageTest\bin\Debug\GarbageTest.pdb
+c:\users\dkl\documents\visual studio 2010\Projects\GarbageTest\GarbageTest\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\dkl\documents\visual studio 2010\Projects\GarbageTest\GarbageTest\obj\x86\Debug\GarbageTest.exe
+c:\users\dkl\documents\visual studio 2010\Projects\GarbageTest\GarbageTest\obj\x86\Debug\GarbageTest.pdb
