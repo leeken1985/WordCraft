@@ -11,9 +11,9 @@ namespace GarbageTest
         {
             GameArea board = new GameArea();
 
-            board.generateStartBlock();
+            //board.generateStartBlock();
             Console.WriteLine(board.display());
-
+          
             while (true)
             {
                 Console.WriteLine("Player Letter: " + board.generatePlayerLetter());

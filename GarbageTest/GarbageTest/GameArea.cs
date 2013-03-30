@@ -18,15 +18,16 @@ namespace GarbageTest
         private char playerLetter;
         private int letterIndex;
         private int tempRow;
-        HashSet<string> dict;
+        Dictionary<string, int> dict;
         Dictionary<char, int> pointList;
+        private int count = 0;
 
 
         public GameArea()
         {
             c = new Calculate();
             cPlayer = new Calculate();
-            dict = new HashSet<string>();
+            dict = new Dictionary<string, int>();
             pointList = new Dictionary<char, int>();
 
             CreatePointList();
@@ -79,7 +80,6 @@ namespace GarbageTest
                 }
                 else
                 {
-                    Console.WriteLine("ERB");
                     break;
                 }
             }
@@ -137,11 +137,8 @@ namespace GarbageTest
 
         public void generateStartBlock()
         {
-            for (int j = 0; j < column; j += 2)
-            {
-                boardSquares[0, j].setValue(c.generateLetter());
-                boardSquares[1, j+1].setValue(c.generateLetter());
-            }
+            boardSquares[0, 2].setValue(c.generateLetter());
+            boardSquares[0, 5].setValue(c.generateLetter());
         }
 
         public char generatePlayerLetter()
@@ -173,58 +170,60 @@ namespace GarbageTest
                 {
                     string line;
                     while((line = sr.ReadLine())!= null){
-                    string word;
-                    word = sr.ReadLine();
-                    dict.Add(word);
+                        int points = calcPoints(line);
+                        dict.Add(line, points);
+                        count++;
                     }
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ERRRORRRRRRR: " + e.Message);
             }            
         }
 
         public void CreatePointList()
         {
-            pointList.Add('a', 1);
-            pointList.Add('b', 3);
-            pointList.Add('c', 3);
-            pointList.Add('d', 2);
-            pointList.Add('e', 1);
-            pointList.Add('f', 4);
-            pointList.Add('g', 2);
-            pointList.Add('h', 4);
-            pointList.Add('i', 1);
-            pointList.Add('j', 8);
-            pointList.Add('k', 5);
-            pointList.Add('l', 1);
-            pointList.Add('m', 3);
-            pointList.Add('n', 1);
-            pointList.Add('o', 1);
-            pointList.Add('p', 3);
-            pointList.Add('q', 10);
-            pointList.Add('r', 1);
-            pointList.Add('s', 1);
-            pointList.Add('t', 1);
-            pointList.Add('u', 1);
-            pointList.Add('v', 4);
-            pointList.Add('w', 4);
-            pointList.Add('x', 8);
-            pointList.Add('y', 4);
-            pointList.Add('z', 10);
+            pointList.Add('A', 1);
+            pointList.Add('B', 3);
+            pointList.Add('C', 3);
+            pointList.Add('D', 2);
+            pointList.Add('E', 1);
+            pointList.Add('F', 4);
+            pointList.Add('G', 2);
+            pointList.Add('H', 4);
+            pointList.Add('I', 1);
+            pointList.Add('J', 8);
+            pointList.Add('K', 5);
+            pointList.Add('L', 1);
+            pointList.Add('M', 3);
+            pointList.Add('N', 1);
+            pointList.Add('O', 1);
+            pointList.Add('P', 3);
+            pointList.Add('Q', 10);
+            pointList.Add('R', 1);
+            pointList.Add('S', 1);
+            pointList.Add('T', 1);
+            pointList.Add('U', 1);
+            pointList.Add('V', 4);
+            pointList.Add('W', 4);
+            pointList.Add('X', 8);
+            pointList.Add('Y', 4);
+            pointList.Add('Z', 10);
+            pointList.Add(' ', 0);
         }
 
         public int calcPoints(string word)
         {
+            word.Trim();
             char[] chars = new char[word.Length];
 
             int sum = 0;
-
+            
             // Add values of each letter
             for (int i = 0; i < word.Length; i++)
             {
-                sum += pointList[word[i]];
+                 sum += pointList[word[i]];
             }
             return sum;
         }
@@ -233,7 +232,6 @@ namespace GarbageTest
         {
             // List that holds all possible 4 letter words that use the letter that was fired.
             HashSet<string> possibleWords = new HashSet<string>();
-            HashSet<string> realWords = new HashSet<string>();
 
             string testWord = "";
 
@@ -305,11 +303,11 @@ namespace GarbageTest
 
             foreach (string s in possibleWords)
             {
-                if (dict.Contains(s))
+                if (dict.ContainsKey(s))
                 {
-                    if (calcPoints(s) > minPoints)
+                    if (dict[s] > minPoints)
                     {
-                        minPoints = calcPoints(s);
+                        minPoints = dict[s];
                         winningWord = s;
                     }
                 }

@@ -8,7 +8,6 @@ namespace GarbageTest
     class Calculate
     {
         private List<char> randList;
-        private Random random = new Random();
         private int result1;
         private int result2;
         private int result3;
@@ -75,43 +74,10 @@ namespace GarbageTest
 
         public char generateLetter()
         {
-            //List<char> letterRack = new List<char>();
             // Generate a random number
-            
+            Random random = new Random();
             result1 = random.Next(randList.Count);
-            //letterRack.Add(randList[result1]);
-            //randList.Remove(randList[result1]);
-
-            //result2 = random.Next(randList.Count);
-            //letterRack.Add(randList[result2]);
-            //randList.Remove(randList[result2]);
-
-            //result3 = random.Next(randList.Count);
-            //letterRack.Add(randList[result3]);
-            //randList.Remove(randList[result3]);
-
-            //result4 = random.Next(randList.Count);
-            //letterRack.Add(randList[result4]);
-            //randList.Remove(randList[result4]);
-
-            //result5 = random.Next(randList.Count);
-            //letterRack.Add(randList[result5]);
-            //randList.Remove(randList[result5]);
-            
-            //result6 = random.Next(randList.Count);
-            //letterRack.Add(randList[result6]);
-            //randList.Remove(randList[result6]);
-
-            //result7 = random.Next(randList.Count);
-            //letterRack.Add(randList[result7]);
-            //randList.Remove(randList[result7]);
-
-            //Random randInt = new Random();
-            //int num = randInt.Next(0, 8);
-
-            //foreach(char letter in letterRack){
-            //    randList.Add(letter);
-            //}
+ 
             char letter = randList[result1];
             randList.Remove(letter);
             // Use random number as index and retrieve letter from randList.
