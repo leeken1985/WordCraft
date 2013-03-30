@@ -22,54 +22,56 @@ namespace GarbageTest
             randList = new List<char>(); 
 
             // Adds each letter a certain amount of times based on how many are in a Scrabble set.
-            for (int i = 0; i < 12; i++)
-            {
-                randList.Add('e');
-            }
             for (int i = 0; i < 9; i++)
             {
+                randList.Add('e');
                 randList.Add('a');
-                randList.Add('i');
             }
             for (int i = 0; i < 8; i++)
+            {
+                randList.Add('s');
+            }
+            for (int i = 0; i < 7; i++)
             {
                 randList.Add('o');
             }
             for (int i = 0; i < 6; i++)
             {
-                randList.Add('n');
+                randList.Add('i');
+            }
+            for (int i = 0; i < 5; i++)
+            {
                 randList.Add('r');
+                randList.Add('l');
                 randList.Add('t');
             }
             for (int i = 0; i < 4; i++)
             {
-                randList.Add('l');
-                randList.Add('s');
+                randList.Add('n');
                 randList.Add('u');
                 randList.Add('d');
+                randList.Add('p');
             }
             for (int i = 0; i < 3; i++)
             {
+                randList.Add('m');
+                randList.Add('h');
+                randList.Add('c');
+                randList.Add('k');
+                randList.Add('b');
                 randList.Add('g');
+                randList.Add('y');
             }
             for (int i = 0; i < 2; i++)
             {
-                randList.Add('b');
-                randList.Add('c');
-                randList.Add('m');
-                randList.Add('p');
-                randList.Add('f');
-                randList.Add('h');
-                randList.Add('v');
                 randList.Add('w');
-                randList.Add('y');
+                randList.Add('f');
             }
-
-            randList.Add('k');
+            randList.Add('v');
             randList.Add('j');
+            randList.Add('z');
             randList.Add('x');
             randList.Add('q');
-            randList.Add('z');
         }
 
         public char generateLetter()
