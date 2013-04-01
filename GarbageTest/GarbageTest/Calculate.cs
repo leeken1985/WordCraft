@@ -8,6 +8,7 @@ namespace GarbageTest
     class Calculate
     {
         private List<char> randList;
+        private Random random = new Random();
         private int result1;
         private int result2;
         private int result3;
@@ -77,13 +78,33 @@ namespace GarbageTest
         public char generateLetter()
         {
             // Generate a random number
-            Random random = new Random();
             result1 = random.Next(randList.Count);
  
             char letter = randList[result1];
-            randList.Remove(letter);
             // Use random number as index and retrieve letter from randList.
             return letter;
+        }
+
+        public List<char> generateQueue()
+        {
+            List<char> queue = new List<char>();
+            for (int i = 0; i < 4; i++)
+            {
+                queue.Add(generateLetter());
+            }
+            return queue;
+        }
+
+        public void addtoQueue(List<char> queue)
+        {
+            queue.Add(generateLetter());
+        }
+
+        public void getLetter(List<char> queue)
+        {
+            Random rand = new Random();
+            int num = rand.Next(4);
+            queue.RemoveAt(num);
         }
     }
 }

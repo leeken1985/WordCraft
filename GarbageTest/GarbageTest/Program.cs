@@ -42,7 +42,21 @@ namespace GarbageTest
                 Console.WriteLine(board.display());
 
                 board.destroyWord();
-            }   
+            }
+             
+            /*
+            List<char> newList = new List<char>();
+            Calculate cPlayer = new Calculate();
+            for (int i = 0; i < 100; i++)
+            {
+                newList = cPlayer.generateQueue();
+                String toPrint = "";
+                foreach (char c in newList)
+                {
+                    toPrint += c + " ";
+                }
+                Console.WriteLine(toPrint);
+            }*/
         }
     }
 }
