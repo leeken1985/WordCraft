@@ -19,7 +19,7 @@ namespace TestGame2._0.GameScreens
         //Texture2D background;
         Texture2D gridLine;
         Rectangle mainFrame;
-        
+        Block block;
 
         public MainGame(Game1 game)
         {
@@ -27,6 +27,8 @@ namespace TestGame2._0.GameScreens
 
             cannonSprite = new Cannon();
             cannonSprite.LoadContent(game.Content);
+            block = new Block(game.Content.Load<Texture2D>("spirteSheet"), 6);
+            cannonSprite.setBlock(block);
             //background = game.Content.Load<Texture2D>("background");
             gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
             gridLine.SetData(new Color[] { Color.White });

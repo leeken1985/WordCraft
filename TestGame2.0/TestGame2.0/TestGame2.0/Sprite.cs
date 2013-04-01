@@ -63,7 +63,7 @@ namespace TestGame2._0
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public void Update(GameTime theGameTime, Vector2 theSpeed, Vector2 theDirection)
         {
-            Position += theDirection* theSpeed * (float)theGameTime.ElapsedGameTime.TotalSeconds;
+            Position += theDirection * theSpeed * (float)theGameTime.ElapsedGameTime.TotalSeconds;
         }
         //Update the Sprite and change it's position based on the direction.
         public void Update(Vector2 theDirection)

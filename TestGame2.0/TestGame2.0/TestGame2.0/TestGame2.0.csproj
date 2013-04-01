@@ -109,8 +109,6 @@
   <ItemGroup>
     <Compile Include="Backend\GameArea.cs" />
     <Compile Include="Backend\GamePiece.cs" />
-    <Compile Include="Bullet.cs" />
-    <Compile Include="Mario.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Cannon.cs" />
     <Compile Include="GameScreens\MainGame.cs" />

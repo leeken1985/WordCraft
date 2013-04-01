@@ -29,7 +29,6 @@ namespace TestGame2._0
         MainGame mainGame;
         MainMenu mainMenu;
         SpriteBatch spriteBatch;
-        Mario marioSprite;
         Texture2D background;
         Screen currentScreen;
         GraphicsDeviceManager graphics;
@@ -66,8 +65,6 @@ namespace TestGame2._0
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            marioSprite = new Mario();
-            marioSprite.LoadContent(this.Content);
 
             //Load background
             background = Content.Load<Texture2D>("background");

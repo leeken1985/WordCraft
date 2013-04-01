@@ -17,15 +17,14 @@ namespace TestGame2._0
         const int MOVE_LEFT = -50;
         const int MOVE_RIGHT = 50;
         const int SPEED = 160;
-
+        Block block;
         Vector2 speed = Vector2.Zero;
         Vector2 direction = Vector2.Zero;
 
         KeyboardState oldState ;
         ContentManager mContentManager;
 
-        List<Block> mFireballs = new List<Block>();
-
+        Random random;
         public void LoadContent(ContentManager theContentManager)
         {
             mContentManager = theContentManager;
@@ -33,12 +32,17 @@ namespace TestGame2._0
             Position = new Vector2(START_X_POSITION, START_Y_POSITION);
 
             // TODO: use this.Content to load your game content here
-            foreach (Block aFireball in mFireballs)
-            {
-                aFireball.LoadContent(theContentManager);
-            }
+            //foreach (Block aFireball in mFireballs)
+            //{
+            //    aFireball.LoadContent(theContentManager);
+            //}
             base.LoadContent(theContentManager, "tShape");
-            
+            random = new Random();
+        }
+
+        public void setBlock(Block b)
+        {
+            block = b;
         }
 
         private void UpdateMovement(KeyboardState newState)
@@ -53,6 +57,7 @@ namespace TestGame2._0
                  {
                      //speed.X = SPEED;
                      direction.X = MOVE_LEFT;
+                     block.setPosition(Position + new Vector2(0, 0) + new Vector2(1, -Size.Height + 50));
                  }
             }
             if (Position.X != 300)//cannon is not hitting the right window boundary
@@ -62,59 +67,34 @@ namespace TestGame2._0
                  {
                      //speed.X = SPEED;
                      direction.X = MOVE_RIGHT;
+                     block.setPosition(Position + new Vector2(100, 0) + new Vector2(1, -Size.Height + 50));
                  }
             }
         }
 
-        private void UpdateFireball(GameTime theGameTime, KeyboardState newState)
+        private void UpdateBlock(GameTime theGameTime, KeyboardState newState)
         {
-            foreach (Block aFireball in mFireballs)
-            {
-                aFireball.Update(theGameTime);
-            }
+            block.Update(theGameTime);
 
             if (newState.IsKeyDown(Keys.Space))
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
-                    ShootFireball();
+                    ShootBlock();
                 }
             }
         }
 
-        private void ShootFireball()
+        private void ShootBlock()
         {
-            bool aCreateNew = true;
-
-            //recycles the fireballs. Reuses/fires again the fireballs that
-            //were fired earlier and were hidden(hit the max distance)
-            foreach (Block aFireball in mFireballs)
-            {
-                if (aFireball.Visible == false)
-                {
-                    aCreateNew = false;
-                    aFireball.Fire(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height+50),
-                        new Vector2(0, 200), new Vector2(0, -1));
-                    break;
-                }
-            }
-
-            if (aCreateNew == true)
-            {
-                Block aFireball = new Block();
-                aFireball.LoadContent(mContentManager);
-                aFireball.Fire(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height+50),
-                    new Vector2(200, 200), new Vector2(0, -1));
-                mFireballs.Add(aFireball);
-            }
+            block.SetFrame(random.Next(0, 25));//chooses random asteroid (a-z)
+            block.Fire(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height+50),
+                new Vector2(200, 200), new Vector2(0, -1));
         }
 
         public override void Draw(SpriteBatch theSpriteBatch)
         {
-            foreach (Block aFireball in mFireballs)
-            {
-                aFireball.Draw(theSpriteBatch);
-            }
+            block.Draw(theSpriteBatch);
             base.Draw(theSpriteBatch);
         }
 
@@ -123,7 +103,7 @@ namespace TestGame2._0
             KeyboardState newState = Keyboard.GetState();
 
             UpdateMovement(newState);
-            UpdateFireball(gameTime, newState);
+            UpdateBlock(gameTime, newState);
 
             oldState = newState;
 
