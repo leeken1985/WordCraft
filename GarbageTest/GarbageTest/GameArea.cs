@@ -21,7 +21,7 @@ namespace GarbageTest
         Dictionary<string, int> dict;
         Dictionary<char, int> pointList;
         private int count = 0;
-
+        List<string> winList = new List<string>();
 
         public GameArea()
         {
@@ -108,12 +108,12 @@ namespace GarbageTest
         /// Returns letters in a column.
         /// </summary>
         /// <param name="y"></param>
-        public string getColumnLetters(int tempRow)
+        public string getColumnLetters()
         {
             string lineString = "";
             for (int j = 0; j < column; j++)
             {
-                GamePiece temp = boardSquares[this.tempRow, j];
+                GamePiece temp = boardSquares[tempRow, j];
                 lineString += temp.getValue();
             }
             return lineString.ToUpper();
@@ -313,7 +313,45 @@ namespace GarbageTest
                 }
             }
 
+            if (winningWord.Length != 0)
+            {
+                winList.Clear();
+                winList.Add(winningWord);
+            }
             return winningWord;
         }
+
+        public void destroyWord()
+        {
+            int index = -1;
+            string formedWord = "";
+
+            if (winList.Count != 0)
+            {
+                formedWord = winList[0];
+                index = getRowLetters(letterIndex).IndexOf(formedWord);
+
+                if (index != -1)
+                {
+                    for (int i = index; i < index + 4; i++)
+                    {
+                        boardSquares[i, letterIndex].setValue(' ');
+                    }
+                    Console.WriteLine("DESTROYEDDDDDDDDDDDDDDDD");
+                }
+
+                index = getColumnLetters().IndexOf(formedWord);
+
+                if (index != -1)
+                {
+                    for (int j = index; j < index + 4; j++)
+                    {
+                        boardSquares[tempRow, j].setValue(' ');
+                    }
+                    Console.WriteLine("DESTROYEDDDDDDDDDDDDDDDD");
+                }
+            }
+        }
+
     }
 }
