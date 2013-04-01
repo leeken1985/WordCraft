@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections;
 
-namespace GarbageTest
+namespace TestGame2._0.Backend
 {
+
     class Calculate
     {
         private List<char> randList;
+        private List<char> letterList;
         private Random random = new Random();
         private int result1;
         private int result2;
@@ -17,11 +18,39 @@ namespace GarbageTest
         private int result5;
         private int result6;
         private int result7;
-    
+
         public Calculate()
         {
-            /// randList for storing all available letters.
-            randList = new List<char>(); 
+            randList = new List<char>();
+            letterList = new List<char>();
+
+            letterList.Add('-');
+            letterList.Add('A');
+            letterList.Add('B');
+            letterList.Add('C');
+            letterList.Add('D');
+            letterList.Add('E');
+            letterList.Add('F');
+            letterList.Add('G');
+            letterList.Add('H');
+            letterList.Add('I');
+            letterList.Add('J');
+            letterList.Add('K');
+            letterList.Add('L');
+            letterList.Add('M');
+            letterList.Add('N');
+            letterList.Add('O');
+            letterList.Add('P');
+            letterList.Add('Q');
+            letterList.Add('R');
+            letterList.Add('S');
+            letterList.Add('T');
+            letterList.Add('U');
+            letterList.Add('V');
+            letterList.Add('W');
+            letterList.Add('X');
+            letterList.Add('Y');
+            letterList.Add('Z');
 
             // Adds each letter a certain amount of times based on how many are in a Scrabble set.
             for (int i = 0; i < 9; i++)
@@ -79,28 +108,29 @@ namespace GarbageTest
         public int generateLetter()
         {
             // Generate a random number
-            ArrayList alphabets = new ArrayList(new[] { '.', 'a','b','c','d', 'e', 'f', 'g', 'h', 'i', 'j',  });
             result1 = random.Next(randList.Count);
-            
             char letter = randList[result1];
+            int index = letterList.IndexOf(letter);
             // Use random number as index and retrieve letter from randList.
-            return alphabets.IndexOf(char.ToUpper(letter));
+            return index;
         }
 
-        //public List<char> generateQueue()
-        //{
-        //    List<char> queue = new List<char>();
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        queue.Add(generateLetter());
-        //    }
-        //    return queue;
-        //}
+        public List<char> generateQueue()
+        {
+            List<char> queue = new List<char>();
+            for (int i = 0; i < 4; i++)
+            {
+                char letter = letterList[generateLetter()];
+                queue.Add(letter);
+            }
+            return queue;
+        }
 
-        //public void addtoQueue(List<char> queue)
-        //{
-        //    queue.Add(generateLetter());
-        //}
+        public void addtoQueue(List<char> queue)
+        {
+            char letter = letterList[generateLetter()];
+            queue.Add(letter);
+        }
 
         public void getLetter(List<char> queue)
         {
