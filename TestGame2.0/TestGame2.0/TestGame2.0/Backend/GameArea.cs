@@ -16,81 +16,102 @@ namespace TestGame2._0.Backend
     class GameArea 
     {
         private const int column = 8; //8 columns
-        private const int row = 14; //14 rows
-        private GamePiece[,] boardSquares = new GamePiece[column, row]; //board squares
+        private const int row = 14; //14 row
+        private int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},};
+        
         
         public GameArea()
         {
-            //clear game area.
-            ClearArea();
         }
 
-        public void ClearArea()
+        public void CreateGameArea(SpriteBatch spriteBatch, Block b)
         {
-            for (int x = 0; x < column; x++)
+            int sWidth = 50, sHeight = 50;
+            for(int i = 0; i < GameBoard.GetLength(1); i++)
             {
-                for (int y = 0; y < row; y++)
+                for(int j = 0; j < GameBoard.GetLength(0);j++)
                 {
-                    //initialize entire board area to nothing
-                    boardSquares[x, y] = new GamePiece(""); 
+                    spriteBatch.Draw(b.Texture, new Rectangle(i * sWidth, j * sHeight, sWidth, sHeight), b.Rectangles[GameBoard[j, i]], Color.White);
                 }
             }
         }
 
-        /// <summary>
-        /// Returns a gamepiece on the specified co-ordinate.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public GamePiece getPiece(int userColumn, int userRow)
-        {
-            return boardSquares[userColumn, userRow];
-        }
+        //public void ClearArea()
+        //{
+        //    for (int x = 0; x < column; x++)
+        //    {
+        //        for (int y = 0; y < row; y++)
+        //        {
+        //            boardSquares[x, y] = new GamePiece(""); 
+        //        }
+        //    }
+        //}
+
+        ///// <summary>
+        ///// Returns a gamepiece on the specified co-ordinate.
+        ///// </summary>
+        ///// <param name="x"></param>
+        ///// <param name="y"></param>
+        ///// <returns></returns>
+        //public GamePiece getPiece(int userColumn, int userRow)
+        //{
+        //    return boardSquares[userColumn, userRow];
+        //}
 
 
-        /// <summary>
-        /// Sets a game piece on the specified co-ordinate.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="piece"></param>
-        public void setPiece(int userColumn, int userRow, GamePiece piece)
-        {
-            boardSquares[userColumn, userRow] = piece;
-        }
+        ///// <summary>
+        ///// Sets a game piece on the specified co-ordinate.
+        ///// </summary>
+        ///// <param name="x"></param>
+        ///// <param name="y"></param>
+        ///// <param name="piece"></param>
+        //public void setPiece(int userColumn, int userRow, GamePiece piece)
+        //{
+        //    boardSquares[userColumn, userRow] = piece;
+        //}
 
 
-        /// <summary>
-        /// Requires a Y coordinate
-        /// </summary>
-        /// <param name="y"></param>
-        public string getLine(int userRow)
-        {
-            string lineString = "";
-            for (int i = 0; i < column; i++)
-            {
-                GamePiece temp = boardSquares[column, userRow];
-                lineString += temp.getValue();
-            }
-            return lineString;
-        }
+        ///// <summary>
+        ///// Requires a Y coordinate
+        ///// </summary>
+        ///// <param name="y"></param>
+        //public string getLine(int userRow)
+        //{
+        //    string lineString = "";
+        //    for (int i = 0; i < column; i++)
+        //    {
+        //        GamePiece temp = boardSquares[column, userRow];
+        //        lineString += temp.getValue();
+        //    }
+        //    return lineString;
+        //}
 
-        /// <summary>
-        /// Returns the string in the Y direction (top down)
-        /// </summary>
-        /// <param name="userColumn"></param>
-        /// <returns></returns>
-        public string getColumn(int userColumn)
-        {
-            string lineString = "";
-            for (int i = 0; i < row; i++)
-            {
-                GamePiece temp = boardSquares[userColumn, row];
-                lineString += temp.getValue();
-            }
-            return lineString;
-        }
+        ///// <summary>
+        ///// Returns the string in the Y direction (top down)
+        ///// </summary>
+        ///// <param name="userColumn"></param>
+        ///// <returns></returns>
+        //public string getColumn(int userColumn)
+        //{
+        //    string lineString = "";
+        //    for (int i = 0; i < row; i++)
+        //    {
+        //        GamePiece temp = boardSquares[userColumn, row];
+        //        lineString += temp.getValue();
+        //    }
+        //    return lineString;
+        //}
 
     }
 }

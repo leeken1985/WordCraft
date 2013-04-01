@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\Calculate.cs" />
     <Compile Include="Backend\GameArea.cs" />
     <Compile Include="Backend\GamePiece.cs" />
     <Compile Include="Block.cs" />

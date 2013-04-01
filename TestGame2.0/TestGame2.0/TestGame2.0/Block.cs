@@ -16,14 +16,14 @@ namespace TestGame2._0
         Vector2 mSpeed;
         Vector2 mDirection;
 
-        protected Texture2D Texture;
-        public Vector2 Position = Vector2.Zero;
+        public Texture2D Texture;
+        public new Vector2 Position = Vector2.Zero;
         public Color Color = Color.White;
-        public Vector2 Origin;
+        public new Vector2 Origin;
         public float Rotation = 0f;
-        public float Scale = 1f;
-        public SpriteEffects SpriteEffect;
-        protected Rectangle[] Rectangles;
+        public new float Scale = 1f;
+        public new SpriteEffects SpriteEffect;
+        public Rectangle[] Rectangles;
         protected int FrameIndex = 0;
 
         public Block(Texture2D Texture, int frames)
@@ -66,7 +66,7 @@ namespace TestGame2._0
             }
             //fifth row (y-z)
             j = 0;
-            for (int i = 24; i < 26; i++)
+            for (int i = 24; i < 27; i++)
             {
                 Rectangles[i] = new Rectangle(
                     j * width, 200, width, height);

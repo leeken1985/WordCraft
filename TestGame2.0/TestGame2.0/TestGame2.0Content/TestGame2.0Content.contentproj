@@ -101,6 +101,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Wallpaper.png">
+      <Name>Wallpaper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="spirteSheet.png">
       <Name>spirteSheet</Name>
       <Importer>TextureImporter</Importer>
