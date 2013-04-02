@@ -10,12 +10,14 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
+using System.Timers;
 
 namespace TestGame2._0.Backend
 {
     //TODO: Implement gamePiece class
     class GameArea 
     {
+        private Calculate c = new Calculate();
         private const int column = 8; //8 columns
         private const int row = 12; //12 row
         private static int playerLetter;
@@ -46,6 +48,12 @@ namespace TestGame2._0.Backend
             dict = new Dictionary<string, int>();
             CreatePointList();
             CreateDictionary();
+            for (int x = 0; x < 2; x++)
+                for (int y = 0; y < GameBoard.GetLength(1); y++)
+                    SetGameBoard(x, y, c.generateLetter());
+            Timer timer = new Timer(10000);
+            timer.Elapsed += new ElapsedEventHandler(FallDown);
+            timer.Start();
         }
 
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
@@ -79,6 +87,18 @@ namespace TestGame2._0.Backend
             //    //Console.WriteLine("ERRRORRRRRRR: " + e.Message);
             //}
         }
+
+        public void FallDown(object sender, ElapsedEventArgs e)
+        {
+            System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
+            for (int y = 0; y < GameBoard.GetLength(1); y++)
+                SetGameBoard(0, y, c.generateLetter());
+        }
+
+        public void GameOver()
+        {
+        }
+
         public int calcPoints(string word)
         {
             word.Trim();

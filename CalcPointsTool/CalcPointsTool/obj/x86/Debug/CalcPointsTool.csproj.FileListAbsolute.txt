@@ -7,3 +7,10 @@ c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool
 c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\GenerateResource.write.1.tlog
 c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
 c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.exe
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.pdb
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Form1.resources
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Properties.Resources.resources
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csproj.GenerateResource.Cache
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
