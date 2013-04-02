@@ -51,7 +51,7 @@ namespace TestGame2._0.Backend
             for (int x = 0; x < 2; x++)
                 for (int y = 0; y < GameBoard.GetLength(1); y++)
                     SetGameBoard(x, y, c.generateLetter());
-            Timer timer = new Timer(10000);
+            Timer timer = new Timer(20000);
             timer.Elapsed += new ElapsedEventHandler(FallDown);
             timer.Start();
         }
@@ -113,6 +113,7 @@ namespace TestGame2._0.Backend
             }
             return sum;
         }
+
         public void CreatePointList()
         {
             pointList.Add(' ', 0);
@@ -198,6 +199,9 @@ namespace TestGame2._0.Backend
             letterList = calc.getLetterList();
         }
 
+        public List<char> getLetterList() {
+            return letterList;
+        }
         /// <summary>
         /// Returns letters in a column.
         /// </summary>
