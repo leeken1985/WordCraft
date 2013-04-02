@@ -104,7 +104,10 @@ namespace TestGame2._0.Backend
             randList.Add('X');
             randList.Add('Q');
         }
-
+        public List<char> getLetterList()
+        {
+            return letterList;
+        }
         public int generateLetter()
         {
             // Generate a random number

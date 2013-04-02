@@ -55,8 +55,8 @@ namespace TestGame2._0.GameScreens
             cannonSprite.Draw(spriteBatch);            
             mainArea.CreateGameArea(spriteBatch, block);
             spriteBatch.Draw(gridLine, ScoreBoardFrame, Color.White);
-            spriteBatch.DrawString(myFont, "Score: " + score.calcPoints("coffee") , new Vector2(450, 200), Color.Red);
-
+            spriteBatch.DrawString(myFont, "Score: " + mainArea.getScore() , new Vector2(450, 200), Color.Red);
+            spriteBatch.DrawString(myFont, "Word: " + mainArea.winningWord(), new Vector2(450, 400), Color.Red);
             //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)

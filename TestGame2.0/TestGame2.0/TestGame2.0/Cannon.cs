@@ -52,6 +52,7 @@ namespace TestGame2._0
         public void setGameArea(GameArea ga)
         {
             gameArea = ga;
+            gameArea.setLetterList(calc);
         }
 
         public List<int> getQueue()
