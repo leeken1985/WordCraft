@@ -8,6 +8,7 @@ namespace TestGame2._0.Backend
 
     class Calculate
     {
+        private List<char> vowelList;
         private List<char> randList;
         private List<char> letterList;
         private Random random = new Random();
@@ -21,6 +22,7 @@ namespace TestGame2._0.Backend
 
         public Calculate()
         {
+            vowelList = new List<char>();
             randList = new List<char>();
             letterList = new List<char>();
 
@@ -53,22 +55,9 @@ namespace TestGame2._0.Backend
             letterList.Add('Z');
 
             // Adds each letter a certain amount of times based on how many are in a Scrabble set.
-            for (int i = 0; i < 9; i++)
-            {
-                randList.Add('E');
-                randList.Add('A');
-            }
             for (int i = 0; i < 8; i++)
             {
                 randList.Add('S');
-            }
-            for (int i = 0; i < 7; i++)
-            {
-                randList.Add('O');
-            }
-            for (int i = 0; i < 6; i++)
-            {
-                randList.Add('I');
             }
             for (int i = 0; i < 5; i++)
             {
@@ -79,7 +68,6 @@ namespace TestGame2._0.Backend
             for (int i = 0; i < 4; i++)
             {
                 randList.Add('N');
-                randList.Add('U');
                 randList.Add('D');
                 randList.Add('P');
             }
@@ -103,32 +91,77 @@ namespace TestGame2._0.Backend
             randList.Add('Z');
             randList.Add('X');
             randList.Add('Q');
+
+            vowelList.Add('A');
+            vowelList.Add('E');
+            vowelList.Add('I');
+            vowelList.Add('O');
+            vowelList.Add('U');
+
+            //this.randomizeList();
+
         }
+
+
+        //method to randomize the list order
+        private void randomizeList()
+        {
+            Random rnd = new Random();
+            //randList.OrderBy<char, int>((item) => rnd.Next());
+        }
+
         public List<char> getLetterList()
         {
             return letterList;
         }
         public int generateLetter()
         {
+            int index = 0;
+            //choose between consonant or vowel
+
+            int num = random.Next(2);
             // Generate a random number
-            result1 = random.Next(randList.Count);
-            char letter = randList[result1];
-            int index = letterList.IndexOf(letter);
-            // Use random number as index and retrieve letter from randList.
+            if (num == 0)
+            {
+                result1 = random.Next(randList.Count);
+                char letter = randList[result1];
+                index = letterList.IndexOf(letter);
+                // Use random number as index and retrieve letter from randList.
+            }
+            else if (num == 1)
+            {
+                result1 = random.Next(vowelList.Count);
+                char letter = vowelList[result1];
+                index = letterList.IndexOf(letter);
+            }
             return index;
+        }
+
+        public char generateVowel()
+        {
+            // Generate a random number
+            result1 = random.Next(vowelList.Count);
+            char letter = vowelList[result1];
+            return letter;
         }
 
         public List<char> generateQueue()
         {
             List<char> queue = new List<char>();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 2; i++)
             {
                 char letter = letterList[generateLetter()];
                 queue.Add(letter);
             }
+            for (int i = 0; i < 2; i++)
+            {
+                char vowel = generateVowel();
+                queue.Add(vowel);
+            }
             return queue;
         }
 
+        /*
         public void addtoQueue(List<char> queue)
         {
             char letter = letterList[generateLetter()];
@@ -140,6 +173,6 @@ namespace TestGame2._0.Backend
             Random rand = new Random();
             int num = rand.Next(4);
             queue.RemoveAt(num);
-        }
+        }*/
     }
 }
