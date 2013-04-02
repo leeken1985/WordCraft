@@ -22,7 +22,10 @@ namespace TestGame2._0.GameScreens
         Rectangle mainFrame;
         Block block;
         GameArea mainArea;
-
+        SpriteFont myFont;
+        Rectangle ScoreBoardFrame;
+        ScoreBoard score;
+        
         public MainGame(Game1 game)
         {
             this.game = game;
@@ -36,6 +39,9 @@ namespace TestGame2._0.GameScreens
             gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
             gridLine.SetData(new Color[] { Color.White });
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
+            ScoreBoardFrame = new Rectangle(400, 0, 200, 700);
+            myFont = game.Content.Load<SpriteFont>("myFont");
+            score = new ScoreBoard();
         }
 
         public void Update(GameTime gameTime)
@@ -49,6 +55,9 @@ namespace TestGame2._0.GameScreens
             cannonSprite.Draw(spriteBatch);
             
             mainArea.CreateGameArea(spriteBatch, block);
+            spriteBatch.Draw(gridLine, ScoreBoardFrame, Color.White);
+            spriteBatch.DrawString(myFont, "Score: " + score.calcPoints("coffee") , new Vector2(450, 200), Color.Red);
+
             //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)
