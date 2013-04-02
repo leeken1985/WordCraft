@@ -31,6 +31,7 @@ namespace TestGame2._0.GameScreens
             cannonSprite.LoadContent(game.Content);
             block = new Block(game.Content.Load<Texture2D>("spirteSheet"), 6);
             cannonSprite.setBlock(block);
+            cannonSprite.setGameArea(mainArea);
             background = game.Content.Load<Texture2D>("Wallpaper");
             gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
             gridLine.SetData(new Color[] { Color.White });
@@ -50,16 +51,16 @@ namespace TestGame2._0.GameScreens
             mainArea.CreateGameArea(spriteBatch, block);
             //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
             //draw a red grid 50 x 50
-            //for (float x = -4; x < 5; x++)
-            //{
-            //    Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 700);
-            //    spriteBatch.Draw(gridLine, rectangle, Color.Red);
-            //}
-            //for (float y = -7; y < 8; y++)
-            //{
-            //    Rectangle rectangle = new Rectangle(0, (int)(350 + y * 50), 400, 1);
-            //    spriteBatch.Draw(gridLine, rectangle, Color.Red);
-            //}
+            for (float x = -4; x < 5; x++)
+            {
+                Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 700);
+                spriteBatch.Draw(gridLine, rectangle, Color.Red);
+            }
+            for (float y = -7; y < 8; y++)
+            {
+                Rectangle rectangle = new Rectangle(0, (int)(350 + y * 50), 400, 1);
+                spriteBatch.Draw(gridLine, rectangle, Color.Red);
+            }
         }
     }
 }

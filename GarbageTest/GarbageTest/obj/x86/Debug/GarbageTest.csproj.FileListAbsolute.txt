@@ -9,3 +9,8 @@ C:\Users\Aaron\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\bin\Debug\Garb
 C:\Users\Aaron\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\bin\Debug\GarbageTest.pdb
 C:\Users\Ken\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\obj\x86\Debug\GarbageTest.exe
 C:\Users\Ken\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\obj\x86\Debug\GarbageTest.pdb
+C:\Users\ra-nyan\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\obj\x86\Debug\GarbageTest.exe
+C:\Users\ra-nyan\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\obj\x86\Debug\GarbageTest.pdb
+C:\Users\ra-nyan\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\bin\Debug\GarbageTest.exe
+C:\Users\ra-nyan\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\bin\Debug\GarbageTest.pdb
+C:\Users\ra-nyan\Documents\GitHub\WordCraft\GarbageTest\GarbageTest\obj\x86\Debug\ResolveAssemblyReference.cache

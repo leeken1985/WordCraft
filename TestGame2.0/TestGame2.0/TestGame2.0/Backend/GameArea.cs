@@ -16,8 +16,9 @@ namespace TestGame2._0.Backend
     class GameArea 
     {
         private const int column = 8; //8 columns
-        private const int row = 14; //14 row
-        private int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
+        private const int row = 12; //12 row
+        private static int playerLetter;
+        private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -29,8 +30,8 @@ namespace TestGame2._0.Backend
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},};
-        
-        
+
+
         public GameArea()
         {
         }
@@ -47,6 +48,36 @@ namespace TestGame2._0.Backend
             }
         }
 
+        public void setPiece(int userColumn)
+        {
+            int min = 100;
+            for (int i = row - 1; i >= 0; i--)
+            {
+                if (GameBoard[i, userColumn] == 0)
+                {
+                    if (i < min)
+                    {
+                        min = i;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            //tempRow = min;
+            GameBoard[min, userColumn] = playerLetter;
+            //letterIndex = userColumn;
+        }
+
+        public void setPlayerLetter(int player)
+        {
+            playerLetter = player;
+        }
+        public static void SetGameBoard(int x, int y, int value)
+        {
+            GameBoard[x, y] = value;
+        }
         //public void ClearArea()
         //{
         //    for (int x = 0; x < column; x++)

@@ -46,3 +46,4 @@ C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\
 C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.exe
 C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.pdb
 C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Wallpaper.xnb
+C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Wallpaper.xnb

@@ -6,6 +6,6 @@ Content\Fireball.xnb
 Content\tShape.xnb
 Content\Awesome_Face.xnb
 Content\aBlock.xnb
+Content\Wallpaper.xnb
 Content\spirteSheet.xnb
 Content\myFont.xnb
-Content\Wallpaper.xnb

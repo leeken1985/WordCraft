@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using TestGame2._0.Backend;
 
 
 namespace TestGame2._0
@@ -20,29 +21,37 @@ namespace TestGame2._0
         Block block;
         Vector2 speed = Vector2.Zero;
         Vector2 direction = Vector2.Zero;
-
+        Calculate calc;
         KeyboardState oldState ;
         ContentManager mContentManager;
-
-        Random random;
+        int columnPosition = 1;
+        int playerLetter;
+        GameArea gameArea;
+        int[] queue;
+        //Random random;
         public void LoadContent(ContentManager theContentManager)
         {
             mContentManager = theContentManager;
             // Create a new SpriteBatch, which can be used to draw textures
             Position = new Vector2(START_X_POSITION, START_Y_POSITION);
 
-            // TODO: use this.Content to load your game content here
-            //foreach (Block aFireball in mFireballs)
-            //{
-            //    aFireball.LoadContent(theContentManager);
-            //}
             base.LoadContent(theContentManager, "tShape");
-            random = new Random();
+            calc = new Calculate();
+            queue = new int[2];
+            for (int i = 0; i < 2; i++)
+            {
+                queue[i] = calc.generateLetter();
+            }
         }
 
         public void setBlock(Block b)
         {
             block = b;
+        }
+
+        public void setGameArea(GameArea ga)
+        {
+            gameArea = ga;
         }
 
         private void UpdateMovement(KeyboardState newState)
@@ -55,9 +64,9 @@ namespace TestGame2._0
                  //Move Left one key press at a time
                  if (newState.IsKeyDown(Keys.Left) && !oldState.IsKeyDown(Keys.Left))
                  {
-                     //speed.X = SPEED;
                      direction.X = MOVE_LEFT;
                      block.setPosition(Position + new Vector2(0, 0) + new Vector2(1, -Size.Height + 50));
+                     columnPosition--;
                  }
             }
             if (Position.X != 300)//cannon is not hitting the right window boundary
@@ -65,9 +74,9 @@ namespace TestGame2._0
                 //Move right one key press at a time
                  if (newState.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
                  {
-                     //speed.X = SPEED;
                      direction.X = MOVE_RIGHT;
                      block.setPosition(Position + new Vector2(100, 0) + new Vector2(1, -Size.Height + 50));
+                     columnPosition++;
                  }
             }
         }
@@ -87,9 +96,12 @@ namespace TestGame2._0
 
         private void ShootBlock()
         {
-            block.SetFrame(random.Next(0, 25));//chooses random asteroid (a-z)
-            block.Fire(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height+50),
-                new Vector2(200, 200), new Vector2(0, -1));
+            block.SetFrame(queue[0]);//chooses random asteroid (a-z)
+            gameArea.setPlayerLetter(queue[0]);
+            gameArea.setPiece(columnPosition);
+            queue[0] = queue[1];
+            queue[1] = calc.generateLetter();
+            block.SetFrame(queue[0]);
         }
 
         public override void Draw(SpriteBatch theSpriteBatch)
@@ -106,8 +118,6 @@ namespace TestGame2._0
             UpdateBlock(gameTime, newState);
 
             oldState = newState;
-
-            //base.Update(gameTime, speed, direction);
             base.Update(direction);
         }
         
