@@ -27,7 +27,7 @@ namespace TestGame2._0
         int columnPosition = 1;
         int playerLetter;
         GameArea gameArea;
-        int[] queue;
+        List<int> queue;
         //Random random;
         public void LoadContent(ContentManager theContentManager)
         {
@@ -37,10 +37,10 @@ namespace TestGame2._0
 
             base.LoadContent(theContentManager, "tShape");
             calc = new Calculate();
-            queue = new int[2];
-            for (int i = 0; i < 2; i++)
+            queue = new List<int>();
+            for (int i = 0; i < 3; i++)
             {
-                queue[i] = calc.generateLetter();
+                queue.Add(calc.generateLetter());
             }
         }
 
@@ -52,6 +52,11 @@ namespace TestGame2._0
         public void setGameArea(GameArea ga)
         {
             gameArea = ga;
+        }
+
+        public List<int> getQueue()
+        {
+            return queue;
         }
 
         private void UpdateMovement(KeyboardState newState)
@@ -99,8 +104,8 @@ namespace TestGame2._0
             block.SetFrame(queue[0]);//chooses random asteroid (a-z)
             gameArea.setPlayerLetter(queue[0]);
             gameArea.setPiece(columnPosition);
-            queue[0] = queue[1];
-            queue[1] = calc.generateLetter();
+            queue.RemoveRange(0, 1);
+            queue.Add(calc.generateLetter());
             block.SetFrame(queue[0]);
         }
 

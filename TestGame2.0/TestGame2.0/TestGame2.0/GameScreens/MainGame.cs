@@ -52,8 +52,7 @@ namespace TestGame2._0.GameScreens
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
-            cannonSprite.Draw(spriteBatch);
-            
+            cannonSprite.Draw(spriteBatch);            
             mainArea.CreateGameArea(spriteBatch, block);
             spriteBatch.Draw(gridLine, ScoreBoardFrame, Color.White);
             spriteBatch.DrawString(myFont, "Score: " + score.calcPoints("coffee") , new Vector2(450, 200), Color.Red);
