@@ -1,27 +1,8 @@
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.exe
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.pdb
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Form1.resources
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Properties.Resources.resources
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\GenerateResource.read.1.tlog
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\GenerateResource.write.1.tlog
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
-c:\users\dkl\documents\visual studio 2010\Projects\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.exe
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.pdb
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Form1.resources
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Properties.Resources.resources
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csproj.GenerateResource.Cache
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
-<<<<<<< HEAD
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.exe
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.pdb
+C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csprojResolveAssemblyReference.cache
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Form1.resources
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Properties.Resources.resources
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csproj.GenerateResource.Cache
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
-=======
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csprojResolveAssemblyReference.cache
->>>>>>> 7fdbece7770784bbb3a56e21fb09905d85b88c1b

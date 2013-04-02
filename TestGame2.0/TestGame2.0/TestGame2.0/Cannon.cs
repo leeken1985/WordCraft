@@ -104,7 +104,7 @@ namespace TestGame2._0
         {
             block.SetFrame(queue[0]);//chooses random asteroid (a-z)
             gameArea.setPlayerLetter(queue[0]);
-            gameArea.setPiece(columnPosition);
+            gameArea.setPiece(columnPosition - 1);
             queue.RemoveRange(0, 1);
             queue.Add(calc.generateLetter());
             block.SetFrame(queue[0]);
