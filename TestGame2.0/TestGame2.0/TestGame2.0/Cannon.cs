@@ -35,7 +35,7 @@ namespace TestGame2._0
             // Create a new SpriteBatch, which can be used to draw textures
             Position = new Vector2(START_X_POSITION, START_Y_POSITION);
 
-            base.LoadContent(theContentManager, "tShape");
+            base.LoadContent(theContentManager, "spaceship");
             calc = new Calculate();
             queue = new List<int>();
             for (int i = 0; i < 3; i++)
@@ -65,23 +65,23 @@ namespace TestGame2._0
             speed = Vector2.Zero;
             direction = Vector2.Zero;
 
-            if (Position.X != -50 )//cannon is not hitting the left window boundary
+            if (Position.X != 0 )//cannon is not hitting the left window boundary
             {
                  //Move Left one key press at a time
                  if (newState.IsKeyDown(Keys.Left) && !oldState.IsKeyDown(Keys.Left))
                  {
                      direction.X = MOVE_LEFT;
-                     block.setPosition(Position + new Vector2(0, 0) + new Vector2(1, -Size.Height + 50));
+                     block.setPosition(Position + new Vector2(-50, 0) + new Vector2(1, -Size.Height + 50));
                      columnPosition--;
                  }
             }
-            if (Position.X != 300)//cannon is not hitting the right window boundary
+            if (Position.X != 350)//cannon is not hitting the right window boundary
             {
                 //Move right one key press at a time
                  if (newState.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
                  {
                      direction.X = MOVE_RIGHT;
-                     block.setPosition(Position + new Vector2(100, 0) + new Vector2(1, -Size.Height + 50));
+                     block.setPosition(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height + 50));
                      columnPosition++;
                  }
             }

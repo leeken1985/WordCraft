@@ -23,6 +23,7 @@ namespace TestGame2._0.GameScreens
         Block block;
         GameArea mainArea;
         SpriteFont myFont;
+        SpriteFont scoreBoardFont;
         Rectangle ScoreBoardFrame;
         ScoreBoard score;
         
@@ -41,6 +42,7 @@ namespace TestGame2._0.GameScreens
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             ScoreBoardFrame = new Rectangle(400, 0, 200, 700);
             myFont = game.Content.Load<SpriteFont>("myFont");
+            scoreBoardFont = game.Content.Load<SpriteFont>("scoreBoardFont");
             score = new ScoreBoard();
         }
 
@@ -51,13 +53,13 @@ namespace TestGame2._0.GameScreens
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(gridLine, ScoreBoardFrame, Color.White);
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             cannonSprite.Draw(spriteBatch);            
             mainArea.CreateGameArea(spriteBatch, block);
-            spriteBatch.Draw(gridLine, ScoreBoardFrame, Color.White);
-            spriteBatch.DrawString(myFont, "Score: " + mainArea.getScore() , new Vector2(450, 100), Color.Red);
-            spriteBatch.DrawString(myFont, "Word: " + mainArea.winningWord(), new Vector2(450, 300), Color.Red);
-            spriteBatch.DrawString(myFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]] 
+            spriteBatch.DrawString(scoreBoardFont, "Score: " + mainArea.getScore(), new Vector2(450, 100), Color.Red);
+            spriteBatch.DrawString(scoreBoardFont, "Word: " + mainArea.winningWord(), new Vector2(450, 300), Color.Red);
+            spriteBatch.DrawString(scoreBoardFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]] 
                         + " , " + mainArea.getLetterList()[cannonSprite.getQueue()[2]], new Vector2(450, 500), Color.Blue);
             //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
             //draw a red grid 50 x 50

@@ -115,9 +115,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="spaceship.png">
+      <Name>spaceship</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Space_background.png">
+      <Name>Space_background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="words.txt">
       <Name>words</Name>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="scoreBoardFont.spritefont">
+      <Name>scoreBoardFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
