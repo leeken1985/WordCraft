@@ -57,10 +57,24 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             cannonSprite.Draw(spriteBatch);            
             mainArea.CreateGameArea(spriteBatch, block);
+<<<<<<< HEAD
             spriteBatch.DrawString(scoreBoardFont, "Score: " + mainArea.getScore(), new Vector2(450, 100), Color.Red);
             spriteBatch.DrawString(scoreBoardFont, "Word: " + mainArea.winningWord(), new Vector2(450, 300), Color.Red);
             spriteBatch.DrawString(scoreBoardFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]] 
                         + " , " + mainArea.getLetterList()[cannonSprite.getQueue()[2]], new Vector2(450, 500), Color.Blue);
+=======
+            spriteBatch.Draw(gridLine, ScoreBoardFrame, Color.White);
+            spriteBatch.DrawString(myFont, "Score: " + mainArea.getScore() ,
+                                    new Vector2(450, 100), Color.Red);
+            spriteBatch.DrawString(myFont, "Word: " + mainArea.winningWord(),
+                                    new Vector2(450, 200), Color.Red);
+            spriteBatch.DrawString(myFont, "Current: " + mainArea.getLetterList()[cannonSprite.getQueue()[0]],
+                                    new Vector2(450, 400), Color.Blue);
+            spriteBatch.DrawString(myFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]] 
+                                    + " , " + mainArea.getLetterList()[cannonSprite.getQueue()[2]],
+                                    new Vector2(450, 500), Color.Blue);
+
+>>>>>>> 7fdbece7770784bbb3a56e21fb09905d85b88c1b
             //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)

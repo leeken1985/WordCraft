@@ -5,6 +5,7 @@ Content\background.xnb
 Content\Fireball.xnb
 Content\tShape.xnb
 Content\Awesome_Face.xnb
+<<<<<<< HEAD
 Content\myFont.xnb
 Content\aBlock.xnb
 Content\Wallpaper.xnb
@@ -12,3 +13,9 @@ Content\spirteSheet.xnb
 Content\spaceship.xnb
 Content\scoreBoardFont.xnb
 Content\Space_background.xnb
+=======
+Content\aBlock.xnb
+Content\Wallpaper.xnb
+Content\spirteSheet.xnb
+Content\myFont.xnb
+>>>>>>> 7fdbece7770784bbb3a56e21fb09905d85b88c1b
