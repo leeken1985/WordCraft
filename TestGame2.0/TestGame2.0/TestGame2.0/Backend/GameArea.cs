@@ -28,7 +28,7 @@ namespace TestGame2._0.Backend
         private int tempRow;
         private int letterColumn;
         List<string> winList = new List<string>();
-        private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
+        private static int[,] GameBoard = {{1, 2, 3, 4, 5, 6, 7, 8},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -59,11 +59,11 @@ namespace TestGame2._0.Backend
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
         {
             int sWidth = 50, sHeight = 50;
-            for(int i = 0; i < GameBoard.GetLength(1); i++)
+            for(int i = 0; i < GameBoard.GetLength(0); i++)
             {
-                for(int j = 0; j < GameBoard.GetLength(0);j++)
+                for(int j = 0; j < GameBoard.GetLength(1);j++)
                 {
-                    spriteBatch.Draw(b.Texture, new Rectangle(i * sWidth, j * sHeight, sWidth, sHeight), b.Rectangles[GameBoard[j, i]], Color.White);
+                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth, i * sHeight, sWidth, sHeight), b.Rectangles[GameBoard[i, j]], Color.White);
                 }
             }
         }
@@ -93,6 +93,12 @@ namespace TestGame2._0.Backend
             System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
             for (int y = 0; y < GameBoard.GetLength(1); y++)
                 SetGameBoard(0, y, c.generateLetter());
+        }
+
+        public void MoveUp(int x, int y)
+        {
+            for(;x < 11;x++)
+                System.Buffer.BlockCopy(GameBoard, (x+1)*32 + y*4, GameBoard, x*32 + y*4, 16);
         }
 
         public void GameOver()
@@ -341,7 +347,6 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[i, letterColumn] = 0;
                     }
-                    //Console.WriteLine("DESTROYEDDDDDDDDDDDDDDDD");
                 }
 
                 index = getRowLetters().IndexOf(formedWord);
@@ -352,7 +357,7 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[tempRow, j] = 0;
                     }
-                    //Console.WriteLine("DESTROYEDDDDDDDDDDDDDDDD");
+                    MoveUp(tempRow, index);
                 }
             }
         }

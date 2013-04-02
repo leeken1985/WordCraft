@@ -14,3 +14,4 @@ C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\De
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csproj.GenerateResource.Cache
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.exe
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
+C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csprojResolveAssemblyReference.cache
