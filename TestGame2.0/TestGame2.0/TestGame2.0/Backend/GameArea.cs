@@ -21,12 +21,16 @@ namespace TestGame2._0.Backend
         private const int column = 8; //8 columns
         private const int row = 12; //12 row
         private static int playerLetter;
-        private int currScore = 0;
         Dictionary<char, int> pointList;
         Dictionary<string, int> dict;
         List<char> letterList;
         private int tempRow;
         private int letterColumn;
+        private int currScore = 0;
+        private string formedWord = "";
+        Dictionary<string, int> words3 = new Dictionary<string, int>();
+        Dictionary<string, int> words4 = new Dictionary<string, int>();
+        Dictionary<string, int> words5 = new Dictionary<string, int>();
         List<string> winList = new List<string>();
         private static int[,] GameBoard = {{1, 2, 3, 4, 5, 6, 7, 8},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -48,9 +52,12 @@ namespace TestGame2._0.Backend
             dict = new Dictionary<string, int>();
             CreatePointList();
             CreateDictionary();
-            for (int x = 0; x < 2; x++)
+            for (int x = 0; x < 2; x++){
                 for (int y = 0; y < GameBoard.GetLength(1); y++)
+                {
                     SetGameBoard(x, y, c.generateLetter());
+                }
+            }
             Timer timer = new Timer(20000);
             timer.Elapsed += new ElapsedEventHandler(FallDown);
             timer.Start();
@@ -72,7 +79,7 @@ namespace TestGame2._0.Backend
         {
             //try
             //{
-                using (StreamReader sr = new StreamReader("words.txt"))
+                using (StreamReader sr = new StreamReader("allWords.txt"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -92,7 +99,11 @@ namespace TestGame2._0.Backend
         {
             System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
             for (int y = 0; y < GameBoard.GetLength(1); y++)
+            {
                 SetGameBoard(0, y, c.generateLetter());
+            } 
+            findRowWords();
+            findColumnWords();
         }
 
         public void MoveUp(int x, int y)
@@ -175,20 +186,12 @@ namespace TestGame2._0.Backend
 
         public int getScore()
         {
-            string col = findWord(getColumnLetters(letterColumn));
-            string row = findWord(getRowLetters());
-            string finalWord = calcPoints(col) > calcPoints(row) ? col : row;
-            currScore += calcPoints(finalWord);
             return currScore;
         }
 
-        public string winningWord()
+        public string getFormedWord()
         {
-            string col = findWord(getColumnLetters(letterColumn));
-            string row = findWord(getRowLetters());
-            string finalWord = calcPoints(col) > calcPoints(row) ? col : row;
-            destroyWord();
-            return finalWord;
+            return formedWord;
         }
 
         public void setPlayerLetter(int player)
@@ -208,16 +211,17 @@ namespace TestGame2._0.Backend
         public List<char> getLetterList() {
             return letterList;
         }
+
         /// <summary>
         /// Returns letters in a column.
         /// </summary>
         /// <param name="y"></param>
-        public string getColumnLetters(int userRow)
+        public string getColumnLetters(int userColumn)
         {
             string lineString = "";
             for (int i = 0; i < row; i++)
             {
-                int temp = GameBoard[i, userRow];
+                int temp = GameBoard[i, userColumn];
                 lineString += letterList[temp];
             }
             return lineString;
@@ -227,140 +231,203 @@ namespace TestGame2._0.Backend
         /// Returns letters in a row.
         /// </summary>
         /// <param name="y"></param>
-        public string getRowLetters()
+        public string getRowLetters(int userRow)
         {
             string lineString = "";
+
             for (int j = 0; j < column; j++)
             {
-                int temp = GameBoard[tempRow, j];
+                int temp = GameBoard[userRow, j];
                 lineString += letterList[temp];
             }
             return lineString;
         }
 
-        public string findWord(string line)
+        public void findRowWords()
         {
-            // List that holds all possible 4 letter words that use the letter that was fired.
-            HashSet<string> possibleWords = new HashSet<string>();
-
-            string testWord = "";
-
-            // Add possible words to list.
-            switch (letterColumn)
-            {
-                case 0:
-                    testWord = line.Substring(0, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 1:
-                    testWord = line.Substring(0, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(1, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 2:
-                    testWord = line.Substring(0, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(1, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(2, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 3:
-                    testWord = line.Substring(0, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(1, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(2, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(3, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 4:
-                    testWord = line.Substring(1, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(2, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(3, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(4, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 5:
-                    testWord = line.Substring(2, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(3, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(4, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 6:
-                    testWord = line.Substring(3, 4);
-                    possibleWords.Add(testWord);
-                    testWord = line.Substring(4, 4);
-                    possibleWords.Add(testWord);
-                    break;
-                case 7:
-                    testWord = line.Substring(4, 4);
-                    possibleWords.Add(testWord);
-                    break;
-            }
-
-            // For each possible word in list, compare against words in Dictionary.
-            // If it exists, display it on Label.
-            int minPoints = -100;
-            string winningWord = "";
-
-            foreach (string s in possibleWords)
-            {
-                if (dict.ContainsKey(s))
-                {
-                    if (dict[s] > minPoints)
-                    {
-                        minPoints = dict[s];
-                        winningWord = s;
-                    }
-                }
-            }
-
-            if (winningWord.Length != 0)
-            {
-                winList.Clear();
-                winList.Add(winningWord);
-            }
-            return winningWord;
-        }
-
-        public void destroyWord()
-        {
+            string lineString = "";
             int index = -1;
-            string formedWord = "";
 
-            if (winList.Count != 0)
+            // For each row of letters, search for word in Dictinoary within row.
+            for (int i = 0; i < row; i++)
             {
-                formedWord = winList[0];
-                index = getColumnLetters(letterColumn).IndexOf(formedWord);
+                lineString = getRowLetters(i);
 
-                if (index != -1)
+                foreach (KeyValuePair<string, int> entry in dict)
                 {
-                    for (int i = index; i < index + 4; i++)
+                    index = lineString.IndexOf(entry.Key);
+
+                    if (index != -1)
                     {
-                        GameBoard[i, letterColumn] = 0;
+                        if (entry.Key.Length == 5)
+                        {
+                            words5.Add(entry.Key, i);
+                        }
+                        else if (entry.Key.Length == 4)
+                        {
+                            words4.Add(entry.Key, i);
+                        }
+                        else if (entry.Key.Length == 3)
+                        {
+                            words3.Add(entry.Key, i);
+                        }
                     }
                 }
-
-                index = getRowLetters().IndexOf(formedWord);
-
-                if (index != -1)
-                {
-                    for (int j = index; j < index + 4; j++)
-                    {
-                        GameBoard[tempRow, j] = 0;
-                    }
-                    MoveUp(tempRow, index);
-                }
+                destroyRowWord(i);
             }
         }
 
+
+        public void findColumnWords()
+        {
+            string lineString = "";
+            int index = -1;
+
+            for (int j = 0; j < column; j++)
+            {
+                lineString = getColumnLetters(j);
+
+                foreach (KeyValuePair<string, int> entry in dict)
+                {
+                    index = lineString.IndexOf(entry.Key);
+
+                    if (index != -1)
+                    {
+                        if (entry.Key.Length == 5)
+                        {
+                            words5.Add(entry.Key, j);
+                        }
+                        else if (entry.Key.Length == 4)
+                        {
+                            words4.Add(entry.Key, j);
+                        }
+                        else if (entry.Key.Length == 3)
+                        {
+                            words3.Add(entry.Key, j);
+                        }
+                    }
+                }
+                destroyColumnWord(j);
+            }
+        }
+
+        public void destroyRowWord(int destroyRow)
+        {
+            string lineString = "";
+            int index = -1;
+
+            lineString = getRowLetters(destroyRow);
+
+            foreach (KeyValuePair<string, int> entry in words5)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int i = index; i < index + entry.Key.Length; i++)
+                    {
+                        GameBoard[destroyRow, i] = 0;
+                    }
+                }
+            }
+            words5.Clear();
+
+            foreach (KeyValuePair<string, int> entry in words4)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int i = index; i < index + entry.Key.Length; i++)
+                    {
+                        GameBoard[destroyRow, i] = 0;
+                    }
+                }
+             
+            }
+            words4.Clear();
+
+            foreach (KeyValuePair<string, int> entry in words3)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int i = index; i < index + entry.Key.Length; i++)
+                    {
+                        GameBoard[destroyRow, i] = 0;
+                    }
+                }
+            }
+            words3.Clear();
+        }
+
+        public void destroyColumnWord(int destroyColumn)
+        {
+            string lineString = "";
+            int index = -1;
+
+            lineString = getColumnLetters(destroyColumn);
+
+            foreach (KeyValuePair<string, int> entry in words5)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int j = index; j < index + entry.Key.Length; j++)
+                    {
+                        GameBoard[j, destroyColumn] = 0;
+                    }                   
+                }
+            }
+            words5.Clear();
+
+            foreach (KeyValuePair<string, int> entry in words4)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int j = index; j < index + entry.Key.Length; j++)
+                    {
+                        GameBoard[j, destroyColumn] = 0;
+                    }
+                }
+            }
+            words4.Clear();
+
+            foreach (KeyValuePair<string, int> entry in words3)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int j = index; j < index + entry.Key.Length; j++)
+                    {
+                        GameBoard[j, destroyColumn] = 0;
+                    }
+                }
+            }
+            words3.Clear();
+        }
     }
 }

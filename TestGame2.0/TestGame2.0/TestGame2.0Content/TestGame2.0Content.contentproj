@@ -101,9 +101,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Content Include="words.txt">
-      <Name>words</Name>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="scoreBoardFont.spritefont">
