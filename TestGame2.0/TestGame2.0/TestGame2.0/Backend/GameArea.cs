@@ -35,8 +35,8 @@ namespace TestGame2._0.Backend
         private static int[,] GameBoard = {{4, 0, 0, 0, 0, 0, 0, 0},
                                 {1, 0, 0, 0, 0, 0, 0, 0},
                                 {4, 0, 0, 0, 0, 0, 0, 0},
+                                {4, 0, 0, 0, 0, 0, 0, 0},
                                 {25, 0, 0, 0, 0, 0, 0, 0},
-                                {24, 0, 0, 0, 0, 0, 0, 0},
                                 {23, 0, 0, 0, 0, 0, 0, 0},
                                 {22, 0, 0, 0, 0, 0, 0, 0},
                                 {21, 0, 0, 0, 0, 0, 0, 0},
@@ -341,10 +341,12 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[destroyRow, i] = 0;
                     }
+                    MoveUp(destroyRow, index, entry.Key.Length);
                 }
-                MoveUp(destroyRow, index, entry.Key.Length);
+
             }
             words5.Clear();
+            lineString = getRowLetters(destroyRow);
 
             foreach (KeyValuePair<string, int> entry in words4)
             {
@@ -359,10 +361,12 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[destroyRow, i] = 0;
                     }
+                    MoveUp(destroyRow, index, entry.Key.Length);
                 }
-                MoveUp(destroyRow, index, entry.Key.Length);
+
             }
             words4.Clear();
+            lineString = getRowLetters(destroyRow);
 
             foreach (KeyValuePair<string, int> entry in words3)
             {
@@ -377,8 +381,9 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[destroyRow, i] = 0;
                     }
+                    MoveUp(destroyRow, index, entry.Key.Length);
                 }
-                MoveUp(destroyRow, index, entry.Key.Length);
+                
             }
             words3.Clear();
         }
@@ -406,11 +411,13 @@ namespace TestGame2._0.Backend
                     for (int j = index; j < index + entry.Key.Length; j++)
                     {
                         GameBoard[j, destroyColumn] = 0;
-                    }                   
+                    }
+                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
                 }
-                ColumnMoveUp(index, destroyColumn, entry.Key.Length);
+                
             }
             words5.Clear();
+            lineString = getColumnLetters(destroyColumn);
 
             foreach (KeyValuePair<string, int> entry in words4)
             {
@@ -425,10 +432,12 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[j, destroyColumn] = 0;
                     }
+                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
                 }
-                ColumnMoveUp(index, destroyColumn, entry.Key.Length);
+                
             }
             words4.Clear();
+            lineString = getColumnLetters(destroyColumn);
 
             foreach (KeyValuePair<string, int> entry in words3)
             {
@@ -443,8 +452,9 @@ namespace TestGame2._0.Backend
                     {
                         GameBoard[j, destroyColumn] = 0;
                     }
+                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
                 }
-                ColumnMoveUp(index, destroyColumn, entry.Key.Length);
+                
             }
             words3.Clear();
         }
