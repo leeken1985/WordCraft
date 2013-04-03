@@ -32,18 +32,18 @@ namespace TestGame2._0.Backend
         Dictionary<string, int> words4 = new Dictionary<string, int>();
         Dictionary<string, int> words5 = new Dictionary<string, int>();
         List<string> winList = new List<string>();
-        private static int[,] GameBoard = {{1, 2, 3, 4, 5, 6, 7, 8},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0}};
+        private static int[,] GameBoard = {{4, 0, 0, 0, 0, 0, 0, 0},
+                                {1, 0, 0, 0, 0, 0, 0, 0},
+                                {4, 0, 0, 0, 0, 0, 0, 0},
+                                {25, 0, 0, 0, 0, 0, 0, 0},
+                                {24, 0, 0, 0, 0, 0, 0, 0},
+                                {23, 0, 0, 0, 0, 0, 0, 0},
+                                {22, 0, 0, 0, 0, 0, 0, 0},
+                                {21, 0, 0, 0, 0, 0, 0, 0},
+                                {10, 0, 0, 0, 0, 0, 0, 0},
+                                {11, 0, 0, 0, 0, 0, 0, 0},
+                                {12, 0, 0, 0, 0, 0, 0, 0},
+                                {13, 0, 0, 0, 0, 0, 0, 0}};
 
 
         public GameArea()
@@ -52,15 +52,15 @@ namespace TestGame2._0.Backend
             dict = new Dictionary<string, int>();
             CreatePointList();
             CreateDictionary();
-            for (int x = 0; x < 2; x++){
-                for (int y = 0; y < GameBoard.GetLength(1); y++)
-                {
-                    SetGameBoard(x, y, c.generateLetter());
-                }
-            }
-            Timer timer = new Timer(20000);
-            timer.Elapsed += new ElapsedEventHandler(FallDown);
-            timer.Start();
+            //for (int x = 0; x < 2; x++){
+            //    for (int y = 0; y < GameBoard.GetLength(1); y++)
+            //    {
+            //        SetGameBoard(x, y, c.generateLetter());
+            //    }
+            //}
+            //Timer timer = new Timer(20000);
+            //timer.Elapsed += new ElapsedEventHandler(FallDown);
+            //timer.Start();
         }
 
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
@@ -101,15 +101,9 @@ namespace TestGame2._0.Backend
             for (int y = 0; y < GameBoard.GetLength(1); y++)
             {
                 SetGameBoard(0, y, c.generateLetter());
-            } 
+            }
             findRowWords();
             findColumnWords();
-        }
-
-        public void MoveUp(int x, int y)
-        {
-            for(;x < 11;x++)
-                System.Buffer.BlockCopy(GameBoard, (x+1)*32 + y*4, GameBoard, x*32 + y*4, 16);
         }
 
         public void GameOver()
@@ -348,6 +342,7 @@ namespace TestGame2._0.Backend
                         GameBoard[destroyRow, i] = 0;
                     }
                 }
+                MoveUp(destroyRow, index, entry.Key.Length);
             }
             words5.Clear();
 
@@ -365,7 +360,7 @@ namespace TestGame2._0.Backend
                         GameBoard[destroyRow, i] = 0;
                     }
                 }
-             
+                MoveUp(destroyRow, index, entry.Key.Length);
             }
             words4.Clear();
 
@@ -383,6 +378,7 @@ namespace TestGame2._0.Backend
                         GameBoard[destroyRow, i] = 0;
                     }
                 }
+                MoveUp(destroyRow, index, entry.Key.Length);
             }
             words3.Clear();
         }
@@ -412,6 +408,7 @@ namespace TestGame2._0.Backend
                         GameBoard[j, destroyColumn] = 0;
                     }                   
                 }
+                ColumnMoveUp(index, destroyColumn, entry.Key.Length);
             }
             words5.Clear();
 
@@ -429,6 +426,7 @@ namespace TestGame2._0.Backend
                         GameBoard[j, destroyColumn] = 0;
                     }
                 }
+                ColumnMoveUp(index, destroyColumn, entry.Key.Length);
             }
             words4.Clear();
 
@@ -446,8 +444,24 @@ namespace TestGame2._0.Backend
                         GameBoard[j, destroyColumn] = 0;
                     }
                 }
+                ColumnMoveUp(index, destroyColumn, entry.Key.Length);
             }
             words3.Clear();
+        }
+        public void MoveUp(int x, int y, int length)
+        {
+            int i = 0;
+            for (; x < 11; x++)
+                System.Buffer.BlockCopy(GameBoard, (x + 1) * 32 + y * 4, GameBoard, x * 32 + y * 4, length * 4);
+            for (i = y; i < y+length;i++)
+                GameBoard[11, i] = 0;
+        }
+        public void ColumnMoveUp(int x, int y, int length)
+        {
+            for (; x < (12-length); x++)
+                System.Buffer.BlockCopy(GameBoard, (x + length) * 32 + y * 4, GameBoard, x * 32 + y * 4, 4);
+            for (int i = 11; i > 11 - length; i--)
+                GameBoard[i, y] = 0;
         }
     }
 }
