@@ -13,12 +13,6 @@ namespace TestGame2._0.Backend
         private List<char> letterList;
         private Random random = new Random();
         private int result1;
-        private int result2;
-        private int result3;
-        private int result4;
-        private int result5;
-        private int result6;
-        private int result7;
 
         public Calculate()
         {
