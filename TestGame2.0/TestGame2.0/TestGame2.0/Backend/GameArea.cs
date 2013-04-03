@@ -28,6 +28,7 @@ namespace TestGame2._0.Backend
         private int letterColumn;
         private int currScore = 0;
         private string formedWord = "";
+        Dictionary<string, int> words3 = new Dictionary<string, int>();
         Dictionary<string, int> words4 = new Dictionary<string, int>();
         Dictionary<string, int> words5 = new Dictionary<string, int>();
         Dictionary<string, int> words6 = new Dictionary<string, int>();
@@ -60,7 +61,7 @@ namespace TestGame2._0.Backend
                     SetGameBoard(x, y, c.generateLetter());
                 }
             }
-            Timer timer = new Timer(20000);
+            Timer timer = new Timer(5000);
             timer.Elapsed += new ElapsedEventHandler(FallDown);
             timer.Start();
         }
@@ -104,8 +105,8 @@ namespace TestGame2._0.Backend
             {
                 SetGameBoard(0, y, c.generateLetter());
             }
-            findRowWords();
-            findColumnWords();
+            findRowWords(true);
+            findColumnWords(true);
         }
 
         public void GameOver()
@@ -249,7 +250,7 @@ namespace TestGame2._0.Backend
         /// <summary>
         /// Finds all existing words in all rows of the board.
         /// </summary>
-        public void findRowWords()
+        public void findRowWords(bool auto)
         {
             string lineString = "";
             int index = -1;
@@ -281,16 +282,25 @@ namespace TestGame2._0.Backend
                         {
                             words4.Add(entry.Key, i);
                         }
+
+                        if (!auto)
+                        {
+                            if (entry.Key.Length == 3)
+                            {
+                                words3.Add(entry.Key, i);
+                            }
+                        }
+
                     }
                 }
-                destroyRowWord(i);
+                destroyRowWord(i, auto);
             }
         }
 
         /// <summary>
         /// Finds all existing words in all columns of the board.
         /// </summary>
-        public void findColumnWords()
+        public void findColumnWords(bool auto)
         {
             string lineString = "";
             int index = -1;
@@ -321,9 +331,18 @@ namespace TestGame2._0.Backend
                         {
                             words4.Add(entry.Key, j);
                         }
+
+                        if (!auto)
+                        {
+                            if (entry.Key.Length == 3)
+                            {
+                                words3.Add(entry.Key, j);
+                            }
+                        }
+                        
                     }
                 }
-                destroyColumnWord(j);
+                destroyColumnWord(j, auto);
             }
         }
 
@@ -331,7 +350,7 @@ namespace TestGame2._0.Backend
         /// Destroys existing words in a row
         /// </summary>
         /// <param name="destroyRow">Row number</param>
-        public void destroyRowWord(int destroyRow)
+        public void destroyRowWord(int destroyRow, bool auto)
         {
             string lineString = "";
             int index = -1;
@@ -415,13 +434,37 @@ namespace TestGame2._0.Backend
 
             }
             words4.Clear();
+
+            if (!auto)
+            {
+                lineString = getRowLetters(destroyRow);
+
+                foreach (KeyValuePair<string, int> entry in words3)
+                {
+                    index = lineString.IndexOf(entry.Key);
+
+                    if (index != -1)
+                    {
+                        currScore += entry.Value;
+                        formedWord = entry.Key;
+
+                        for (int i = index; i < index + entry.Key.Length; i++)
+                        {
+                            GameBoard[destroyRow, i] = 0;
+                        }
+                        MoveUp(destroyRow, index, entry.Key.Length);
+                    }
+
+                }
+                words3.Clear();
+            }
         }
 
         /// <summary>
         /// Destroys existing words in a column.
         /// </summary>
         /// <param name="destroyColumn">Column number</param>
-        public void destroyColumnWord(int destroyColumn)
+        public void destroyColumnWord(int destroyColumn, bool auto)
         {
             string lineString = "";
             int index = -1;
@@ -506,7 +549,30 @@ namespace TestGame2._0.Backend
                 
             }
             words4.Clear();
-            lineString = getColumnLetters(destroyColumn);
+
+            if (!auto)
+            {
+                lineString = getColumnLetters(destroyColumn);
+
+                foreach (KeyValuePair<string, int> entry in words3)
+                {
+                    index = lineString.IndexOf(entry.Key);
+
+                    if (index != -1)
+                    {
+                        currScore += entry.Value;
+                        formedWord = entry.Key;
+
+                        for (int j = index; j < index + entry.Key.Length; j++)
+                        {
+                            GameBoard[j, destroyColumn] = 0;
+                        }
+                        ColumnMoveUp(index, destroyColumn, entry.Key.Length);
+                    }
+
+                }
+                words3.Clear();
+            }
         }
         public void MoveUp(int x, int y, int length)
         {
