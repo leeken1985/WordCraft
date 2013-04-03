@@ -32,18 +32,18 @@ namespace TestGame2._0.Backend
         Dictionary<string, int> words4 = new Dictionary<string, int>();
         Dictionary<string, int> words5 = new Dictionary<string, int>();
         List<string> winList = new List<string>();
-        private static int[,] GameBoard = {{4, 0, 0, 0, 0, 0, 0, 0},
-                                {1, 0, 0, 0, 0, 0, 0, 0},
-                                {4, 0, 0, 0, 0, 0, 0, 0},
-                                {4, 0, 0, 0, 0, 0, 0, 0},
-                                {25, 0, 0, 0, 0, 0, 0, 0},
-                                {23, 0, 0, 0, 0, 0, 0, 0},
-                                {22, 0, 0, 0, 0, 0, 0, 0},
-                                {21, 0, 0, 0, 0, 0, 0, 0},
-                                {10, 0, 0, 0, 0, 0, 0, 0},
-                                {11, 0, 0, 0, 0, 0, 0, 0},
-                                {12, 0, 0, 0, 0, 0, 0, 0},
-                                {13, 0, 0, 0, 0, 0, 0, 0}};
+        private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0},
+                                {0, 0, 0, 0, 0, 0, 0, 0}};
 
 
         public GameArea()
@@ -52,15 +52,16 @@ namespace TestGame2._0.Backend
             dict = new Dictionary<string, int>();
             CreatePointList();
             CreateDictionary();
-            //for (int x = 0; x < 2; x++){
-            //    for (int y = 0; y < GameBoard.GetLength(1); y++)
-            //    {
-            //        SetGameBoard(x, y, c.generateLetter());
-            //    }
-            //}
-            //Timer timer = new Timer(20000);
-            //timer.Elapsed += new ElapsedEventHandler(FallDown);
-            //timer.Start();
+            for (int x = 0; x < 2; x++)
+            {
+                for (int y = 0; y < GameBoard.GetLength(1); y++)
+                {
+                    SetGameBoard(x, y, c.generateLetter());
+                }
+            }
+            Timer timer = new Timer(20000);
+            timer.Elapsed += new ElapsedEventHandler(FallDown);
+            timer.Start();
         }
 
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
