@@ -57,9 +57,11 @@ namespace TestGame2._0.GameScreens
             cannonSprite.Draw(spriteBatch);            
             mainArea.CreateGameArea(spriteBatch, block);
             spriteBatch.DrawString(scoreBoardFont, "Score: " + mainArea.getScore(), new Vector2(450, 100), Color.Red);
-            spriteBatch.DrawString(scoreBoardFont, "Word: " + mainArea.getFormedWord(), new Vector2(450, 300), Color.Red);
-            spriteBatch.DrawString(scoreBoardFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]] 
-                        + " , " + mainArea.getLetterList()[cannonSprite.getQueue()[2]], new Vector2(450, 500), Color.Blue);
+            spriteBatch.DrawString(scoreBoardFont, "Word: " + mainArea.getFormedWord(), new Vector2(450, 200), Color.Red);
+            spriteBatch.DrawString(scoreBoardFont, "Current: " + mainArea.getLetterList()[cannonSprite.getQueue()[0]],
+                                    new Vector2(450, 450), Color.White);
+            spriteBatch.DrawString(scoreBoardFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]]
+                        + " , " + mainArea.getLetterList()[cannonSprite.getQueue()[2]], new Vector2(450, 550), Color.Blue);
             //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)
