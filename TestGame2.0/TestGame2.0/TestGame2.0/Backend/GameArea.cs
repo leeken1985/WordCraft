@@ -28,9 +28,10 @@ namespace TestGame2._0.Backend
         private int letterColumn;
         private int currScore = 0;
         private string formedWord = "";
-        Dictionary<string, int> words3 = new Dictionary<string, int>();
         Dictionary<string, int> words4 = new Dictionary<string, int>();
         Dictionary<string, int> words5 = new Dictionary<string, int>();
+        Dictionary<string, int> words6 = new Dictionary<string, int>();
+        Dictionary<string, int> words7 = new Dictionary<string, int>();
         List<string> winList = new List<string>();
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -264,17 +265,21 @@ namespace TestGame2._0.Backend
 
                     if (index != -1)
                     {
-                        if (entry.Key.Length == 5)
+                        if (entry.Key.Length == 7)
+                        {
+                            words7.Add(entry.Key, i);
+                        }
+                        else if (entry.Key.Length == 6)
+                        {
+                            words6.Add(entry.Key, i);
+                        }
+                        else if (entry.Key.Length == 5)
                         {
                             words5.Add(entry.Key, i);
                         }
                         else if (entry.Key.Length == 4)
                         {
                             words4.Add(entry.Key, i);
-                        }
-                        else if (entry.Key.Length == 3)
-                        {
-                            words3.Add(entry.Key, i);
                         }
                     }
                 }
@@ -300,17 +305,21 @@ namespace TestGame2._0.Backend
 
                     if (index != -1)
                     {
-                        if (entry.Key.Length == 5)
+                        if (entry.Key.Length == 7)
+                        {
+                            words7.Add(entry.Key, j);
+                        }
+                        else if (entry.Key.Length == 6)
+                        {
+                            words6.Add(entry.Key, j);
+                        }
+                        else if (entry.Key.Length == 5)
                         {
                             words5.Add(entry.Key, j);
                         }
                         else if (entry.Key.Length == 4)
                         {
                             words4.Add(entry.Key, j);
-                        }
-                        else if (entry.Key.Length == 3)
-                        {
-                            words3.Add(entry.Key, j);
                         }
                     }
                 }
@@ -329,6 +338,46 @@ namespace TestGame2._0.Backend
 
             lineString = getRowLetters(destroyRow);
 
+            foreach (KeyValuePair<string, int> entry in words7)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int i = index; i < index + entry.Key.Length; i++)
+                    {
+                        GameBoard[destroyRow, i] = 0;
+                    }
+                    MoveUp(destroyRow, index, entry.Key.Length);
+                }
+            }
+            words7.Clear();
+
+            lineString = getRowLetters(destroyRow);
+
+            foreach (KeyValuePair<string, int> entry in words6)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int i = index; i < index + entry.Key.Length; i++)
+                    {
+                        GameBoard[destroyRow, i] = 0;
+                    }
+                    MoveUp(destroyRow, index, entry.Key.Length);
+                }
+            }
+            words6.Clear();
+
+            lineString = getRowLetters(destroyRow);
+
             foreach (KeyValuePair<string, int> entry in words5)
             {
                 index = lineString.IndexOf(entry.Key);
@@ -344,7 +393,6 @@ namespace TestGame2._0.Backend
                     }
                     MoveUp(destroyRow, index, entry.Key.Length);
                 }
-
             }
             words5.Clear();
             lineString = getRowLetters(destroyRow);
@@ -367,26 +415,6 @@ namespace TestGame2._0.Backend
 
             }
             words4.Clear();
-            lineString = getRowLetters(destroyRow);
-
-            foreach (KeyValuePair<string, int> entry in words3)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int i = index; i < index + entry.Key.Length; i++)
-                    {
-                        GameBoard[destroyRow, i] = 0;
-                    }
-                    MoveUp(destroyRow, index, entry.Key.Length);
-                }
-                
-            }
-            words3.Clear();
         }
 
         /// <summary>
@@ -400,6 +428,46 @@ namespace TestGame2._0.Backend
 
             lineString = getColumnLetters(destroyColumn);
 
+            foreach (KeyValuePair<string, int> entry in words7)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int j = index; j < index + entry.Key.Length; j++)
+                    {
+                        GameBoard[j, destroyColumn] = 0;
+                    }
+                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
+                }
+
+            }
+            words7.Clear();
+            lineString = getColumnLetters(destroyColumn);
+
+            foreach (KeyValuePair<string, int> entry in words6)
+            {
+                index = lineString.IndexOf(entry.Key);
+
+                if (index != -1)
+                {
+                    currScore += entry.Value;
+                    formedWord = entry.Key;
+
+                    for (int j = index; j < index + entry.Key.Length; j++)
+                    {
+                        GameBoard[j, destroyColumn] = 0;
+                    }
+                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
+                }
+
+            }
+            words6.Clear();
+            lineString = getColumnLetters(destroyColumn);
+
             foreach (KeyValuePair<string, int> entry in words5)
             {
                 index = lineString.IndexOf(entry.Key);
@@ -439,25 +507,6 @@ namespace TestGame2._0.Backend
             }
             words4.Clear();
             lineString = getColumnLetters(destroyColumn);
-
-            foreach (KeyValuePair<string, int> entry in words3)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int j = index; j < index + entry.Key.Length; j++)
-                    {
-                        GameBoard[j, destroyColumn] = 0;
-                    }
-                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
-                }
-                
-            }
-            words3.Clear();
         }
         public void MoveUp(int x, int y, int length)
         {
