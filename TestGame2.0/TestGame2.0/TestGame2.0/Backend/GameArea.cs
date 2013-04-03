@@ -198,6 +198,13 @@ namespace TestGame2._0.Backend
         {
             playerLetter = player;
         }
+
+        /// <summary>
+        /// Sets a block of the board to a specific value.
+        /// </summary>
+        /// <param name="x">Row value</param>
+        /// <param name="y">Column value</param>
+        /// <param name="value">Letter value</param>
         public static void SetGameBoard(int x, int y, int value)
         {
             GameBoard[x, y] = value;
@@ -243,6 +250,9 @@ namespace TestGame2._0.Backend
             return lineString;
         }
 
+        /// <summary>
+        /// Finds all existing words in all rows of the board.
+        /// </summary>
         public void findRowWords()
         {
             string lineString = "";
@@ -277,7 +287,9 @@ namespace TestGame2._0.Backend
             }
         }
 
-
+        /// <summary>
+        /// Finds all existing words in all columns of the board.
+        /// </summary>
         public void findColumnWords()
         {
             string lineString = "";
@@ -311,6 +323,10 @@ namespace TestGame2._0.Backend
             }
         }
 
+        /// <summary>
+        /// Destroys existing words in a row
+        /// </summary>
+        /// <param name="destroyRow">Row number</param>
         public void destroyRowWord(int destroyRow)
         {
             string lineString = "";
@@ -371,6 +387,10 @@ namespace TestGame2._0.Backend
             words3.Clear();
         }
 
+        /// <summary>
+        /// Destroys existing words in a column.
+        /// </summary>
+        /// <param name="destroyColumn">Column number</param>
         public void destroyColumnWord(int destroyColumn)
         {
             string lineString = "";
