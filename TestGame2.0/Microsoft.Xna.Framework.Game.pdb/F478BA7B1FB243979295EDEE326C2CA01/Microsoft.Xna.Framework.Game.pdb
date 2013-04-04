@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <title>Datavalet - Error</title>
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Cache-Control" content="no-store">
+</head>
+
+<body>
+
+<center>
+<a href="http://www.datavalet.com"><img src="Logo_Low_Res_RGB.jpg"
+border="0"></a>
+
+<h1>Error: Unidentified web browser</h1>
+
+<h2>Erreur: Fureteur web non identifi&#xe9;</h2>
+
+<p><br>
+<br>
+</p>
+
+<table width="65%">
+  <tbody>
+    <tr>
+      <td>Unfortunately we were unable to identify your web browser. If you are
+        an end-user, please <a
+        href="http://1.2.3.4/dv_signon_allow_unidentd">click here to
+        sign-on</a>.</td>
+    </tr>
+    <tr>
+      <td><br>
+        Nous somme malheureusement dans l'impossibilit&#xe9; d'identifier votre
+        fureteur web. Si vous &#xea;tes un utilisateur, veuillez <a
+        href="http://1.2.3.4/dv_signon_allow_unidentd">cliquer pour passer au
+        portail d'ouverture de session</a>.</td>
+    </tr>
+    <tr>
+      <td><br>
+        <br>
+        <br>
+        <br>
+        Copyright &#xa9; 2010 Datavalet. All rights reserved. Datavalet is a
+        registered trademark in Canada. Tous droits r&#xe9;serv&#xe9;s.
+        Datavalet est une marque de commerce d&#xe9;pos&#xe9;e.</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+</body>
+</html>
