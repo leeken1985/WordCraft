@@ -66,7 +66,7 @@ namespace TestGame2._0
             }
             //fifth row (y-z)
             j = 0;
-            for (int i = 24; i < 27; i++)
+            for (int i = 24; i < 30; i++)
             {
                 Rectangles[i] = new Rectangle(
                     j * width, 200, width, height);

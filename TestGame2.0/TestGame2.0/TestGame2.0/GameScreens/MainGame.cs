@@ -48,6 +48,7 @@ namespace TestGame2._0.GameScreens
 
         public void Update(GameTime gameTime)
         {
+            mainArea.Update(gameTime);
             cannonSprite.Update(gameTime);
         }
 

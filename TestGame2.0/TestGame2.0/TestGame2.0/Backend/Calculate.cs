@@ -47,6 +47,9 @@ namespace TestGame2._0.Backend
             letterList.Add('X');
             letterList.Add('Y');
             letterList.Add('Z');
+            letterList.Add(',');
+            letterList.Add('.');
+            letterList.Add('/');
 
             // Adds each letter a certain amount of times based on how many are in a Scrabble set.
             for (int i = 0; i < 8; i++)

@@ -14,6 +14,17 @@ using System.Timers;
 
 namespace TestGame2._0.Backend
 {
+    struct objToDel
+    {
+        public int x, y, value, rowCol;
+        public objToDel(int i, int j, int k, int l)
+        {
+            x = i;
+            y = j;
+            value = k;
+            rowCol = l;
+        }
+    }
     //TODO: Implement gamePiece class
     class GameArea 
     {
@@ -21,36 +32,43 @@ namespace TestGame2._0.Backend
         private const int column = 8; //8 columns
         private const int row = 12; //12 row
         private static int playerLetter;
-        Dictionary<char, int> pointList;
-        Dictionary<string, int> dict;
-        List<char> letterList;
+        private Dictionary<char, int> pointList;
+        private Dictionary<string, int> dict;
+        private List<char> letterList;
         private int tempRow;
         private int letterColumn;
         private int currScore = 0;
         private string formedWord = "";
-        Dictionary<string, int> words3 = new Dictionary<string, int>();
-        Dictionary<string, int> words4 = new Dictionary<string, int>();
-        Dictionary<string, int> words5 = new Dictionary<string, int>();
-        Dictionary<string, int> words6 = new Dictionary<string, int>();
+        private Dictionary<string, int> words3 = new Dictionary<string, int>();
+        private Dictionary<string, int> words4 = new Dictionary<string, int>();
+        private Dictionary<string, int> words5 = new Dictionary<string, int>();
+        private Dictionary<string, int> words6 = new Dictionary<string, int>();
         //Dictionary<string, int> words7 = new Dictionary<string, int>();
-        List<string> possibleColumnWords = new List<string>();
-        List<string> possibleRowWords = new List<string>();
-        List<string> winList = new List<string>();
+        private List<string> possibleColumnWords = new List<string>();
+        private List<string> possibleRowWords = new List<string>();
+        private List<string> winList = new List<string>();
         bool leftCheck = false, rightCheck = false, leftUpCheck = false, rightUpCheck = false,
                 leftDownCheck = false, rightDownCheck = false;
+        private List<objToDel> coordToDestroy = new List<objToDel>();
+        private int explosion = 27; //which explosion sprite to use
+        private float timeElapsed;
+        protected int FrameIndex = 0;
+        private float timeToUpdate = 0.20f;
+        private bool toDestroy = false;
+        private bool toFind = false;
 
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0},
-                                {0, 0, 0, 0, 0, 0, 0, 0}};
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0},
+                                           {0, 0, 0, 0, 0, 0, 0, 0}};
 
 
         public GameArea()
@@ -78,29 +96,23 @@ namespace TestGame2._0.Backend
             {
                 for(int j = 0; j < GameBoard.GetLength(1);j++)
                 {
-                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth, i * sHeight, sWidth, sHeight), b.Rectangles[GameBoard[i, j]], Color.White);
+                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth, i * sHeight, sWidth, sHeight), 
+                        b.Rectangles[GameBoard[i, j]], Color.White);
                 }
             }
         }
 
         public void CreateDictionary()
         {
-            //try
-            //{
-                using (StreamReader sr = new StreamReader("allWords.txt"))
+            using (StreamReader sr = new StreamReader("allWords.txt"))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        int points = calcPoints(line);
-                        dict.Add(line, points);
-                    }
+                    int points = calcPoints(line);
+                    dict.Add(line, points);
                 }
-            //}
-            //catch (Exception e)
-            //{
-            //    //Console.WriteLine("ERRRORRRRRRR: " + e.Message);
-            //}
+            }
         }
 
         public void FallDown(object sender, ElapsedEventArgs e)
@@ -162,6 +174,9 @@ namespace TestGame2._0.Backend
             pointList.Add('X', 8);
             pointList.Add('Y', 4);
             pointList.Add('Z', 10);
+            pointList.Add(',', 0);
+            pointList.Add('.', 0);
+            pointList.Add('/', 0);
         }
         //fire thing
         public void setPiece(int userColumn)
@@ -171,6 +186,7 @@ namespace TestGame2._0.Backend
             {
                 if (GameBoard[i, userColumn] == 0)
                 {
+                    toFind = true;
                     if (i < min)
                     {
                         min = i;
@@ -504,13 +520,16 @@ namespace TestGame2._0.Backend
 
             if (index != -1)
             {
+                toDestroy = true;
                 currScore += calcPoints(word);
                 formedWord = word;
-                for (int i = index; i < index + word.Length; i++)
-                {
-                    GameBoard[i, letterColumn] = 0;
-                }
-                ColumnMoveUp(index, letterColumn, word.Length);
+                //for (int i = index; i < index + word.Length; i++)
+                //{
+                //    GameBoard[i, letterColumn] = 0;
+                //}
+                coordToDestroy.Add(new objToDel(index, letterColumn, word.Length, 1));
+                explosion = 27;
+                //ColumnMoveUp(index, letterColumn, word.Length);
             }
         }
 
@@ -524,13 +543,16 @@ namespace TestGame2._0.Backend
 
             if (index != -1)
             {
+                toDestroy = true;
                 currScore += calcPoints(word);
                 formedWord = word;
-                for (int j = index; j < index + word.Length; j++)
-                {
-                    GameBoard[tempRow, j] = 0;
-                }
-                MoveUp(tempRow, index, word.Length);
+                //for (int j = index; j < index + word.Length; j++)
+                //{
+                //    GameBoard[tempRow, j] = 0;
+                //}
+                coordToDestroy.Add(new objToDel(tempRow, index, word.Length, 0));
+                explosion = 27;
+                //MoveUp(tempRow, index, word.Length);
             }
             possibleRowWords.Clear();
         }
@@ -578,6 +600,72 @@ namespace TestGame2._0.Backend
                 System.Buffer.BlockCopy(GameBoard, (x + length) * 32 + y * 4, GameBoard, x * 32 + y * 4, 4);
             for (int i = 11; i > 11 - length; i--)
                 GameBoard[i, y] = 0;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            timeElapsed += (float)
+                gameTime.ElapsedGameTime.TotalSeconds;
+            if (timeElapsed > timeToUpdate)
+            {
+                timeElapsed -= timeToUpdate;
+                if (toFind)
+                {
+                    findColumnWords();
+                    findRowWords();
+                    toFind = false;
+                }
+                if (toDestroy && explosion != 30)
+                {
+                    int i = 0;
+                    while (i != coordToDestroy.Count())
+                    {
+                        if (coordToDestroy[i].rowCol == 0)//set row to be destroyed as explosion sprites
+                        {
+                            for (int j = coordToDestroy[i].y; j < coordToDestroy[i].y + coordToDestroy[i].value; j++)
+                            {
+                                GameBoard[coordToDestroy[i].x, j] = explosion;
+                            }
+                        }
+                        else //set column to be destroyed as explosion sprites
+                        {
+                            for (int j = coordToDestroy[i].x; j < coordToDestroy[i].x + coordToDestroy[i].value; j++)
+                            {
+                                GameBoard[j, coordToDestroy[i].y] = explosion;
+                            }
+                        }
+                        i++;
+                    }
+                    explosion++;
+                }
+                else if (toDestroy && explosion == 30)
+                {
+                    int i = 0;
+                    while (i != coordToDestroy.Count())
+                    {
+                        if (coordToDestroy[i].rowCol == 0)//delete row
+                        {
+                            for (int j = coordToDestroy[i].y; j < coordToDestroy[i].y + coordToDestroy[i].value; j++)
+                            {
+                                GameBoard[coordToDestroy[i].x, j] = 0;
+                            }
+                            MoveUp(coordToDestroy[i].x, coordToDestroy[i].y, coordToDestroy[i].value);
+                        }
+                        else //delete column
+                        {
+                            for (int j = coordToDestroy[i].x; j < coordToDestroy[i].x + coordToDestroy[i].value; j++)
+                            {
+                                GameBoard[j, coordToDestroy[i].y] = 0;
+                            }
+                            ColumnMoveUp(coordToDestroy[i].x, coordToDestroy[i].y, coordToDestroy[i].value);
+                        }
+                        i++;
+                    }
+                    toDestroy = false;
+                    coordToDestroy.Clear();
+                    explosion++;
+                }
+            }
         }
     }
 }
