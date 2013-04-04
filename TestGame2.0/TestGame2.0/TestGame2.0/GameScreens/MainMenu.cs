@@ -59,8 +59,8 @@ namespace TestGame2._0.GameScreens
             {
                 spriteBatch.Draw(infiniteBackground, rect1, Color.White);
                 spriteBatch.Draw(infiniteBackground, rect2, Color.White);
-                spriteBatch.Draw(texture, new Vector2(35, 0f), Color.White);
-                spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(100, 600), Color.White);
+                spriteBatch.Draw(texture, new Vector2(135, 0f), Color.White);
+                spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(200, 600), Color.White);
                 
             }
         }

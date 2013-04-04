@@ -84,7 +84,7 @@ namespace TestGame2._0.Backend
                     SetGameBoard(x, y, c.generateLetter());
                 }
             }
-            Timer timer = new Timer(3000);
+            Timer timer = new Timer(10000);
             timer.Elapsed += new ElapsedEventHandler(FallDown);
             timer.Start();
         }

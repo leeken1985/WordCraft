@@ -23,9 +23,7 @@ namespace TestGame2._0.GameScreens
         Block block;
         GameArea mainArea;
         SpriteFont myFont;
-        SpriteFont scoreBoardFont;
-        Rectangle ScoreBoardFrame;
-        ScoreBoard score;
+        ScoreBoard scoreBoard;
         
         public MainGame(Game1 game)
         {
@@ -40,30 +38,24 @@ namespace TestGame2._0.GameScreens
             gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
             gridLine.SetData(new Color[] { Color.White });
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
-            ScoreBoardFrame = new Rectangle(400, 0, 200, 700);
             myFont = game.Content.Load<SpriteFont>("myFont");
-            scoreBoardFont = game.Content.Load<SpriteFont>("scoreBoardFont");
-            score = new ScoreBoard();
+            scoreBoard = new ScoreBoard(this.game, this.mainArea, this.cannonSprite);
         }
 
         public void Update(GameTime gameTime)
         {
             mainArea.Update(gameTime);
             cannonSprite.Update(gameTime);
+            scoreBoard.Update(gameTime); // update scoreboard
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
-            cannonSprite.Draw(spriteBatch);            
+            cannonSprite.Draw(spriteBatch);
             mainArea.CreateGameArea(spriteBatch, block);
-            spriteBatch.DrawString(scoreBoardFont, "Score: " + mainArea.getScore(), new Vector2(450, 100), Color.Red);
-            spriteBatch.DrawString(scoreBoardFont, "Word: " + mainArea.getFormedWord(), new Vector2(450, 200), Color.Red);
-            spriteBatch.DrawString(scoreBoardFont, "Current: " + mainArea.getLetterList()[cannonSprite.getQueue()[0]],
-                                    new Vector2(450, 450), Color.White);
-            spriteBatch.DrawString(scoreBoardFont, "Next: " + mainArea.getLetterList()[cannonSprite.getQueue()[1]]
-                        + " , " + mainArea.getLetterList()[cannonSprite.getQueue()[2]], new Vector2(450, 550), Color.Blue);
-            //spriteBatch.Draw(block.Texture, new Rectangle(50, 0, 50, 50), block.Rectangles[0], Color.White);
+            scoreBoard.Draw(spriteBatch); // draw scoreboard
+
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)
             {
