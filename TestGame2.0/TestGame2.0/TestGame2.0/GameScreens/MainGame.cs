@@ -37,7 +37,7 @@ namespace TestGame2._0.GameScreens
             block = new Block(game.Content.Load<Texture2D>("spirteSheet"), 6);
             cannonSprite.setBlock(block);
             cannonSprite.setGameArea(mainArea);
-            background = game.Content.Load<Texture2D>("Wallpaper");
+            background = game.Content.Load<Texture2D>("space");
             gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
             gridLine.SetData(new Color[] { Color.White });
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
@@ -67,15 +67,15 @@ namespace TestGame2._0.GameScreens
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)
             {
-                Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 750);
+                Rectangle rectangle = new Rectangle((int)(350 + x * 50), 0, 1, 750);
                 spriteBatch.Draw(gridLine, rectangle, Color.Red);
             }
             for (float y = -7; y < 9; y++)
             {
-                Rectangle rectangle = new Rectangle(0, (int)(350 + y * 50), 400, 1);
+                Rectangle rectangle = new Rectangle(150, (int)(350 + y * 50), 400, 1);
                 spriteBatch.Draw(gridLine, rectangle, Color.Red);
             }
-            spriteBatch.Draw(gridLine, new Rectangle(0, 600, 400, 1), Color.White);
+            spriteBatch.Draw(gridLine, new Rectangle(150, 600, 400, 1), Color.White);
         }
     }
 }

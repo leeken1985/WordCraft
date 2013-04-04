@@ -45,23 +45,23 @@ namespace TestGame2._0
         /// <param name="thespriteBatch"></param>
         public override void Draw(SpriteBatch thespriteBatch)
         {
-            thespriteBatch.DrawString(scoreBoardFont, "SCORE :    " + mainArea.getScore(), new Vector2(450, 100), Color.Red);            
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(450, 200), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[1] != "" ? "2.    " + (String)wordList[1] : "", new Vector2(450, 230), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[2] != "" ? "3.    " + (String)wordList[2] : "", new Vector2(450, 260), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[3] != "" ? "4.    " + (String)wordList[3] : "", new Vector2(450, 290), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.    " + (String)wordList[4] : "", new Vector2(450, 320), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "SCORE :    " + mainArea.getScore(), new Vector2(20, 100), Color.Red);            
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(20, 200), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[1] != "" ? "2.    " + (String)wordList[1] : "", new Vector2(20, 230), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[2] != "" ? "3.    " + (String)wordList[2] : "", new Vector2(20, 260), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[3] != "" ? "4.    " + (String)wordList[3] : "", new Vector2(20, 290), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.    " + (String)wordList[4] : "", new Vector2(20, 320), Color.White);
 
-            thespriteBatch.DrawString(scoreBoardFont, "Current:    ", new Vector2(420, 450), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, "Next:    ", new Vector2(420, 550), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "Current:  ", new Vector2(570, 250), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "Next:  ", new Vector2(570, 350), Color.White);
             
             block0.SetFrame(cannonSprite.getQueue()[0]);
             block1.SetFrame(cannonSprite.getQueue()[1]);
             block2.SetFrame(cannonSprite.getQueue()[2]);
 
-            block0.setPosition(new Vector2(500, 440));
-            block1.setPosition(new Vector2(470, 540));
-            block2.setPosition(new Vector2(530, 540));
+            block0.setPosition(new Vector2(650, 240));
+            block1.setPosition(new Vector2(630, 340));
+            block2.setPosition(new Vector2(630, 400));
 
             block0.Draw(thespriteBatch);
             block1.Draw(thespriteBatch);

@@ -41,7 +41,7 @@ namespace TestGame2._0
             graphics.IsFullScreen = false;
             //set window size
             graphics.PreferredBackBufferHeight = 751;
-            graphics.PreferredBackBufferWidth = 601;
+            graphics.PreferredBackBufferWidth = 701;
             Content.RootDirectory = "Content";
         }
 

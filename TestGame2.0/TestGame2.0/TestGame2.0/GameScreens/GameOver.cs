@@ -55,7 +55,7 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             spriteBatch.Draw(texture, rect3, Color.White);
-            spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(100, 100), Color.White);
+            spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(200, 100), Color.White);
         }
     }
 }

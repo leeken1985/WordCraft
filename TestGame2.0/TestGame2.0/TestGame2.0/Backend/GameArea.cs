@@ -99,7 +99,7 @@ namespace TestGame2._0.Backend
             {
                 for(int j = 0; j < GameBoard.GetLength(1);j++)
                 {
-                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth, i * sHeight, sWidth, sHeight), 
+                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth +150, i * sHeight, sWidth, sHeight), 
                         b.Rectangles[GameBoard[i, j]], Color.White);
                 }
             }

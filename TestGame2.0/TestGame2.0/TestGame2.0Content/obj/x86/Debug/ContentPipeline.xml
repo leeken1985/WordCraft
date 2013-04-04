@@ -74,6 +74,15 @@
       <Time>2013-04-04T07:36:37.6169099-07:00</Time>
     </Item>
     <Item>
+      <Source>title.png</Source>
+      <Name>title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\title.xnb</Output>
+      <Time>2013-04-04T11:41:37.1421332-07:00</Time>
+    </Item>
+    <Item>
       <Source>myFont.spritefont</Source>
       <Name>myFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -129,13 +138,13 @@
       <Time>2013-04-04T09:51:14.3907063-07:00</Time>
     </Item>
     <Item>
-      <Source>title.png</Source>
-      <Name>title</Name>
+      <Source>space.jpg</Source>
+      <Name>space</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\title.xnb</Output>
-      <Time>2013-04-04T11:41:37.1421332-07:00</Time>
+      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\space.xnb</Output>
+      <Time>2013-04-04T15:03:24.0557826-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

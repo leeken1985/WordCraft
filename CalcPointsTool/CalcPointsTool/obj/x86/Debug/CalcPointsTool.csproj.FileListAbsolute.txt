@@ -8,7 +8,6 @@ C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\
 C:\Users\Aaron\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.pdb
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.exe
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\bin\Debug\CalcPointsTool.pdb
-C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csprojResolveAssemblyReference.cache
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Form1.resources
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.Properties.Resources.resources
 C:\Users\Ken\Documents\GitHub\WordCraft\CalcPointsTool\CalcPointsTool\obj\x86\Debug\CalcPointsTool.csproj.GenerateResource.Cache

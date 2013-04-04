@@ -6,6 +6,7 @@ Content\Wallpaper.xnb
 Content\spaceship.xnb
 Content\Space_background.xnb
 Content\spirteSheet.xnb
+Content\title.xnb
 Content\myFont.xnb
 Content\scoreBoardFont.xnb
 Content\explode.xnb
@@ -13,4 +14,4 @@ Content\travel.xnb
 Content\fire.xnb
 Content\theme1.xnb
 Content\theme1.wma
-Content\title.xnb
+Content\space.xnb

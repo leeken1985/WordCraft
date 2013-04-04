@@ -14,7 +14,7 @@ namespace TestGame2._0
 {
     class Cannon : Sprite
     {
-        const int START_X_POSITION =  0;
+        const int START_X_POSITION =  150;
         const int START_Y_POSITION = 750 - 100;//window height - canon height
         const int MOVE_LEFT = -50;
         const int MOVE_RIGHT = 50;
@@ -57,6 +57,7 @@ namespace TestGame2._0
         public void setBlock(Block b)
         {
             block = b;
+            block.setPosition(Position + new Vector2(0, 0) + new Vector2(1, -Size.Height + 50));
         }
 
         public void setGameArea(GameArea ga)
@@ -75,7 +76,7 @@ namespace TestGame2._0
             speed = Vector2.Zero;
             direction = Vector2.Zero;
 
-            if (Position.X != 0 )//cannon is not hitting the left window boundary
+            if (Position.X != 150 )//cannon is not hitting the left window boundary
             {
                  //Move Left one key press at a time
                  if (newState.IsKeyDown(Keys.Left) && !oldState.IsKeyDown(Keys.Left))
@@ -86,7 +87,7 @@ namespace TestGame2._0
                      columnPosition--;
                  }
             }
-            if (Position.X != 350)//cannon is not hitting the right window boundary
+            if (Position.X != 500)//cannon is not hitting the right window boundary
             {
                 //Move right one key press at a time
                  if (newState.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
