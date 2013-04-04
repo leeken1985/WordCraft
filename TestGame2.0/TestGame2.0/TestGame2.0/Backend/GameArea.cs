@@ -58,7 +58,7 @@ namespace TestGame2._0.Backend
         private float timeToUpdate = 0.20f;
         private bool toDestroy = false;
         private bool toFind = false;
-
+        private Timer timer;
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
@@ -87,7 +87,7 @@ namespace TestGame2._0.Backend
                     SetGameBoard(x, y, c.generateLetter());
                 }
             }
-            Timer timer = new Timer(10000);
+            timer = new Timer(10000);
             timer.Elapsed += new ElapsedEventHandler(FallDown);
             timer.Start();
         }
@@ -120,6 +120,14 @@ namespace TestGame2._0.Backend
 
         public void FallDown(object sender, ElapsedEventArgs e)
         {
+            for (int i = 0; i < 8; i++)
+            {
+                if (GameBoard[11, i] != 0)
+                {
+                    timer.Stop();
+                    game.endGame();
+                }
+            }
             System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
             for (int y = 0; y < GameBoard.GetLength(1); y++)
             {
@@ -127,10 +135,6 @@ namespace TestGame2._0.Backend
             }
             //findRowWords();
             //findColumnWords();
-        }
-
-        public void GameOver()
-        {
         }
 
         public int calcPoints(string word)
