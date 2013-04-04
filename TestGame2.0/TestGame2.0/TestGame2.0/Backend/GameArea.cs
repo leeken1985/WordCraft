@@ -77,16 +77,16 @@ namespace TestGame2._0.Backend
             dict = new Dictionary<string, int>();
             CreatePointList();
             CreateDictionary();
-            //for (int x = 0; x < 2; x++)
-            //{
-            //    for (int y = 0; y < GameBoard.GetLength(1); y++)
-            //    {
-            //        SetGameBoard(x, y, c.generateLetter());
-            //    }
-            //}
-            //Timer timer = new Timer(3000);
-            //timer.Elapsed += new ElapsedEventHandler(FallDown);
-            //timer.Start();
+            for (int x = 0; x < 2; x++)
+            {
+                for (int y = 0; y < GameBoard.GetLength(1); y++)
+                {
+                    SetGameBoard(x, y, c.generateLetter());
+                }
+            }
+            Timer timer = new Timer(3000);
+            timer.Elapsed += new ElapsedEventHandler(FallDown);
+            timer.Start();
         }
 
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
@@ -249,7 +249,7 @@ namespace TestGame2._0.Backend
                 int temp = GameBoard[i, letterColumn];
                 lineString += letterList[temp];
             }
-            return lineString;
+            return lineString.Replace("-", "");
         }
 
         /// <summary>
