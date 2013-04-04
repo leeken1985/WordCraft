@@ -30,6 +30,8 @@ namespace TestGame2._0
         int storageLetter = 26;
         GameArea gameArea;
         List<int> queue;
+        private int totalTimer = 601;
+        private int timeBetweenShots = 600;
         //Random random;
         public void LoadContent(ContentManager theContentManager)
         {
@@ -100,13 +102,17 @@ namespace TestGame2._0
         private void UpdateBlock(GameTime theGameTime, KeyboardState newState)
         {
             block.Update(theGameTime);
-
+            totalTimer += theGameTime.ElapsedGameTime.Milliseconds;
             if (newState.IsKeyDown(Keys.Space))
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
-                    MainGame.seFire.Play();
-                    ShootBlock();
+                    if (totalTimer > timeBetweenShots)
+                    {
+                        totalTimer = 0;
+                        MainGame.seFire.Play();
+                        ShootBlock();
+                    }
                 }
             }
         }
