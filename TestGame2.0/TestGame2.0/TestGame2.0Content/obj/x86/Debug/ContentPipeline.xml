@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Wallpaper.xnb</Output>
-      <Time>2013-04-01T19:26:58.5616784-07:00</Time>
+      <Time>2013-04-03T15:28:25.2304885-07:00</Time>
     </Item>
     <Item>
       <Source>spirteSheet.png</Source>
@@ -80,7 +80,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
-      <Time>2013-03-21T09:21:06.0385845-07:00</Time>
+      <Time>2013-04-03T13:48:32.3787464-07:00</Time>
     </Item>
     <Item>
       <Source>scoreBoardFont.spritefont</Source>

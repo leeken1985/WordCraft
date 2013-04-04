@@ -32,8 +32,13 @@ namespace TestGame2._0.Backend
         Dictionary<string, int> words4 = new Dictionary<string, int>();
         Dictionary<string, int> words5 = new Dictionary<string, int>();
         Dictionary<string, int> words6 = new Dictionary<string, int>();
-        Dictionary<string, int> words7 = new Dictionary<string, int>();
+        //Dictionary<string, int> words7 = new Dictionary<string, int>();
+        List<string> possibleColumnWords = new List<string>();
+        List<string> possibleRowWords = new List<string>();
         List<string> winList = new List<string>();
+        bool leftCheck = false, rightCheck = false, leftUpCheck = false, rightUpCheck = false,
+                leftDownCheck = false, rightDownCheck = false;
+
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -54,16 +59,16 @@ namespace TestGame2._0.Backend
             dict = new Dictionary<string, int>();
             CreatePointList();
             CreateDictionary();
-            for (int x = 0; x < 2; x++)
-            {
-                for (int y = 0; y < GameBoard.GetLength(1); y++)
-                {
-                    SetGameBoard(x, y, c.generateLetter());
-                }
-            }
-            Timer timer = new Timer(5000);
-            timer.Elapsed += new ElapsedEventHandler(FallDown);
-            timer.Start();
+            //for (int x = 0; x < 2; x++)
+            //{
+            //    for (int y = 0; y < GameBoard.GetLength(1); y++)
+            //    {
+            //        SetGameBoard(x, y, c.generateLetter());
+            //    }
+            //}
+            //Timer timer = new Timer(3000);
+            //timer.Elapsed += new ElapsedEventHandler(FallDown);
+            //timer.Start();
         }
 
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
@@ -105,8 +110,8 @@ namespace TestGame2._0.Backend
             {
                 SetGameBoard(0, y, c.generateLetter());
             }
-            findRowWords(true);
-            findColumnWords(true);
+            //findRowWords();
+            //findColumnWords();
         }
 
         public void GameOver()
@@ -220,12 +225,12 @@ namespace TestGame2._0.Backend
         /// Returns letters in a column.
         /// </summary>
         /// <param name="y"></param>
-        public string getColumnLetters(int userColumn)
+        public string getColumnLetters()
         {
             string lineString = "";
             for (int i = 0; i < row; i++)
             {
-                int temp = GameBoard[i, userColumn];
+                int temp = GameBoard[i, letterColumn];
                 lineString += letterList[temp];
             }
             return lineString;
@@ -235,352 +240,337 @@ namespace TestGame2._0.Backend
         /// Returns letters in a row.
         /// </summary>
         /// <param name="y"></param>
-        public string getRowLetters(int userRow)
+        public string getRowLetters()
         {
             string lineString = "";
 
             for (int j = 0; j < column; j++)
             {
-                int temp = GameBoard[userRow, j];
+                int temp = GameBoard[tempRow, j];
                 lineString += letterList[temp];
             }
             return lineString;
         }
 
         /// <summary>
-        /// Finds all existing words in all rows of the board.
+        /// Finds all existing words in a row.
         /// </summary>
-        public void findRowWords(bool auto)
+        public void findRowWords()
         {
             string lineString = "";
-            int index = -1;
+            string sub = "";
 
-            // For each row of letters, search for word in Dictinoary within row.
-            for (int i = 0; i < row; i++)
+            //if (leftCheck)   // CHECK FOR LETTERCOLUMN 0  AND CHECK FOR LETTERCOLUMN ON RIGHTSIDE FAR.  CHECK WORD LENGTH
+            //{
+            //    for (int j = 0; j < letterColumn; j++)
+            //    {
+            //        int temp = GameBoard[tempRow, j];
+            //        lineString += letterList[temp];
+            //    }
+            //    leftCheck = false;
+            //}
+            //else if (rightCheck)
+            //{
+            //    for (int j = letterColumn + 1; j < column; j++)
+            //    {
+            //        int temp = GameBoard[tempRow, j];
+            //        lineString += letterList[temp];
+            //    }
+            //    rightCheck = false;
+
+            //}
+            //else
+            //{
+                lineString = getRowLetters();
+            //}
+
+            switch (letterColumn)
             {
-                lineString = getRowLetters(i);
-
-                foreach (KeyValuePair<string, int> entry in dict)
-                {
-                    index = lineString.IndexOf(entry.Key);
-
-                    if (index != -1)
+                case 0:
+                    for (int j = 3; j <= 6; j++)
                     {
-                        if (entry.Key.Length == 7)
-                        {
-                            words7.Add(entry.Key, i);
-                        }
-                        else if (entry.Key.Length == 6)
-                        {
-                            words6.Add(entry.Key, i);
-                        }
-                        else if (entry.Key.Length == 5)
-                        {
-                            words5.Add(entry.Key, i);
-                        }
-                        else if (entry.Key.Length == 4)
-                        {
-                            words4.Add(entry.Key, i);
-                        }
+                        sub = lineString.Substring(0, j);
+                        possibleRowWords.Add(sub);
+                    }
+                    break;
+                case 1:
+                    for (int j = 3; j <= 6; j++)
+                    {
+                        sub = lineString.Substring(0, j);
+                        possibleRowWords.Add(sub);
+                    }
+                    for (int k = 3; k <= 6; k++)
+                    {
+                        sub = lineString.Substring(1, k);
+                        possibleRowWords.Add(sub);
+                    }
+                    break;
+                case 2:
+                    for (int j = 3; j <= 6; j++)
+                    {
+                        sub = lineString.Substring(0, j);
+                        possibleRowWords.Add(sub);
+                    }
+                    for (int k = 3; k <= 6; k++)
+                    {
+                        sub = lineString.Substring(1, k);
+                        possibleRowWords.Add(sub);
+                    }
+                    for (int l = 3; l <= 6; l++)
+                    {
+                        sub = lineString.Substring(2, l);
+                        possibleRowWords.Add(sub);
+                    }
+                    break;
+                case 3:
+                    for (int j = 3; j <= 6; j++)
+                    {
+                        sub = lineString.Substring(1, j);
+                        possibleRowWords.Add(sub);
+                    }
+                    for (int l = 3; l <= 6; l++)
+                    {
+                        sub = lineString.Substring(2, l);
+                        possibleRowWords.Add(sub);
+                    }
+                    break;
+                case 4:
+                    sub = lineString.Substring(0, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(0, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(1, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(1, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(1, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(4, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(4, 4);
+                    possibleRowWords.Add(sub);
+                    break;
+                case 5:
+                    sub = lineString.Substring(0, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(1, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(1, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(4, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(4, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(5, 3);
+                    break;
+                case 6:
+                    sub = lineString.Substring(4, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(1, 6);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(5, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(4, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 6);
+                    possibleRowWords.Add(sub);
+                    break;
+                case 7:
+                    sub = lineString.Substring(5, 3);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(4, 4);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(3, 5);
+                    possibleRowWords.Add(sub);
+                    sub = lineString.Substring(2, 6);
+                    possibleRowWords.Add(sub);
+                    break;
 
-                        if (!auto)
-                        {
-                            if (entry.Key.Length == 3)
-                            {
-                                words3.Add(entry.Key, i);
-                            }
-                        }
+            }
 
+            int maxPoints = -100;
+            string rowWord = "";
+            foreach (string s in possibleRowWords)
+            {
+                if(dict.ContainsKey(s.Replace("-", ""))){
+                    if(dict[s.Replace("-", "")] > maxPoints){
+                        maxPoints = dict[s.Replace("-", "")];
+                        rowWord = s.Replace("-", "");
                     }
                 }
-                destroyRowWord(i, auto);
             }
-        }
+
+            if (maxPoints != -100)
+            {
+                destroyRowWord(rowWord);
+            }
+    }
 
         /// <summary>
         /// Finds all existing words in all columns of the board.
         /// </summary>
-        public void findColumnWords(bool auto)
+        public void findColumnWords()
         {
             string lineString = "";
+            string sub = "";
+
+            lineString = getColumnLetters();
+
+            if (lineString.Length >= 6)
+            {
+                sub = lineString.Substring(lineString.Length - 6, 6);
+                possibleColumnWords.Add(sub);
+                sub = lineString.Substring(lineString.Length - 5, 5);
+                possibleColumnWords.Add(sub);
+                sub = lineString.Substring(lineString.Length - 4, 4);
+                possibleColumnWords.Add(sub);
+                sub = lineString.Substring(lineString.Length - 3, 3);
+                possibleColumnWords.Add(sub);
+            }
+            else if (lineString.Length == 5)
+            {
+                sub = lineString.Substring(lineString.Length - 5, 5);
+                possibleColumnWords.Add(sub);
+                sub = lineString.Substring(lineString.Length - 4, 4);
+                possibleColumnWords.Add(sub);
+                sub = lineString.Substring(lineString.Length - 3, 3);
+                possibleColumnWords.Add(sub);
+            }
+            else if (lineString.Length == 4)
+            {
+                sub = lineString.Substring(lineString.Length - 4, 4);
+                possibleColumnWords.Add(sub);
+                sub = lineString.Substring(lineString.Length - 3, 3);
+                possibleColumnWords.Add(sub);
+
+            }
+            else if (lineString.Length == 3)
+            {
+                sub = lineString.Substring(lineString.Length - 3, 3);
+                possibleColumnWords.Add(sub);
+            }
+
+
+            foreach (string s in possibleColumnWords)
+            {
+                if (dict.ContainsKey(s.Replace("-", "")))
+                {
+                    destroyColumnWord(s.Replace("-", ""));
+                }
+            }
+            possibleColumnWords.Clear();
+        }
+
+        public void destroyColumnWord(string word)
+        {
+            int length = word.Length;
+
+            string columnLetters = getColumnLetters();
             int index = -1;
 
-            for (int j = 0; j < column; j++)
+            index = columnLetters.IndexOf(word);
+
+            if (index != -1)
             {
-                lineString = getColumnLetters(j);
-
-                foreach (KeyValuePair<string, int> entry in dict)
+                currScore += calcPoints(word);
+                formedWord = word;
+                for (int i = index; i < index + word.Length; i++)
                 {
-                    index = lineString.IndexOf(entry.Key);
-
-                    if (index != -1)
-                    {
-                        if (entry.Key.Length == 7)
-                        {
-                            words7.Add(entry.Key, j);
-                        }
-                        else if (entry.Key.Length == 6)
-                        {
-                            words6.Add(entry.Key, j);
-                        }
-                        else if (entry.Key.Length == 5)
-                        {
-                            words5.Add(entry.Key, j);
-                        }
-                        else if (entry.Key.Length == 4)
-                        {
-                            words4.Add(entry.Key, j);
-                        }
-
-                        if (!auto)
-                        {
-                            if (entry.Key.Length == 3)
-                            {
-                                words3.Add(entry.Key, j);
-                            }
-                        }
-                        
-                    }
+                    GameBoard[i, letterColumn] = 0;
                 }
-                destroyColumnWord(j, auto);
+                ColumnMoveUp(index, letterColumn, word.Length);
             }
         }
 
-        /// <summary>
-        /// Destroys existing words in a row
-        /// </summary>
-        /// <param name="destroyRow">Row number</param>
-        public void destroyRowWord(int destroyRow, bool auto)
+        public void destroyRowWord(string word)
         {
-            string lineString = "";
+            string rowLetters = getRowLetters();
+
             int index = -1;
 
-            lineString = getRowLetters(destroyRow);
+            index = rowLetters.IndexOf(word);
 
-            foreach (KeyValuePair<string, int> entry in words7)
+            if (index != -1)
             {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
+                currScore += calcPoints(word);
+                formedWord = word;
+                for (int j = index; j < index + word.Length; j++)
                 {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int i = index; i < index + entry.Key.Length; i++)
-                    {
-                        GameBoard[destroyRow, i] = 0;
-                    }
-                    MoveUp(destroyRow, index, entry.Key.Length);
+                    GameBoard[tempRow, j] = 0;
                 }
+                MoveUp(tempRow, index, word.Length);
             }
-            words7.Clear();
-
-            lineString = getRowLetters(destroyRow);
-
-            foreach (KeyValuePair<string, int> entry in words6)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int i = index; i < index + entry.Key.Length; i++)
-                    {
-                        GameBoard[destroyRow, i] = 0;
-                    }
-                    MoveUp(destroyRow, index, entry.Key.Length);
-                }
-            }
-            words6.Clear();
-
-            lineString = getRowLetters(destroyRow);
-
-            foreach (KeyValuePair<string, int> entry in words5)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int i = index; i < index + entry.Key.Length; i++)
-                    {
-                        GameBoard[destroyRow, i] = 0;
-                    }
-                    MoveUp(destroyRow, index, entry.Key.Length);
-                }
-            }
-            words5.Clear();
-            lineString = getRowLetters(destroyRow);
-
-            foreach (KeyValuePair<string, int> entry in words4)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int i = index; i < index + entry.Key.Length; i++)
-                    {
-                        GameBoard[destroyRow, i] = 0;
-                    }
-                    MoveUp(destroyRow, index, entry.Key.Length);
-                }
-
-            }
-            words4.Clear();
-
-            if (!auto)
-            {
-                lineString = getRowLetters(destroyRow);
-
-                foreach (KeyValuePair<string, int> entry in words3)
-                {
-                    index = lineString.IndexOf(entry.Key);
-
-                    if (index != -1)
-                    {
-                        currScore += entry.Value;
-                        formedWord = entry.Key;
-
-                        for (int i = index; i < index + entry.Key.Length; i++)
-                        {
-                            GameBoard[destroyRow, i] = 0;
-                        }
-                        MoveUp(destroyRow, index, entry.Key.Length);
-                    }
-
-                }
-                words3.Clear();
-            }
+            possibleRowWords.Clear();
         }
 
-        /// <summary>
-        /// Destroys existing words in a column.
-        /// </summary>
-        /// <param name="destroyColumn">Column number</param>
-        public void destroyColumnWord(int destroyColumn, bool auto)
+        public void secondCheck()
         {
-            string lineString = "";
-            int index = -1;
+            string leftString = "";
+            string sub = "";
+            int letterIndex = letterColumn - 1;
 
-            lineString = getColumnLetters(destroyColumn);
-
-            foreach (KeyValuePair<string, int> entry in words7)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int j = index; j < index + entry.Key.Length; j++)
-                    {
-                        GameBoard[j, destroyColumn] = 0;
-                    }
-                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
-                }
-
+            // left check
+            for(int j = 0; j < letterColumn; j++){
+                int temp = GameBoard[tempRow, j];
+                leftString += letterList[temp];
             }
-            words7.Clear();
-            lineString = getColumnLetters(destroyColumn);
 
-            foreach (KeyValuePair<string, int> entry in words6)
+            switch (letterIndex)
             {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int j = index; j < index + entry.Key.Length; j++)
-                    {
-                        GameBoard[j, destroyColumn] = 0;
-                    }
-                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
-                }
-
+                case 3:
+                    break;
             }
-            words6.Clear();
-            lineString = getColumnLetters(destroyColumn);
 
-            foreach (KeyValuePair<string, int> entry in words5)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int j = index; j < index + entry.Key.Length; j++)
-                    {
-                        GameBoard[j, destroyColumn] = 0;
-                    }
-                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
-                }
-                
-            }
-            words5.Clear();
-            lineString = getColumnLetters(destroyColumn);
-
-            foreach (KeyValuePair<string, int> entry in words4)
-            {
-                index = lineString.IndexOf(entry.Key);
-
-                if (index != -1)
-                {
-                    currScore += entry.Value;
-                    formedWord = entry.Key;
-
-                    for (int j = index; j < index + entry.Key.Length; j++)
-                    {
-                        GameBoard[j, destroyColumn] = 0;
-                    }
-                    ColumnMoveUp(index, destroyColumn, entry.Key.Length);
-                }
-                
-            }
-            words4.Clear();
-
-            if (!auto)
-            {
-                lineString = getColumnLetters(destroyColumn);
-
-                foreach (KeyValuePair<string, int> entry in words3)
-                {
-                    index = lineString.IndexOf(entry.Key);
-
-                    if (index != -1)
-                    {
-                        currScore += entry.Value;
-                        formedWord = entry.Key;
-
-                        for (int j = index; j < index + entry.Key.Length; j++)
-                        {
-                            GameBoard[j, destroyColumn] = 0;
-                        }
-                        ColumnMoveUp(index, destroyColumn, entry.Key.Length);
-                    }
-
-                }
-                words3.Clear();
-            }
         }
+
         public void MoveUp(int x, int y, int length)
         {
             int i = 0;
             for (; x < 11; x++)
                 System.Buffer.BlockCopy(GameBoard, (x + 1) * 32 + y * 4, GameBoard, x * 32 + y * 4, length * 4);
-            for (i = y; i < y+length;i++)
+            for (i = y; i < y + length; i++)
+            {
                 GameBoard[11, i] = 0;
+            }
+
+            //leftCheck = true;
+            //rightCheck = true;
+            //leftUpCheck = true;
+            //rightUpCheck = true;
+            //leftDownCheck = true;
+            //rightDownCheck = true;
         }
         public void ColumnMoveUp(int x, int y, int length)
         {

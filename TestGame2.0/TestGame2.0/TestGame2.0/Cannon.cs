@@ -26,6 +26,7 @@ namespace TestGame2._0
         ContentManager mContentManager;
         int columnPosition = 1;
         int playerLetter;
+        int storageLetter = 26;
         GameArea gameArea;
         List<int> queue;
         //Random random;
@@ -42,6 +43,12 @@ namespace TestGame2._0
             {
                 queue.Add(calc.generateLetter());
             }
+        }
+
+        public void swap()
+        {
+                storageLetter = queue[0];
+                gameArea.setPlayerLetter(storageLetter);
         }
 
         public void setBlock(Block b)
@@ -105,8 +112,8 @@ namespace TestGame2._0
             block.SetFrame(queue[0]);//chooses random asteroid (a-z)
             gameArea.setPlayerLetter(queue[0]);
             gameArea.setPiece(columnPosition - 1);
-            gameArea.findRowWords(false);
-            gameArea.findColumnWords(false);
+            gameArea.findRowWords();
+            gameArea.findColumnWords();
             queue.RemoveRange(0, 1);
             queue.Add(calc.generateLetter());
             block.SetFrame(queue[0]);
