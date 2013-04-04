@@ -609,12 +609,12 @@ namespace TestGame2._0.Backend
             if (timeElapsed > timeToUpdate)
             {
                 timeElapsed -= timeToUpdate;
-                if (toFind)
-                {
-                    findColumnWords();
-                    findRowWords();
-                    toFind = false;
-                }
+                //if (toFind)
+                //{
+                //    findColumnWords();
+                //    findRowWords();
+                //    toFind = false;
+                //}
                 if (toDestroy && explosion != 30)
                 {
                     int i = 0;
