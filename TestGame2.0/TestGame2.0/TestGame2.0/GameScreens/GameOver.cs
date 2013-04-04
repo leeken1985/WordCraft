@@ -12,35 +12,27 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TestGame2._0.GameScreens
 {
-    class MainMenu
+    class GameOver
     {
-        private Texture2D title;
-        private Texture2D infiniteBackground;
         private Game1 game;
-        private KeyboardState lastState;
         private SpriteFont myFont;
-        private Rectangle rect1, rect2;
+        private Texture2D texture;
+        private Rectangle rect1, rect2, rect3;
+        private Texture2D infiniteBackground;
 
-        public MainMenu(Game1 game)
+        public GameOver(Game1 game)
         {
             this.game = game;
-            lastState = Keyboard.GetState();
-            myFont = game.Content.Load<SpriteFont>("myFont");
-            title = game.Content.Load<Texture2D>("title");
+            myFont = game.Content.Load<SpriteFont>("scoreBoardFont");
+            texture = game.Content.Load<Texture2D>("Awesome_Face");
             infiniteBackground = game.Content.Load<Texture2D>("Space_background");
             rect1 = new Rectangle(0, 0, 1312, 887);
             rect2 = new Rectangle(0, 887, 1312, 887);
+            rect3 = new Rectangle(600, 200, texture.Width, texture.Height);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            KeyboardState currentState = Keyboard.GetState();
-            if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter))
-            {
-                game.StartGame();
-            }
-            lastState = currentState;
-            //Scrolls background
             if (rect1.Y + infiniteBackground.Height <= 0)
             {
                 rect1.Y = rect2.Y + infiniteBackground.Height;
@@ -51,14 +43,19 @@ namespace TestGame2._0.GameScreens
             }
             rect1.Y -= 2;
             rect2.Y -= 2;
+            if (rect3.X != 150)
+            {
+                rect3.X--;
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
-            spriteBatch.Draw(title, new Vector2(50, 0), Color.White);
-            spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(200, 600), Color.White);
+            spriteBatch.Draw(texture, rect3, Color.White);
+            spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(100, 100), Color.White);
         }
     }
 }

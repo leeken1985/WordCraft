@@ -31,7 +31,7 @@ namespace TestGame2._0.GameScreens
         public MainGame(Game1 game)
         {
             this.game = game;
-            mainArea = new GameArea();
+            mainArea = new GameArea(this.game);
             cannonSprite = new Cannon();
             cannonSprite.LoadContent(game.Content);
             block = new Block(game.Content.Load<Texture2D>("spirteSheet"), 6);

@@ -28,6 +28,7 @@ namespace TestGame2._0
     {
         MainGame mainGame;
         MainMenu mainMenu;
+        GameOver gameOver;
         SpriteBatch spriteBatch;
         Texture2D background;
         Screen currentScreen;
@@ -110,6 +111,12 @@ namespace TestGame2._0
                         mainGame.Update(gameTime);
                     }
                     break;
+                case Screen.GameOver:
+                    if (gameOver != null)
+                    {
+                        gameOver.Update(gameTime);
+                    }
+                    break;
             }
 
             base.Update(gameTime);
@@ -140,6 +147,12 @@ namespace TestGame2._0
                         mainGame.Draw(spriteBatch);
                     }
                     break;
+                case Screen.GameOver:
+                    if (gameOver != null)
+                    {
+                        gameOver.Draw(spriteBatch);
+                    }
+                    break;
             }
             spriteBatch.End();
             base.Draw(gameTime);
@@ -150,6 +163,13 @@ namespace TestGame2._0
             mainGame = new MainGame(this);
             currentScreen = Screen.MainGame;
             mainMenu = null;
+        }
+
+        public void endGame()
+        {
+            gameOver= new GameOver(this);
+            currentScreen = Screen.GameOver;
+            mainGame = null;
         }
     }
 }

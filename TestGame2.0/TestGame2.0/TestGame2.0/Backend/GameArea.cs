@@ -29,6 +29,7 @@ namespace TestGame2._0.Backend
     //TODO: Implement gamePiece class
     class GameArea 
     {
+        private Game1 game;
         private Calculate c = new Calculate();
         private const int column = 8; //8 columns
         private const int row = 12; //12 row
@@ -72,8 +73,9 @@ namespace TestGame2._0.Backend
                                            {0, 0, 0, 0, 0, 0, 0, 0}};
 
 
-        public GameArea()
+        public GameArea(Game1 game)
         {
+            this.game = game;
             pointList = new Dictionary<char, int>();
             dict = new Dictionary<string, int>();
             CreatePointList();
@@ -199,7 +201,14 @@ namespace TestGame2._0.Backend
                 }
             }
             tempRow = min;
-            GameBoard[tempRow, userColumn] = playerLetter;
+            try
+            {
+                GameBoard[tempRow, userColumn] = playerLetter;
+            }
+            catch (Exception ex)
+            {
+                game.endGame();
+            }
             letterColumn = userColumn;
         }
 
@@ -260,11 +269,17 @@ namespace TestGame2._0.Backend
         public string getRowLetters()
         {
             string lineString = "";
-
-            for (int j = 0; j < column; j++)
+            try
             {
-                int temp = GameBoard[tempRow, j];
-                lineString += letterList[temp];
+                for (int j = 0; j < column; j++)
+                {
+                    int temp = GameBoard[tempRow, j];
+                    lineString += letterList[temp];
+                }
+            }
+            catch (Exception ex)
+            {
+                game.endGame();
             }
             return lineString;
         }
@@ -301,141 +316,148 @@ namespace TestGame2._0.Backend
                 lineString = getRowLetters();
             //}
 
-            switch (letterColumn)
-            {
-                case 0:
-                    for (int j = 3; j <= 6; j++)
+                try
+                {
+                    switch (letterColumn)
                     {
-                        sub = lineString.Substring(0, j);
-                        possibleRowWords.Add(sub);
-                    }
-                    break;
-                case 1:
-                    for (int j = 3; j <= 6; j++)
-                    {
-                        sub = lineString.Substring(0, j);
-                        possibleRowWords.Add(sub);
-                    }
-                    for (int k = 3; k <= 6; k++)
-                    {
-                        sub = lineString.Substring(1, k);
-                        possibleRowWords.Add(sub);
-                    }
-                    break;
-                case 2:
-                    for (int j = 3; j <= 6; j++)
-                    {
-                        sub = lineString.Substring(0, j);
-                        possibleRowWords.Add(sub);
-                    }
-                    for (int k = 3; k <= 6; k++)
-                    {
-                        sub = lineString.Substring(1, k);
-                        possibleRowWords.Add(sub);
-                    }
-                    for (int l = 3; l <= 6; l++)
-                    {
-                        sub = lineString.Substring(2, l);
-                        possibleRowWords.Add(sub);
-                    }
-                    break;
-                case 3:
-                    for (int j = 3; j <= 6; j++)
-                    {
-                        sub = lineString.Substring(1, j);
-                        possibleRowWords.Add(sub);
-                    }
-                    for (int l = 3; l <= 6; l++)
-                    {
-                        sub = lineString.Substring(2, l);
-                        possibleRowWords.Add(sub);
-                    }
-                    break;
-                case 4:
-                    sub = lineString.Substring(0, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(0, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(1, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(1, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(1, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(4, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(4, 4);
-                    possibleRowWords.Add(sub);
-                    break;
-                case 5:
-                    sub = lineString.Substring(0, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(1, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(1, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(4, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(4, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(5, 3);
-                    break;
-                case 6:
-                    sub = lineString.Substring(4, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(1, 6);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(5, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(4, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 6);
-                    possibleRowWords.Add(sub);
-                    break;
-                case 7:
-                    sub = lineString.Substring(5, 3);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(4, 4);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(3, 5);
-                    possibleRowWords.Add(sub);
-                    sub = lineString.Substring(2, 6);
-                    possibleRowWords.Add(sub);
-                    break;
+                        case 0:
+                            for (int j = 3; j <= 6; j++)
+                            {
+                                sub = lineString.Substring(0, j);
+                                possibleRowWords.Add(sub);
+                            }
+                            break;
+                        case 1:
+                            for (int j = 3; j <= 6; j++)
+                            {
+                                sub = lineString.Substring(0, j);
+                                possibleRowWords.Add(sub);
+                            }
+                            for (int k = 3; k <= 6; k++)
+                            {
+                                sub = lineString.Substring(1, k);
+                                possibleRowWords.Add(sub);
+                            }
+                            break;
+                        case 2:
+                            for (int j = 3; j <= 6; j++)
+                            {
+                                sub = lineString.Substring(0, j);
+                                possibleRowWords.Add(sub);
+                            }
+                            for (int k = 3; k <= 6; k++)
+                            {
+                                sub = lineString.Substring(1, k);
+                                possibleRowWords.Add(sub);
+                            }
+                            for (int l = 3; l <= 6; l++)
+                            {
+                                sub = lineString.Substring(2, l);
+                                possibleRowWords.Add(sub);
+                            }
+                            break;
+                        case 3:
+                            for (int j = 3; j <= 6; j++)
+                            {
+                                sub = lineString.Substring(1, j);
+                                possibleRowWords.Add(sub);
+                            }
+                            for (int l = 3; l <= 6; l++)
+                            {
+                                sub = lineString.Substring(2, l);
+                                possibleRowWords.Add(sub);
+                            }
+                            break;
+                        case 4:
+                            sub = lineString.Substring(0, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(0, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(1, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(1, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(1, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(4, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(4, 4);
+                            possibleRowWords.Add(sub);
+                            break;
+                        case 5:
+                            sub = lineString.Substring(0, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(1, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(1, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(4, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(4, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(5, 3);
+                            break;
+                        case 6:
+                            sub = lineString.Substring(4, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(1, 6);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(5, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(4, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 6);
+                            possibleRowWords.Add(sub);
+                            break;
+                        case 7:
+                            sub = lineString.Substring(5, 3);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(4, 4);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(3, 5);
+                            possibleRowWords.Add(sub);
+                            sub = lineString.Substring(2, 6);
+                            possibleRowWords.Add(sub);
+                            break;
 
-            }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    game.endGame();
+                }
 
             int maxPoints = -100;
             string rowWord = "";

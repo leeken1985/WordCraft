@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spirteSheet.xnb</Output>
-      <Time>2013-04-01T16:08:56.9269185-07:00</Time>
+      <Time>2013-04-04T08:56:33.8159318-07:00</Time>
     </Item>
     <Item>
       <Source>spaceship.png</Source>
@@ -89,7 +89,53 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\scoreBoardFont.xnb</Output>
-      <Time>2013-04-01T23:27:57.8585272-07:00</Time>
+      <Time>2013-04-03T09:05:17.3502957-07:00</Time>
+    </Item>
+    <Item>
+      <Source>explode.wav</Source>
+      <Name>explode</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\explode.xnb</Output>
+      <Time>2013-04-04T10:50:59.4388269-07:00</Time>
+    </Item>
+    <Item>
+      <Source>travel.wav</Source>
+      <Name>travel</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\travel.xnb</Output>
+      <Time>2013-04-04T10:50:59.4528364-07:00</Time>
+    </Item>
+    <Item>
+      <Source>fire.wav</Source>
+      <Name>fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\fire.xnb</Output>
+      <Time>2013-04-04T10:50:59.4408289-07:00</Time>
+    </Item>
+    <Item>
+      <Source>theme1.mp3</Source>
+      <Name>theme1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.xnb</Output>
+      <Extra>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.wma</Extra>
+      <Time>2013-04-04T10:50:59.450835-07:00</Time>
+    </Item>
+    <Item>
+      <Source>title.png</Source>
+      <Name>title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\title.xnb</Output>
+      <Time>2013-04-04T11:19:57.9144878-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
