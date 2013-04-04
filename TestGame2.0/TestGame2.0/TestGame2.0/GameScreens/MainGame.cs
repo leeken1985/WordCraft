@@ -67,14 +67,15 @@ namespace TestGame2._0.GameScreens
             //draw a red grid 50 x 50
             for (float x = -4; x < 5; x++)
             {
-                Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 700);
+                Rectangle rectangle = new Rectangle((int)(200 + x * 50), 0, 1, 750);
                 spriteBatch.Draw(gridLine, rectangle, Color.Red);
             }
-            for (float y = -7; y < 8; y++)
+            for (float y = -7; y < 9; y++)
             {
                 Rectangle rectangle = new Rectangle(0, (int)(350 + y * 50), 400, 1);
                 spriteBatch.Draw(gridLine, rectangle, Color.Red);
             }
+            spriteBatch.Draw(gridLine, new Rectangle(0, 600, 400, 1), Color.White);
         }
     }
 }

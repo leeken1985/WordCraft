@@ -15,7 +15,7 @@ namespace TestGame2._0
     class Cannon : Sprite
     {
         const int START_X_POSITION =  0;
-        const int START_Y_POSITION = 700 - 100;//window height - canon height
+        const int START_Y_POSITION = 750 - 100;//window height - canon height
         const int MOVE_LEFT = -50;
         const int MOVE_RIGHT = 50;
         const int SPEED = 160;

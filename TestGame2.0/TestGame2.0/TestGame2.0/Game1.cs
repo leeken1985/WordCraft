@@ -40,7 +40,7 @@ namespace TestGame2._0
             Window.Title = "WordCraft";
             graphics.IsFullScreen = false;
             //set window size
-            graphics.PreferredBackBufferHeight = 701;
+            graphics.PreferredBackBufferHeight = 751;
             graphics.PreferredBackBufferWidth = 601;
             Content.RootDirectory = "Content";
         }
