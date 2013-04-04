@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
 using System.Timers;
+using TestGame2._0.GameScreens;
 
 namespace TestGame2._0.Backend
 {
@@ -520,6 +521,7 @@ namespace TestGame2._0.Backend
 
             if (index != -1)
             {
+                MainGame.seExplode.Play();
                 toDestroy = true;
                 currScore += calcPoints(word);
                 formedWord = word;
@@ -543,6 +545,7 @@ namespace TestGame2._0.Backend
 
             if (index != -1)
             {
+                MainGame.seExplode.Play();
                 toDestroy = true;
                 currScore += calcPoints(word);
                 formedWord = word;

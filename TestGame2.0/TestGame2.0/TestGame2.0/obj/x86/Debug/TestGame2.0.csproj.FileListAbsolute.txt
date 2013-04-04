@@ -62,3 +62,8 @@ C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\
 C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.exe
 C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.pdb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\explode.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\travel.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\fire.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.wma

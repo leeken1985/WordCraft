@@ -24,7 +24,10 @@ namespace TestGame2._0.GameScreens
         GameArea mainArea;
         SpriteFont myFont;
         ScoreBoard scoreBoard;
-        
+        public static SoundEffect seExplode;
+        public static SoundEffect seTravel;
+        public static SoundEffect seFire;
+
         public MainGame(Game1 game)
         {
             this.game = game;
@@ -40,6 +43,11 @@ namespace TestGame2._0.GameScreens
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             myFont = game.Content.Load<SpriteFont>("myFont");
             scoreBoard = new ScoreBoard(this.game, this.mainArea, this.cannonSprite);
+            seExplode = game.Content.Load<SoundEffect>("explode");
+            seTravel = game.Content.Load<SoundEffect>("travel");
+            seFire = game.Content.Load<SoundEffect>("fire");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(game.Content.Load<Song>("theme1"));
         }
 
         public void Update(GameTime gameTime)

@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TestGame2._0.Backend;
+using TestGame2._0.GameScreens;
 
 
 namespace TestGame2._0
@@ -77,6 +78,7 @@ namespace TestGame2._0
                  //Move Left one key press at a time
                  if (newState.IsKeyDown(Keys.Left) && !oldState.IsKeyDown(Keys.Left))
                  {
+                     MainGame.seTravel.Play();
                      direction.X = MOVE_LEFT;
                      block.setPosition(Position + new Vector2(-50, 0) + new Vector2(1, -Size.Height + 50));
                      columnPosition--;
@@ -87,6 +89,7 @@ namespace TestGame2._0
                 //Move right one key press at a time
                  if (newState.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
                  {
+                     MainGame.seTravel.Play();
                      direction.X = MOVE_RIGHT;
                      block.setPosition(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height + 50));
                      columnPosition++;
@@ -102,6 +105,7 @@ namespace TestGame2._0
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
+                    MainGame.seFire.Play();
                     ShootBlock();
                 }
             }
