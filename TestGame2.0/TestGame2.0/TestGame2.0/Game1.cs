@@ -33,6 +33,7 @@ namespace TestGame2._0
         Texture2D background;
         Screen currentScreen;
         GraphicsDeviceManager graphics;
+        public int totalScore;
 
         public Game1()
         {

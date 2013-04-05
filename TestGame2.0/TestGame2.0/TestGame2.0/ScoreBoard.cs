@@ -16,6 +16,7 @@ namespace TestGame2._0
 {
     class ScoreBoard : Sprite
     {
+        private Game1 game;
         private Dictionary<char, int> hash = new Dictionary<char, int>();
         private Cannon cannonSprite;
         private Block block0, block1, block2;
@@ -31,6 +32,7 @@ namespace TestGame2._0
         /// <param name="cs"></param>
         public ScoreBoard(Game1 g, GameArea ma, Cannon cs) 
         {
+            this.game = g;
             block0 = new Block(g.Content.Load<Texture2D>("spirteSheet"), 6);
             block1 = new Block(g.Content.Load<Texture2D>("spirteSheet"), 6);
             block2 = new Block(g.Content.Load<Texture2D>("spirteSheet"), 6);
@@ -45,6 +47,7 @@ namespace TestGame2._0
         /// <param name="thespriteBatch"></param>
         public override void Draw(SpriteBatch thespriteBatch)
         {
+            game.totalScore = mainArea.getScore();
             thespriteBatch.DrawString(scoreBoardFont, "SCORE :    " + mainArea.getScore(), new Vector2(20, 100), Color.Red);            
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(20, 200), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[1] != "" ? "2.    " + (String)wordList[1] : "", new Vector2(20, 230), Color.White);

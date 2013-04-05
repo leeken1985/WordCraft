@@ -137,6 +137,15 @@
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\title.xnb</Output>
       <Time>2013-04-04T11:19:57.9144878-07:00</Time>
     </Item>
+    <Item>
+      <Source>space.jpg</Source>
+      <Name>space</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\space.xnb</Output>
+      <Time>2013-04-05T00:02:42.8851575-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{73E0F13B-FAB8-49BF-B1AB-1C536DEA6F9B}</ContentProjectGUID>

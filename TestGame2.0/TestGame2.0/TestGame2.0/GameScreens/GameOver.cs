@@ -29,6 +29,7 @@ namespace TestGame2._0.GameScreens
             rect1 = new Rectangle(0, 0, 1312, 887);
             rect2 = new Rectangle(0, 887, 1312, 887);
             rect3 = new Rectangle(600, 200, texture.Width, texture.Height);
+            
         }
 
         public void Update(GameTime gameTime)
@@ -52,10 +53,14 @@ namespace TestGame2._0.GameScreens
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            //stop the song on draw
+            MediaPlayer.Stop();
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             spriteBatch.Draw(texture, rect3, Color.White);
             spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(200, 100), Color.White);
+            spriteBatch.DrawString(myFont, "Total Score", new Vector2(200, 200), Color.White);
+            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(300, 200), Color.White);
         }
     }
 }
