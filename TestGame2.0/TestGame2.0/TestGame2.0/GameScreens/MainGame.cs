@@ -34,7 +34,7 @@ namespace TestGame2._0.GameScreens
             mainArea = new GameArea(this.game);
             cannonSprite = new Cannon();
             cannonSprite.LoadContent(game.Content);
-            block = new Block(game.Content.Load<Texture2D>("spirteSheet"), 6);
+            block = new Block(game.Content.Load<Texture2D>("spriteSheet"), 6);
             cannonSprite.setBlock(block);
             cannonSprite.setGameArea(mainArea);
             background = game.Content.Load<Texture2D>("space");

@@ -32,7 +32,7 @@ namespace TestGame2._0
             int width = 50;//Texture.Width / frames;
             int height = 50;
             int j = 0;
-            Rectangles = new Rectangle[frames*5];
+            Rectangles = new Rectangle[frames * 5];
             //first row (a-f)
             for (int i = 0; i < frames; i++)
             {
@@ -42,7 +42,7 @@ namespace TestGame2._0
             }
             //second row (g-l)
             j = 0;
-            for (int i = 6; i < frames*2; i++) 
+            for (int i = 6; i < frames * 2; i++)
             {
                 Rectangles[i] = new Rectangle(
                     j * width, 50, width, height);
@@ -103,14 +103,6 @@ namespace TestGame2._0
         public void setPosition(Vector2 thePosition)
         {
             Position = thePosition;
-        }
-
-        public void Fire(Vector2 theStartPosition, Vector2 theSpeed, Vector2 theDirection)
-        {
-            Position = theStartPosition;
-            mStartPosition = theStartPosition;
-            mSpeed = theSpeed;
-            mDirection = theDirection;
         }
     }
 }

@@ -33,9 +33,9 @@ namespace TestGame2._0
         public ScoreBoard(Game1 g, GameArea ma, Cannon cs) 
         {
             this.game = g;
-            block0 = new Block(g.Content.Load<Texture2D>("spirteSheet"), 6);
-            block1 = new Block(g.Content.Load<Texture2D>("spirteSheet"), 6);
-            block2 = new Block(g.Content.Load<Texture2D>("spirteSheet"), 6);
+            block0 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
+            block1 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
+            block2 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
             scoreBoardFont = g.Content.Load<SpriteFont>("scoreBoardFont");
             mainArea = ma;
             cannonSprite = cs;            

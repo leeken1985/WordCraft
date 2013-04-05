@@ -14,7 +14,7 @@ namespace TestGame2._0
 {
     class Cannon : Sprite
     {
-        const int START_X_POSITION =  150;
+        const int START_X_POSITION = 150;
         const int START_Y_POSITION = 750 - 100;//window height - canon height
         const int MOVE_LEFT = -50;
         const int MOVE_RIGHT = 50;
@@ -23,7 +23,7 @@ namespace TestGame2._0
         Vector2 speed = Vector2.Zero;
         Vector2 direction = Vector2.Zero;
         Calculate calc;
-        KeyboardState oldState ;
+        KeyboardState oldState;
         ContentManager mContentManager;
         int columnPosition = 1;
         int playerLetter;
@@ -31,7 +31,7 @@ namespace TestGame2._0
         GameArea gameArea;
         List<int> queue;
         private int totalTimer = 601;
-        private int timeBetweenShots = 600;
+        private int timeBetweenShots = 800;
         //Random random;
         public void LoadContent(ContentManager theContentManager)
         {
@@ -50,13 +50,14 @@ namespace TestGame2._0
 
         public void swap()
         {
-                storageLetter = queue[0];
-                gameArea.setPlayerLetter(storageLetter);
+            storageLetter = queue[0];
+            gameArea.setPlayerLetter(storageLetter);
         }
 
         public void setBlock(Block b)
         {
             block = b;
+            b.SetFrame(queue[0]);
             block.setPosition(Position + new Vector2(0, 0) + new Vector2(1, -Size.Height + 50));
         }
 
@@ -76,27 +77,27 @@ namespace TestGame2._0
             speed = Vector2.Zero;
             direction = Vector2.Zero;
 
-            if (Position.X != 150 )//cannon is not hitting the left window boundary
+            if (Position.X != 150)//cannon is not hitting the left window boundary
             {
-                 //Move Left one key press at a time
-                 if (newState.IsKeyDown(Keys.Left) && !oldState.IsKeyDown(Keys.Left))
-                 {
-                     MainGame.seTravel.Play();
-                     direction.X = MOVE_LEFT;
-                     block.setPosition(Position + new Vector2(-50, 0) + new Vector2(1, -Size.Height + 50));
-                     columnPosition--;
-                 }
+                //Move Left one key press at a time
+                if (newState.IsKeyDown(Keys.Left) && !oldState.IsKeyDown(Keys.Left))
+                {
+                    MainGame.seTravel.Play();
+                    direction.X = MOVE_LEFT;
+                    block.setPosition(Position + new Vector2(-50, 0) + new Vector2(1, -Size.Height + 50));
+                    columnPosition--;
+                }
             }
             if (Position.X != 500)//cannon is not hitting the right window boundary
             {
                 //Move right one key press at a time
-                 if (newState.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
-                 {
-                     MainGame.seTravel.Play();
-                     direction.X = MOVE_RIGHT;
-                     block.setPosition(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height + 50));
-                     columnPosition++;
-                 }
+                if (newState.IsKeyDown(Keys.Right) && !oldState.IsKeyDown(Keys.Right))
+                {
+                    MainGame.seTravel.Play();
+                    direction.X = MOVE_RIGHT;
+                    block.setPosition(Position + new Vector2(50, 0) + new Vector2(1, -Size.Height + 50));
+                    columnPosition++;
+                }
             }
         }
 
@@ -123,8 +124,8 @@ namespace TestGame2._0
             block.SetFrame(queue[0]);//chooses random asteroid (a-z)
             gameArea.setPlayerLetter(queue[0]);
             gameArea.setPiece(columnPosition - 1);
-            gameArea.findRowWords();
-            gameArea.findColumnWords();
+            //gameArea.findRowWords();
+            //gameArea.findColumnWords();
             queue.RemoveRange(0, 1);
             queue.Add(calc.generateLetter());
             block.SetFrame(queue[0]);
@@ -146,6 +147,6 @@ namespace TestGame2._0
             oldState = newState;
             base.Update(direction);
         }
-        
+
     }
 }

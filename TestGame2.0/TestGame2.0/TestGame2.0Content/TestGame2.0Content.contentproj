@@ -103,13 +103,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="spirteSheet.png">
-      <Name>spirteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="explode.wav">
       <Name>explode</Name>
       <Importer>WavImporter</Importer>
@@ -147,6 +140,13 @@
   <ItemGroup>
     <Compile Include="space.jpg">
       <Name>space</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="spriteSheet.png">
+      <Name>spriteSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

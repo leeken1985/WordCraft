@@ -27,7 +27,7 @@ namespace TestGame2._0.Backend
         }
     }
     //TODO: Implement gamePiece class
-    class GameArea 
+    class GameArea
     {
         private Game1 game;
         private Calculate c = new Calculate();
@@ -45,20 +45,20 @@ namespace TestGame2._0.Backend
         private Dictionary<string, int> words4 = new Dictionary<string, int>();
         private Dictionary<string, int> words5 = new Dictionary<string, int>();
         private Dictionary<string, int> words6 = new Dictionary<string, int>();
-        //Dictionary<string, int> words7 = new Dictionary<string, int>();
         private List<string> possibleColumnWords = new List<string>();
         private List<string> possibleRowWords = new List<string>();
         private List<string> winList = new List<string>();
-        bool leftCheck = false, rightCheck = false, leftUpCheck = false, rightUpCheck = false,
-                leftDownCheck = false, rightDownCheck = false;
         private List<objToDel> coordToDestroy = new List<objToDel>();
         private int explosion = 27; //which explosion sprite to use
+        private int teleport = 28;
         private float timeElapsed;
         protected int FrameIndex = 0;
-        private float timeToUpdate = 0.20f;
+        private float timeToUpdate = 0.10f;
         private bool toDestroy = false;
         private bool toFind = false;
+        private bool isUpdate = false;
         private Timer timer;
+        private bool toFallDown = false;
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
@@ -95,11 +95,11 @@ namespace TestGame2._0.Backend
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
         {
             int sWidth = 50, sHeight = 50;
-            for(int i = 0; i < GameBoard.GetLength(0); i++)
+            for (int i = 0; i < GameBoard.GetLength(0); i++)
             {
-                for(int j = 0; j < GameBoard.GetLength(1);j++)
+                for (int j = 0; j < GameBoard.GetLength(1); j++)
                 {
-                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth +150, i * sHeight, sWidth, sHeight), 
+                    spriteBatch.Draw(b.Texture, new Rectangle(j * sWidth + 150, i * sHeight, sWidth, sHeight),
                         b.Rectangles[GameBoard[i, j]], Color.White);
                 }
             }
@@ -117,24 +117,29 @@ namespace TestGame2._0.Backend
                 }
             }
         }
-
         public void FallDown(object sender, ElapsedEventArgs e)
         {
-            for (int i = 0; i < 8; i++)
-            {
-                if (GameBoard[11, i] != 0)
+            //if (toFallDown)
+            //{
+                for (int i = 0; i < 8; i++)
                 {
-                    timer.Stop();
-                    game.endGame();
+                    if (GameBoard[11, i] != 0)
+                    {
+                        timer.Stop();
+                        game.endGame();
+                    }
                 }
-            }
-            System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
-            for (int y = 0; y < GameBoard.GetLength(1); y++)
-            {
-                SetGameBoard(0, y, c.generateLetter());
-            }
-            //findRowWords();
-            //findColumnWords();
+                System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
+                for (int y = 0; y < GameBoard.GetLength(1); y++)
+                {
+                    SetGameBoard(0, y, c.generateLetter());
+                }
+            //}
+            //else 
+            //{
+            //    isUpdate = true;
+            //    timer.Stop();
+            //}
         }
 
         public int calcPoints(string word)
@@ -193,7 +198,6 @@ namespace TestGame2._0.Backend
             {
                 if (GameBoard[i, userColumn] == 0)
                 {
-                    toFind = true;
                     if (i < min)
                     {
                         min = i;
@@ -207,13 +211,15 @@ namespace TestGame2._0.Backend
             tempRow = min;
             try
             {
-                GameBoard[tempRow, userColumn] = playerLetter;
+                toFind = true;
+                GameBoard[tempRow, userColumn] = 29;
             }
             catch (Exception ex)
             {
                 game.endGame();
             }
             letterColumn = userColumn;
+            teleport = 28;
         }
 
         public int getScore()
@@ -247,7 +253,8 @@ namespace TestGame2._0.Backend
             letterList = calc.getLetterList();
         }
 
-        public List<char> getLetterList() {
+        public List<char> getLetterList()
+        {
             return letterList;
         }
 
@@ -295,180 +302,159 @@ namespace TestGame2._0.Backend
         {
             string lineString = "";
             string sub = "";
+            lineString = getRowLetters();
 
-            //if (leftCheck)   // CHECK FOR LETTERCOLUMN 0  AND CHECK FOR LETTERCOLUMN ON RIGHTSIDE FAR.  CHECK WORD LENGTH
-            //{
-            //    for (int j = 0; j < letterColumn; j++)
-            //    {
-            //        int temp = GameBoard[tempRow, j];
-            //        lineString += letterList[temp];
-            //    }
-            //    leftCheck = false;
-            //}
-            //else if (rightCheck)
-            //{
-            //    for (int j = letterColumn + 1; j < column; j++)
-            //    {
-            //        int temp = GameBoard[tempRow, j];
-            //        lineString += letterList[temp];
-            //    }
-            //    rightCheck = false;
-
-            //}
-            //else
-            //{
-                lineString = getRowLetters();
-            //}
-
-                try
+            try
+            {
+                switch (letterColumn)
                 {
-                    switch (letterColumn)
-                    {
-                        case 0:
-                            for (int j = 3; j <= 6; j++)
-                            {
-                                sub = lineString.Substring(0, j);
-                                possibleRowWords.Add(sub);
-                            }
-                            break;
-                        case 1:
-                            for (int j = 3; j <= 6; j++)
-                            {
-                                sub = lineString.Substring(0, j);
-                                possibleRowWords.Add(sub);
-                            }
-                            for (int k = 3; k <= 6; k++)
-                            {
-                                sub = lineString.Substring(1, k);
-                                possibleRowWords.Add(sub);
-                            }
-                            break;
-                        case 2:
-                            for (int j = 3; j <= 6; j++)
-                            {
-                                sub = lineString.Substring(0, j);
-                                possibleRowWords.Add(sub);
-                            }
-                            for (int k = 3; k <= 6; k++)
-                            {
-                                sub = lineString.Substring(1, k);
-                                possibleRowWords.Add(sub);
-                            }
-                            for (int l = 3; l <= 6; l++)
-                            {
-                                sub = lineString.Substring(2, l);
-                                possibleRowWords.Add(sub);
-                            }
-                            break;
-                        case 3:
-                            for (int j = 3; j <= 6; j++)
-                            {
-                                sub = lineString.Substring(1, j);
-                                possibleRowWords.Add(sub);
-                            }
-                            for (int l = 3; l <= 6; l++)
-                            {
-                                sub = lineString.Substring(2, l);
-                                possibleRowWords.Add(sub);
-                            }
-                            break;
-                        case 4:
-                            sub = lineString.Substring(0, 5);
+                    case 0:
+                        for (int j = 3; j <= 6; j++)
+                        {
+                            sub = lineString.Substring(0, j);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(0, 6);
+                        }
+                        break;
+                    case 1:
+                        for (int j = 3; j <= 6; j++)
+                        {
+                            sub = lineString.Substring(0, j);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(1, 4);
+                        }
+                        for (int k = 3; k <= 6; k++)
+                        {
+                            sub = lineString.Substring(1, k);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(1, 5);
+                        }
+                        break;
+                    case 2:
+                        for (int j = 3; j <= 6; j++)
+                        {
+                            sub = lineString.Substring(0, j);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(1, 6);
+                        }
+                        for (int k = 3; k <= 6; k++)
+                        {
+                            sub = lineString.Substring(1, k);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 3);
+                        }
+                        for (int l = 3; l <= 6; l++)
+                        {
+                            sub = lineString.Substring(2, l);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 4);
+                        }
+                        break;
+                    case 3:
+                        for (int j = 3; j <= 6; j++)
+                        {
+                            sub = lineString.Substring(1, j);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 5);
+                        }
+                        for (int l = 3; l <= 6; l++)
+                        {
+                            sub = lineString.Substring(2, l);
                             possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 6);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(4, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(4, 4);
-                            possibleRowWords.Add(sub);
-                            break;
-                        case 5:
-                            sub = lineString.Substring(0, 6);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(1, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(1, 6);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 6);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(4, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(4, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(5, 3);
-                            break;
-                        case 6:
-                            sub = lineString.Substring(4, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(1, 6);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(5, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(4, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 6);
-                            possibleRowWords.Add(sub);
-                            break;
-                        case 7:
-                            sub = lineString.Substring(5, 3);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(4, 4);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(3, 5);
-                            possibleRowWords.Add(sub);
-                            sub = lineString.Substring(2, 6);
-                            possibleRowWords.Add(sub);
-                            break;
+                        }
+                        break;
+                    case 4:
+                        sub = lineString.Substring(0, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(0, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(1, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(1, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(1, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(4, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(4, 4);
+                        possibleRowWords.Add(sub);
+                        break;
+                    case 5:
+                        sub = lineString.Substring(0, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(1, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(1, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(4, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(4, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(5, 3);
+                        break;
+                    case 6:
+                        sub = lineString.Substring(4, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(1, 6);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(5, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(4, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 6);
+                        possibleRowWords.Add(sub);
+                        break;
+                    case 7:
+                        sub = lineString.Substring(5, 3);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(4, 4);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(3, 5);
+                        possibleRowWords.Add(sub);
+                        sub = lineString.Substring(2, 6);
+                        possibleRowWords.Add(sub);
+                        break;
 
-                    }
                 }
-                catch (Exception ex)
-                {
-                    game.endGame();
-                }
+            }
+            catch (Exception ex)
+            {
+                game.endGame();
+            }
 
             int maxPoints = -100;
             string rowWord = "";
             foreach (string s in possibleRowWords)
             {
-                if(dict.ContainsKey(s.Replace("-", ""))){
-                    if(dict[s.Replace("-", "")] > maxPoints){
+                if (dict.ContainsKey(s.Replace("-", "")))
+                {
+                    if (dict[s.Replace("-", "")] > maxPoints)
+                    {
                         maxPoints = dict[s.Replace("-", "")];
                         rowWord = s.Replace("-", "");
                     }
@@ -479,7 +465,7 @@ namespace TestGame2._0.Backend
             {
                 destroyRowWord(rowWord);
             }
-    }
+        }
 
         /// <summary>
         /// Finds all existing words in all columns of the board.
@@ -564,9 +550,7 @@ namespace TestGame2._0.Backend
         public void destroyRowWord(string word)
         {
             string rowLetters = getRowLetters();
-
             int index = -1;
-
             index = rowLetters.IndexOf(word);
 
             if (index != -1)
@@ -593,7 +577,8 @@ namespace TestGame2._0.Backend
             int letterIndex = letterColumn - 1;
 
             // left check
-            for(int j = 0; j < letterColumn; j++){
+            for (int j = 0; j < letterColumn; j++)
+            {
                 int temp = GameBoard[tempRow, j];
                 leftString += letterList[temp];
             }
@@ -625,7 +610,7 @@ namespace TestGame2._0.Backend
         }
         public void ColumnMoveUp(int x, int y, int length)
         {
-            for (; x < (12-length); x++)
+            for (; x < (12 - length); x++)
                 System.Buffer.BlockCopy(GameBoard, (x + length) * 32 + y * 4, GameBoard, x * 32 + y * 4, 4);
             for (int i = 11; i > 11 - length; i--)
                 GameBoard[i, y] = 0;
@@ -638,14 +623,26 @@ namespace TestGame2._0.Backend
             if (timeElapsed > timeToUpdate)
             {
                 timeElapsed -= timeToUpdate;
-                //if (toFind)
-                //{
-                //    findColumnWords();
-                //    findRowWords();
-                //    toFind = false;
-                //}
+                if (toFind && teleport != 26)
+                {
+                    timer.Enabled = false;
+                    toFallDown = false;
+                    GameBoard[tempRow, letterColumn] = teleport;
+                    teleport--;
+                }
+                else if (toFind && teleport == 26)
+                {
+                    GameBoard[tempRow, letterColumn] = playerLetter;
+                    toFind = false;
+                    toFallDown = true;
+                    findRowWords();
+                    findColumnWords();
+                    timer.Enabled = true;
+                }
                 if (toDestroy && explosion != 30)
                 {
+                    timer.Enabled = false;
+                    toFallDown = false;
                     int i = 0;
                     while (i != coordToDestroy.Count())
                     {
@@ -690,9 +687,21 @@ namespace TestGame2._0.Backend
                         }
                         i++;
                     }
-                    toDestroy = false;
                     coordToDestroy.Clear();
                     explosion++;
+                    toDestroy = false;
+                    toFallDown = true;
+                    //if (isUpdate)
+                    //{
+                        //timer.Enabled = true;
+                        //timer.Interval = 100;
+                        //timer.Start();
+                        //timer.Stop();
+                        //timer.Interval = 10000;
+                        //timer.Start();
+                        //isUpdate = false;
+                    //}
+                    timer.Enabled = true;
                 }
             }
         }
