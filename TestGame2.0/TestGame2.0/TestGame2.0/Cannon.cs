@@ -27,7 +27,9 @@ namespace TestGame2._0
         ContentManager mContentManager;
         int columnPosition = 1;
         int playerLetter;
-        int storageLetter = 26;
+        private int storageLetter;
+        private static bool storeOption = false;
+        private static bool isShoot = false;
         GameArea gameArea;
         List<int> queue;
         private int totalTimer = 601;
@@ -47,11 +49,28 @@ namespace TestGame2._0
                 queue.Add(calc.generateLetter());
             }
         }
-
+        
         public void swap()
         {
-            storageLetter = queue[0];
-            gameArea.setPlayerLetter(storageLetter);
+            int temp;
+            if (isShoot == true)
+            {
+                if (storeOption == false)
+                {
+                    storageLetter = queue[0];
+                    queue.RemoveAt(0);
+                    queue.Add(calc.generateLetter());
+                    storeOption = true;
+                    block.SetFrame(queue[0]);
+                } else {
+                    temp = queue[0];
+                    queue.RemoveAt(0);
+                    queue.Insert(0, storageLetter);
+                    storageLetter = temp;
+                    block.SetFrame(queue[0]);
+                }
+                isShoot = false;
+            }
         }
 
         public void setBlock(Block b)
@@ -70,6 +89,10 @@ namespace TestGame2._0
         public List<int> getQueue()
         {
             return queue;
+        }
+
+        public int getStorage() {
+            return storageLetter;;
         }
 
         private void UpdateMovement(KeyboardState newState)
@@ -117,6 +140,17 @@ namespace TestGame2._0
                     }
                 }
             }
+
+            if (newState.IsKeyDown(Keys.LeftControl))
+            {
+                if (!oldState.IsKeyDown(Keys.LeftControl))
+                {
+                    if (totalTimer > timeBetweenShots)
+                    {
+                        swap();
+                    }
+                }
+            }
         }
 
         private void ShootBlock()
@@ -129,6 +163,11 @@ namespace TestGame2._0
             queue.RemoveRange(0, 1);
             queue.Add(calc.generateLetter());
             block.SetFrame(queue[0]);
+            
+            if (isShoot == false)
+            {
+                 isShoot = true;
+            }
         }
 
         public override void Draw(SpriteBatch theSpriteBatch)

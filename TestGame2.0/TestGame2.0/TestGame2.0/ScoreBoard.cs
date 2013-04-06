@@ -19,7 +19,7 @@ namespace TestGame2._0
         private Game1 game;
         private Dictionary<char, int> hash = new Dictionary<char, int>();
         private Cannon cannonSprite;
-        private Block block0, block1, block2;
+        private Block block0, block1, block2, block3;
         private GameArea mainArea;
         private SpriteFont scoreBoardFont;
         private ArrayList wordList = new ArrayList() {"", "", "", "", ""};
@@ -36,6 +36,7 @@ namespace TestGame2._0
             block0 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
             block1 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
             block2 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
+            block3 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
             scoreBoardFont = g.Content.Load<SpriteFont>("scoreBoardFont");
             mainArea = ma;
             cannonSprite = cs;            
@@ -49,26 +50,31 @@ namespace TestGame2._0
         {
             game.totalScore = mainArea.getScore();
             thespriteBatch.DrawString(scoreBoardFont, "SCORE :    " + mainArea.getScore(), new Vector2(20, 100), Color.Red);            
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(20, 200), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[1] != "" ? "2.    " + (String)wordList[1] : "", new Vector2(20, 230), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[2] != "" ? "3.    " + (String)wordList[2] : "", new Vector2(20, 260), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[3] != "" ? "4.    " + (String)wordList[3] : "", new Vector2(20, 290), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.    " + (String)wordList[4] : "", new Vector2(20, 320), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(20, 240), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[1] != "" ? "2.    " + (String)wordList[1] : "", new Vector2(20, 270), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[2] != "" ? "3.    " + (String)wordList[2] : "", new Vector2(20, 300), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[3] != "" ? "4.    " + (String)wordList[3] : "", new Vector2(20, 330), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.    " + (String)wordList[4] : "", new Vector2(20, 360), Color.White);
 
-            thespriteBatch.DrawString(scoreBoardFont, "Current:  ", new Vector2(570, 250), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, "Next:  ", new Vector2(570, 350), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "Current:  ", new Vector2(560, 150), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "Next:  ", new Vector2(560, 310), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "Storage:  ", new Vector2(560, 560), Color.White);
             
             block0.SetFrame(cannonSprite.getQueue()[0]);
             block1.SetFrame(cannonSprite.getQueue()[1]);
             block2.SetFrame(cannonSprite.getQueue()[2]);
+            block3.SetFrame(cannonSprite.getStorage());
 
-            block0.setPosition(new Vector2(650, 240));
-            block1.setPosition(new Vector2(630, 340));
-            block2.setPosition(new Vector2(630, 400));
+ 
+            block0.setPosition(new Vector2(640, 140));
+            block1.setPosition(new Vector2(630, 300));
+            block2.setPosition(new Vector2(630, 360));
+            block3.setPosition(new Vector2(640, 550));
 
             block0.Draw(thespriteBatch);
             block1.Draw(thespriteBatch);
             block2.Draw(thespriteBatch);
+            block3.Draw(thespriteBatch);
         }
 
         /// <summary>
