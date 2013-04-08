@@ -28,7 +28,7 @@ namespace TestGame2._0.GameScreens
             infiniteBackground = game.Content.Load<Texture2D>("Space_background");
             rect1 = new Rectangle(0, 0, 1312, 887);
             rect2 = new Rectangle(0, 887, 1312, 887);
-            rect3 = new Rectangle(600, 200, texture.Width, texture.Height);
+            rect3 = new Rectangle(600, 300, texture.Width, texture.Height);
             
         }
 
@@ -42,12 +42,13 @@ namespace TestGame2._0.GameScreens
             {
                 rect2.Y = rect1.Y + infiniteBackground.Height;
             }
-            rect1.Y -= 2;
-            rect2.Y -= 2;
             if (rect3.X != 150)
             {
                 rect3.X--;
             }
+            rect1.Y -= 2;
+            rect2.Y -= 2;
+            
 
         }
 

@@ -37,7 +37,7 @@ namespace TestGame2._0
             block1 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
             block2 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
             block3 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
-            scoreBoardFont = g.Content.Load<SpriteFont>("scoreBoardFont");
+            scoreBoardFont = g.Content.Load<SpriteFont>("myFont");
             mainArea = ma;
             cannonSprite = cs;            
         }
@@ -56,9 +56,9 @@ namespace TestGame2._0
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[3] != "" ? "4.    " + (String)wordList[3] : "", new Vector2(20, 330), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.    " + (String)wordList[4] : "", new Vector2(20, 360), Color.White);
 
-            thespriteBatch.DrawString(scoreBoardFont, "Current:  ", new Vector2(560, 150), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, "Next:  ", new Vector2(560, 310), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, "Storage:  ", new Vector2(560, 560), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "READY:  ", new Vector2(560, 150), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "NEXT:  ", new Vector2(560, 310), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "HOLD:  ", new Vector2(560, 560), Color.White);
             
             block0.SetFrame(cannonSprite.getQueue()[0]);
             block1.SetFrame(cannonSprite.getQueue()[1]);
@@ -69,7 +69,7 @@ namespace TestGame2._0
             block0.setPosition(new Vector2(640, 140));
             block1.setPosition(new Vector2(630, 300));
             block2.setPosition(new Vector2(630, 360));
-            block3.setPosition(new Vector2(640, 550));
+            block3.setPosition(new Vector2(630, 550));
 
             block0.Draw(thespriteBatch);
             block1.Draw(thespriteBatch);
