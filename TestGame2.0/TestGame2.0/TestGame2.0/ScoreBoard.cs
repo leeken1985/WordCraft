@@ -27,9 +27,9 @@ namespace TestGame2._0
         /// <summary>
         /// Constructor ScoreBoard class. It takes 2 main class object and use them to update score board
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="ma"></param>
-        /// <param name="cs"></param>
+        /// <param name="g">Game</param>
+        /// <param name="ma">Game area</param>
+        /// <param name="cs">Cannon</param>
         public ScoreBoard(Game1 g, GameArea ma, Cannon cs) 
         {
             this.game = g;
@@ -43,11 +43,12 @@ namespace TestGame2._0
         }
 
         /// <summary>
-        /// Draw method to display score, a list of 5 fomred words, and current & next 2 letters
+        /// Draw method to display score, a list of 5 formed words, and current & next 2 letters and letter in Hold
         /// </summary>
         /// <param name="thespriteBatch"></param>
         public override void Draw(SpriteBatch thespriteBatch)
         {
+            // Displays current score and words that have been formed
             game.totalScore = mainArea.getScore();
             thespriteBatch.DrawString(scoreBoardFont, "SCORE :    " + mainArea.getScore(), new Vector2(20, 100), Color.Red);            
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(20, 240), Color.White);
@@ -56,6 +57,7 @@ namespace TestGame2._0
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[3] != "" ? "4.    " + (String)wordList[3] : "", new Vector2(20, 330), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.    " + (String)wordList[4] : "", new Vector2(20, 360), Color.White);
 
+            // Displays the strings
             thespriteBatch.DrawString(scoreBoardFont, "READY:  ", new Vector2(560, 150), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, "NEXT:  ", new Vector2(560, 310), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, "HOLD:  ", new Vector2(560, 560), Color.White);

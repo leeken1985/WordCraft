@@ -26,6 +26,11 @@ namespace TestGame2._0
         public Rectangle[] Rectangles;
         protected int FrameIndex = 0;
 
+        /// <summary>
+        /// Block constructor.
+        /// </summary>
+        /// <param name="Texture">Texture to use</param>
+        /// <param name="frames"></param>
         public Block(Texture2D Texture, int frames)
         {
             this.Texture = Texture;
@@ -74,6 +79,10 @@ namespace TestGame2._0
             }
         }
 
+        /// <summary>
+        /// Sets block to use.
+        /// </summary>
+        /// <param name="frame"></param>
         public void SetFrame(int frame)
         {
             if (frame < Rectangles.Length)
@@ -94,12 +103,20 @@ namespace TestGame2._0
             base.Update(theGameTime, mSpeed, mDirection);
         }
 
+        /// <summary>
+        ///  Draws the sprite.
+        /// </summary>
+        /// <param name="theSpriteBatch"></param>
         public override void Draw(SpriteBatch theSpriteBatch)
         {
             theSpriteBatch.Draw(Texture, Position, Rectangles[FrameIndex],
                 Color, Rotation, Origin, Scale, SpriteEffect, 0f);
         }
 
+        /// <summary>
+        /// Sets position
+        /// </summary>
+        /// <param name="thePosition">New Position</param>
         public void setPosition(Vector2 thePosition)
         {
             Position = thePosition;

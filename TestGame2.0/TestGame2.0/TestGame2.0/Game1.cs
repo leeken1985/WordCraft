@@ -159,6 +159,9 @@ namespace TestGame2._0
             base.Draw(gameTime);
         }
 
+        /// <summary>
+        /// Starts a new game and sets main menu screen to be displayed.
+        /// </summary>
         public void StartGame()
         {
             mainGame = new MainGame(this);
@@ -166,6 +169,9 @@ namespace TestGame2._0
             mainMenu = null;
         }
 
+        /// <summary>
+        /// Ends the game and displays game over screen.
+        /// </summary>
         public void endGame()
         {
             gameOver= new GameOver(this);

@@ -14,12 +14,16 @@ namespace TestGame2._0.Backend
         private Random random = new Random();
         private int result1;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Calculate()
         {
             vowelList = new List<char>();
             randList = new List<char>();
             letterList = new List<char>();
 
+            // Adds all letters to list.
             letterList.Add('-');
             letterList.Add('A');
             letterList.Add('B');
@@ -51,7 +55,8 @@ namespace TestGame2._0.Backend
             letterList.Add('.');
             letterList.Add('/');
 
-            // Adds each letter a certain amount of times based on how many are in a Scrabble set.
+            // Adds each consonant a certain number of times.  This determines the probability
+            // a letter is chosen.
             for (int i = 0; i < 8; i++)
             {
                 randList.Add('S');
@@ -89,6 +94,7 @@ namespace TestGame2._0.Backend
             randList.Add('X');
             randList.Add('Q');
 
+            // Add vowels to a vowel list.
             vowelList.Add('A');
             vowelList.Add('E');
             vowelList.Add('I');
@@ -107,10 +113,19 @@ namespace TestGame2._0.Backend
             //randList.OrderBy<char, int>((item) => rnd.Next());
         }
 
+        /// <summary>
+        /// Returns a letter list.
+        /// </summary>
+        /// <returns>Letter list</returns>
         public List<char> getLetterList()
         {
             return letterList;
         }
+
+        /// <summary>
+        /// Generate a random consonant.
+        /// </summary>
+        /// <returns>A consonant</returns>
         public int generateLetter()
         {
             int index = 0;
@@ -134,6 +149,10 @@ namespace TestGame2._0.Backend
             return index;
         }
 
+        /// <summary>
+        ///  Generates a random vowel
+        /// </summary>
+        /// <returns>A vowel</returns>
         public char generateVowel()
         {
             // Generate a random number
@@ -142,6 +161,10 @@ namespace TestGame2._0.Backend
             return letter;
         }
 
+        /// <summary>
+        /// Generates a list that consists of 2 consonants and 2 vowels.
+        /// </summary>
+        /// <returns>List containing 2 consonants and 2 vowels.</returns>
         public List<char> generateQueue()
         {
             List<char> queue = new List<char>();
@@ -157,19 +180,5 @@ namespace TestGame2._0.Backend
             }
             return queue;
         }
-
-        /*
-        public void addtoQueue(List<char> queue)
-        {
-            char letter = letterList[generateLetter()];
-            queue.Add(letter);
-        }
-
-        public void getLetter(List<char> queue)
-        {
-            Random rand = new Random();
-            int num = rand.Next(4);
-            queue.RemoveAt(num);
-        }*/
     }
 }

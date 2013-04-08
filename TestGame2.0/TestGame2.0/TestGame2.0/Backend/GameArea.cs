@@ -15,6 +15,10 @@ using TestGame2._0.GameScreens;
 
 namespace TestGame2._0.Backend
 {
+    /// <summary>
+    /// Object that is deleted.  
+    /// Takes in x and y coords, length of word, and whether it is in row or column.
+    /// </summary>
     struct objToDel
     {
         public int x, y, value, rowCol;
@@ -59,6 +63,8 @@ namespace TestGame2._0.Backend
         private bool isUpdate = false;
         private Timer timer;
         private bool toFallDown = false;
+
+        // Sets default game area with all blank cells.
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
@@ -72,14 +78,21 @@ namespace TestGame2._0.Backend
                                            {0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0}};
 
-
+        /// <summary>
+        /// Constructor.  Create intial game area with 2 lines of letters.
+        /// </summary>
+        /// <param name="game"></param>
         public GameArea(Game1 game)
         {
             this.game = game;
             pointList = new Dictionary<char, int>();
             dict = new Dictionary<string, int>();
+
+            // Create Point list and Dictionary
             CreatePointList();
             CreateDictionary();
+
+            // Generate 2 random lines of letters and adds them to the game area
             for (int x = 0; x < 2; x++)
             {
                 for (int y = 0; y < GameBoard.GetLength(1); y++)
@@ -92,6 +105,11 @@ namespace TestGame2._0.Backend
             timer.Start();
         }
 
+        /// <summary>
+        /// Creates a gameboard with empty blocks. 
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="b">Block to be used</param>
         public void CreateGameArea(SpriteBatch spriteBatch, Block b)
         {
             int sWidth = 50, sHeight = 50;
@@ -105,18 +123,29 @@ namespace TestGame2._0.Backend
             }
         }
 
+        /// <summary>
+        /// Reads in words from a text file to create a Dictionary.
+        /// </summary>
         public void CreateDictionary()
         {
+            // Reads in words from a file.
             using (StreamReader sr = new StreamReader("allWords.txt"))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
+                    // Adds word into Dictionary as Key.  Value is point value of word.
                     int points = calcPoints(line);
                     dict.Add(line, points);
                 }
             }
         }
+
+        /// <summary>
+        /// Generates a random line of blocks that is added to the top of the game area.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void FallDown(object sender, ElapsedEventArgs e)
         {
             //if (toFallDown)
@@ -142,6 +171,11 @@ namespace TestGame2._0.Backend
             //}
         }
 
+        /// <summary>
+        /// Calculates points of a word based on the letters it is made up of.
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         public int calcPoints(string word)
         {
             word.Trim();
@@ -157,6 +191,9 @@ namespace TestGame2._0.Backend
             return sum;
         }
 
+        /// <summary>
+        /// Assigns point values to each letter.
+        /// </summary>
         public void CreatePointList()
         {
             pointList.Add(' ', 0);
@@ -190,7 +227,12 @@ namespace TestGame2._0.Backend
             pointList.Add('.', 0);
             pointList.Add('/', 0);
         }
-        //fire thing
+        
+        /// <summary>
+        /// Sets a coordinate on the game area to be a certain block.
+        /// Block keeps moving up until it hits the end of the game area or another block.
+        /// </summary>
+        /// <param name="userColumn"></param>
         public void setPiece(int userColumn)
         {
             int min = 100;
@@ -216,22 +258,35 @@ namespace TestGame2._0.Backend
             }
             catch (Exception ex)
             {
+                // Game ends if user fires in row that is at its max.
                 game.endGame();
             }
             letterColumn = userColumn;
             teleport = 28;
         }
 
+        /// <summary>
+        /// Returns the current score.
+        /// </summary>
+        /// <returns>Current score of player</returns>
         public int getScore()
         {
             return currScore;
         }
 
+        /// <summary>
+        /// Returns the word that was formed.
+        /// </summary>
+        /// <returns>Word that was formed</returns>
         public string getFormedWord()
         {
             return formedWord;
         }
 
+        /// <summary>
+        /// Sets the current letter to fire to a certain block
+        /// </summary>
+        /// <param name="player"></param>
         public void setPlayerLetter(int player)
         {
             playerLetter = player;
@@ -248,20 +303,27 @@ namespace TestGame2._0.Backend
             GameBoard[x, y] = value;
         }
 
+        /// <summary>
+        /// Sets a calculator to use a specific letter list.
+        /// </summary>
+        /// <param name="calc">Calculate object</param>
         public void setLetterList(Calculate calc)
         {
             letterList = calc.getLetterList();
         }
 
+        /// <summary>
+        /// Returns the letter list
+        /// </summary>
+        /// <returns>Letter list</returns>
         public List<char> getLetterList()
         {
             return letterList;
         }
 
         /// <summary>
-        /// Returns letters in a column.
+        /// Returns all letters in a column and combines them into a string.
         /// </summary>
-        /// <param name="y"></param>
         public string getColumnLetters()
         {
             string lineString = "";
@@ -274,7 +336,7 @@ namespace TestGame2._0.Backend
         }
 
         /// <summary>
-        /// Returns letters in a row.
+        /// Returns letters in a row and combines them into a string.
         /// </summary>
         /// <param name="y"></param>
         public string getRowLetters()
@@ -296,18 +358,24 @@ namespace TestGame2._0.Backend
         }
 
         /// <summary>
-        /// Finds all existing words in a row.
+        /// Creates a substring for letters in a row depending on the index of the letter that was fired.
+        /// Substrings can be of length 3 to 6.  They are then added to a list and compared against the dictionary.
+        /// If they exist, calls method to destroy word that is worth the most points.
         /// </summary>
         public void findRowWords()
         {
             string lineString = "";
             string sub = "";
+
+            // Store row letters into a string.
             lineString = getRowLetters();
 
             try
             {
+                // Create substrings of row letters based on which column it was fired into.
                 switch (letterColumn)
                 {
+                    // Column 0
                     case 0:
                         for (int j = 3; j <= 6; j++)
                         {
@@ -315,6 +383,7 @@ namespace TestGame2._0.Backend
                             possibleRowWords.Add(sub);
                         }
                         break;
+                    // Column 1
                     case 1:
                         for (int j = 3; j <= 6; j++)
                         {
@@ -327,6 +396,7 @@ namespace TestGame2._0.Backend
                             possibleRowWords.Add(sub);
                         }
                         break;
+                    // Column 2
                     case 2:
                         for (int j = 3; j <= 6; j++)
                         {
@@ -344,6 +414,7 @@ namespace TestGame2._0.Backend
                             possibleRowWords.Add(sub);
                         }
                         break;
+                    // Column 3
                     case 3:
                         for (int j = 3; j <= 6; j++)
                         {
@@ -356,6 +427,7 @@ namespace TestGame2._0.Backend
                             possibleRowWords.Add(sub);
                         }
                         break;
+                    // Column 4
                     case 4:
                         sub = lineString.Substring(0, 5);
                         possibleRowWords.Add(sub);
@@ -386,6 +458,7 @@ namespace TestGame2._0.Backend
                         sub = lineString.Substring(4, 4);
                         possibleRowWords.Add(sub);
                         break;
+                    // Column 5
                     case 5:
                         sub = lineString.Substring(0, 6);
                         possibleRowWords.Add(sub);
@@ -411,6 +484,7 @@ namespace TestGame2._0.Backend
                         possibleRowWords.Add(sub);
                         sub = lineString.Substring(5, 3);
                         break;
+                    // Column 6
                     case 6:
                         sub = lineString.Substring(4, 3);
                         possibleRowWords.Add(sub);
@@ -429,6 +503,7 @@ namespace TestGame2._0.Backend
                         sub = lineString.Substring(2, 6);
                         possibleRowWords.Add(sub);
                         break;
+                    // Column 7
                     case 7:
                         sub = lineString.Substring(5, 3);
                         possibleRowWords.Add(sub);
@@ -451,16 +526,20 @@ namespace TestGame2._0.Backend
             string rowWord = "";
             foreach (string s in possibleRowWords)
             {
+                // Check all substring to see if they exist in Dictionary
                 if (dict.ContainsKey(s.Replace("-", "")))
                 {
                     if (dict[s.Replace("-", "")] > maxPoints)
                     {
                         maxPoints = dict[s.Replace("-", "")];
+
+                        // Store the word that gives the highest point value
                         rowWord = s.Replace("-", "");
                     }
                 }
             }
 
+            // If point value is not default (-100), call method to destroy word.
             if (maxPoints != -100)
             {
                 destroyRowWord(rowWord);
@@ -468,15 +547,19 @@ namespace TestGame2._0.Backend
         }
 
         /// <summary>
-        /// Finds all existing words in all columns of the board.
+        /// Finds word in a column that consists of the letter that was fired.
+        /// Words can be of length 4 to 6.  Words can only be formed from the bottom of the column.
+        /// Compares each possible word against Dictionary.  If it is found, calls method to destroy word.
         /// </summary>
         public void findColumnWords()
         {
             string lineString = "";
             string sub = "";
 
+            // Store letters in the column
             lineString = getColumnLetters();
 
+            // Substring of letters based on possible words of length 6.
             if (lineString.Length >= 6)
             {
                 sub = lineString.Substring(lineString.Length - 6, 6);
@@ -488,6 +571,7 @@ namespace TestGame2._0.Backend
                 sub = lineString.Substring(lineString.Length - 3, 3);
                 possibleColumnWords.Add(sub);
             }
+            // Length 5
             else if (lineString.Length == 5)
             {
                 sub = lineString.Substring(lineString.Length - 5, 5);
@@ -497,6 +581,7 @@ namespace TestGame2._0.Backend
                 sub = lineString.Substring(lineString.Length - 3, 3);
                 possibleColumnWords.Add(sub);
             }
+            // Length 5
             else if (lineString.Length == 4)
             {
                 sub = lineString.Substring(lineString.Length - 4, 4);
@@ -505,13 +590,14 @@ namespace TestGame2._0.Backend
                 possibleColumnWords.Add(sub);
 
             }
+            // Length 3
             else if (lineString.Length == 3)
             {
                 sub = lineString.Substring(lineString.Length - 3, 3);
                 possibleColumnWords.Add(sub);
             }
 
-
+            // Checks dictionary to see if word exists.
             foreach (string s in possibleColumnWords)
             {
                 if (dict.ContainsKey(s.Replace("-", "")))
@@ -519,20 +605,28 @@ namespace TestGame2._0.Backend
                     destroyColumnWord(s.Replace("-", ""));
                 }
             }
+
             possibleColumnWords.Clear();
         }
 
+        /// <summary>
+        /// Checks to see if word still exists in column.  Destroys word in a column if yes.
+        /// </summary>
+        /// <param name="word">Word to destroy</param>
         public void destroyColumnWord(string word)
         {
             int length = word.Length;
 
+            // Gets column letters.
             string columnLetters = getColumnLetters();
             int index = -1;
 
+            // Finds index of word to destroy in the column letters
             index = columnLetters.IndexOf(word);
 
             if (index != -1)
             {
+                // Increase score and save word that was formed.  Sets explosion sprite.
                 MainGame.seExplode.Play();
                 toDestroy = true;
                 currScore += calcPoints(word);
@@ -547,6 +641,10 @@ namespace TestGame2._0.Backend
             }
         }
 
+        /// <summary>
+        /// Checks to see if word still exists in a row.  Destroys it if it does.
+        /// </summary>
+        /// <param name="word">Word to destroy</param>
         public void destroyRowWord(string word)
         {
             string rowLetters = getRowLetters();
@@ -570,27 +668,13 @@ namespace TestGame2._0.Backend
             possibleRowWords.Clear();
         }
 
-        public void secondCheck()
-        {
-            string leftString = "";
-            string sub = "";
-            int letterIndex = letterColumn - 1;
-
-            // left check
-            for (int j = 0; j < letterColumn; j++)
-            {
-                int temp = GameBoard[tempRow, j];
-                leftString += letterList[temp];
-            }
-
-            switch (letterIndex)
-            {
-                case 3:
-                    break;
-            }
-
-        }
-
+        /// <summary>
+        /// Pushes all horizontal blocks as far up as they can go.  
+        /// This is called after a word is destroyed.
+        /// </summary>
+        /// <param name="x">X-coord of block</param>
+        /// <param name="y">Y-coord of block</param>
+        /// <param name="length">Length of word that was destroyed</param>
         public void MoveUp(int x, int y, int length)
         {
             int i = 0;
@@ -600,14 +684,15 @@ namespace TestGame2._0.Backend
             {
                 GameBoard[11, i] = 0;
             }
-
-            //leftCheck = true;
-            //rightCheck = true;
-            //leftUpCheck = true;
-            //rightUpCheck = true;
-            //leftDownCheck = true;
-            //rightDownCheck = true;
         }
+
+        /// <summary>
+        /// Pushes all blocks in a column as far up as they can go.
+        /// This is called after a word is destroyed.
+        /// </summary>
+        /// <param name="x">X-coord of block</param>
+        /// <param name="y">Y-coord of block</param>
+        /// <param name="length">Length of word that was destroyed</param>
         public void ColumnMoveUp(int x, int y, int length)
         {
             for (; x < (12 - length); x++)
@@ -616,6 +701,10 @@ namespace TestGame2._0.Backend
                 GameBoard[i, y] = 0;
         }
 
+        /// <summary>
+        /// Controls display of sprites when blocks are set and destroyed.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
             timeElapsed += (float)
