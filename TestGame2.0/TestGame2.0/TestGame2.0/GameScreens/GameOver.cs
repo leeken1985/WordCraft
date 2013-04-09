@@ -61,7 +61,7 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(texture, rect3, Color.White);
             spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(200, 100), Color.White);
             spriteBatch.DrawString(myFont, "Total Score", new Vector2(200, 200), Color.White);
-            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(300, 200), Color.White);
+            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(400, 200), Color.White);
         }
     }
 }
