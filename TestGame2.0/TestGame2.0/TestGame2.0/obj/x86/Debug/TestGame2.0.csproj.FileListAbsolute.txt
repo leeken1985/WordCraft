@@ -20,7 +20,6 @@ C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\
 C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\tShape.xnb
 C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Awesome_Face.xnb
 C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Wallpaper.xnb
-C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spirteSheet.xnb
 C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spaceship.xnb
 C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Space_background.xnb
 C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb
@@ -90,3 +89,9 @@ C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\
 C:\Users\ra-nyan\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\obj\x86\Debug\TestGame2.0.pdb
 C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spriteSheet.xnb
 C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\gameBoard.xnb
+C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spriteSheet.xnb
+C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\gameBoard.xnb
+C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOff.xnb
+C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOn.xnb
+C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsOFF.xnb
+C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsON.xnb

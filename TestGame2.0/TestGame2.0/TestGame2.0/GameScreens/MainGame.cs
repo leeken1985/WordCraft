@@ -50,9 +50,9 @@ namespace TestGame2._0.GameScreens
             seFire = game.Content.Load<SoundEffect>("fire");
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(game.Content.Load<Song>("theme1"));
-            infiniteBackground = game.Content.Load<Texture2D>("Space_background");
-            rect1 = new Rectangle(0, 0, 1312, 887);
-            rect2 = new Rectangle(0, 887, 1312, 887);
+            infiniteBackground = game.Content.Load<Texture2D>("gameBoard");
+            rect1 = new Rectangle(0, 0, 1024, 1024);
+            rect2 = new Rectangle(0, 1024, 1024, 1024);
         }
 
         public void Update(GameTime gameTime)
@@ -69,8 +69,8 @@ namespace TestGame2._0.GameScreens
             {
                 rect2.Y = rect1.Y + infiniteBackground.Height;
             }
-            rect1.Y -= 2;
-            rect2.Y -= 2;
+            rect1.Y -= 1;
+            rect2.Y -= 1;
 
         }
 

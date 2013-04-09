@@ -61,7 +61,7 @@ namespace TestGame2._0.Backend
         private float timeToUpdate = 0.10f;
         private bool toDestroy = false;
         private bool toFind = false;
-
+        private bool toFall = true;
         // Sets default game area with all blank cells.
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
@@ -224,6 +224,7 @@ namespace TestGame2._0.Backend
         /// <param name="userColumn"></param>
         public void setPiece(int userColumn)
         {
+            toFall = false;
             int min = 100;
             for (int i = row - 1; i >= 0; i--)
             {
@@ -705,6 +706,7 @@ namespace TestGame2._0.Backend
                 timeElapsed -= timeToUpdate;
                 if (toFind && teleport != 26)
                 {
+                    toFall = false;
                     GameBoard[tempRow, letterColumn] = teleport;
                     teleport--;
                 }
@@ -712,11 +714,13 @@ namespace TestGame2._0.Backend
                 {
                     GameBoard[tempRow, letterColumn] = playerLetter;
                     toFind = false;
+                    toFall = true;
                     findRowWords();
                     findColumnWords();
                 }
                 if (toDestroy && explosion != 30)
                 {
+                    toFall = false;
                     int i = 0;
                     while (i != coordToDestroy.Count())
                     {
@@ -764,10 +768,11 @@ namespace TestGame2._0.Backend
                     coordToDestroy.Clear();
                     explosion++;
                     toDestroy = false;
+                    toFall = true;
                 }
                 else
                 {
-                    if (timeElapesedToFall > 10)
+                    if (toFall && timeElapesedToFall > 10)
                     {
                         timeElapesedToFall = 0;
                         FallDown();

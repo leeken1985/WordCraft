@@ -123,6 +123,8 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="instructionsOFF.png" />
+    <Content Include="instructionsON.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestGame2.0Content\TestGame2.0Content.contentproj">

@@ -20,6 +20,8 @@ namespace TestGame2._0.GameScreens
         private KeyboardState lastState;
         private SpriteFont myFont;
         private Rectangle rect1, rect2;
+        private Texture2D newGame;
+        private Texture2D instructions;
 
         public MainMenu(Game1 game)
         {
@@ -30,6 +32,8 @@ namespace TestGame2._0.GameScreens
             infiniteBackground = game.Content.Load<Texture2D>("Space_background");
             rect1 = new Rectangle(0, 0, 1312, 887);
             rect2 = new Rectangle(0, 887, 1312, 887);
+            newGame = game.Content.Load<Texture2D>("newGameOn");
+            instructions = game.Content.Load<Texture2D>("instructionsOFF");
         }
 
         public void Update()
@@ -58,7 +62,9 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             spriteBatch.Draw(title, new Vector2(100, 50), Color.White);
-            spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(220, 600), Color.White);
+            spriteBatch.Draw(newGame, new Vector2(150, 300), Color.White);
+            spriteBatch.Draw(instructions, new Vector2(150, 400), Color.White);
+            //spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(220, 600), Color.White);
         }
     }
 }
