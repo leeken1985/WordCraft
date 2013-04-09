@@ -56,13 +56,11 @@ namespace TestGame2._0.Backend
         private int explosion = 27; //which explosion sprite to use
         private int teleport = 28;
         private float timeElapsed;
+        private float timeElapesedToFall;
         protected int FrameIndex = 0;
         private float timeToUpdate = 0.10f;
         private bool toDestroy = false;
         private bool toFind = false;
-        private bool isUpdate = false;
-        private Timer timer;
-        private bool toFallDown = false;
 
         // Sets default game area with all blank cells.
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
@@ -100,9 +98,6 @@ namespace TestGame2._0.Backend
                     SetGameBoard(x, y, c.generateLetter());
                 }
             }
-            timer = new Timer(10000);
-            timer.Elapsed += new ElapsedEventHandler(FallDown);
-            timer.Start();
         }
 
         /// <summary>
@@ -146,15 +141,12 @@ namespace TestGame2._0.Backend
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void FallDown(object sender, ElapsedEventArgs e)
+        public void FallDown()
         {
-            //if (toFallDown)
-            //{
                 for (int i = 0; i < 8; i++)
                 {
                     if (GameBoard[11, i] != 0)
                     {
-                        timer.Stop();
                         game.endGame();
                     }
                 }
@@ -163,12 +155,6 @@ namespace TestGame2._0.Backend
                 {
                     SetGameBoard(0, y, c.generateLetter());
                 }
-            //}
-            //else 
-            //{
-            //    isUpdate = true;
-            //    timer.Stop();
-            //}
         }
 
         /// <summary>
@@ -709,13 +695,13 @@ namespace TestGame2._0.Backend
         {
             timeElapsed += (float)
                 gameTime.ElapsedGameTime.TotalSeconds;
+            timeElapesedToFall += (float)
+                gameTime.ElapsedGameTime.TotalSeconds;
             if (timeElapsed > timeToUpdate)
             {
                 timeElapsed -= timeToUpdate;
                 if (toFind && teleport != 26)
                 {
-                    timer.Enabled = false;
-                    toFallDown = false;
                     GameBoard[tempRow, letterColumn] = teleport;
                     teleport--;
                 }
@@ -723,15 +709,11 @@ namespace TestGame2._0.Backend
                 {
                     GameBoard[tempRow, letterColumn] = playerLetter;
                     toFind = false;
-                    toFallDown = true;
                     findRowWords();
                     findColumnWords();
-                    timer.Enabled = true;
                 }
                 if (toDestroy && explosion != 30)
                 {
-                    timer.Enabled = false;
-                    toFallDown = false;
                     int i = 0;
                     while (i != coordToDestroy.Count())
                     {
@@ -779,18 +761,14 @@ namespace TestGame2._0.Backend
                     coordToDestroy.Clear();
                     explosion++;
                     toDestroy = false;
-                    toFallDown = true;
-                    //if (isUpdate)
-                    //{
-                        //timer.Enabled = true;
-                        //timer.Interval = 100;
-                        //timer.Start();
-                        //timer.Stop();
-                        //timer.Interval = 10000;
-                        //timer.Start();
-                        //isUpdate = false;
-                    //}
-                    timer.Enabled = true;
+                }
+                else
+                {
+                    if (timeElapesedToFall > 10)
+                    {
+                        timeElapesedToFall = 0;
+                        FallDown();
+                    }
                 }
             }
         }
