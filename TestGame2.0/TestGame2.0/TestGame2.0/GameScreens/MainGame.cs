@@ -18,8 +18,10 @@ namespace TestGame2._0.GameScreens
         private Game1 game;
         Cannon cannonSprite;
         Texture2D background;
+        Texture2D infiniteBackground;
         Texture2D gridLine;
         Rectangle mainFrame;
+        Rectangle rect1, rect2;
         Block block;
         GameArea mainArea;
         SpriteFont myFont;
@@ -48,6 +50,9 @@ namespace TestGame2._0.GameScreens
             seFire = game.Content.Load<SoundEffect>("fire");
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(game.Content.Load<Song>("theme1"));
+            infiniteBackground = game.Content.Load<Texture2D>("Space_background");
+            rect1 = new Rectangle(0, 0, 1312, 887);
+            rect2 = new Rectangle(0, 887, 1312, 887);
         }
 
         public void Update(GameTime gameTime)
@@ -55,11 +60,24 @@ namespace TestGame2._0.GameScreens
             mainArea.Update(gameTime);
             cannonSprite.Update(gameTime);
             scoreBoard.Update(gameTime); // update scoreboard
+
+            if (rect1.Y + infiniteBackground.Height <= 0)
+            {
+                rect1.Y = rect2.Y + infiniteBackground.Height;
+            }
+            else if (rect2.Y + infiniteBackground.Height <= 0)
+            {
+                rect2.Y = rect1.Y + infiniteBackground.Height;
+            }
+            rect1.Y -= 2;
+            rect2.Y -= 2;
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(infiniteBackground, rect1, Color.White);
+            spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             cannonSprite.Draw(spriteBatch);
             mainArea.CreateGameArea(spriteBatch, block);
             scoreBoard.Draw(spriteBatch); // draw scoreboard
@@ -75,6 +93,10 @@ namespace TestGame2._0.GameScreens
                 Rectangle rectangle = new Rectangle(150, (int)(350 + y * 50), 400, 1);
                 spriteBatch.Draw(gridLine, rectangle, Color.Red);
             }
+
+            //scroll the background
+           
+
             spriteBatch.Draw(gridLine, new Rectangle(150, 600, 400, 1), Color.White);
         }
     }

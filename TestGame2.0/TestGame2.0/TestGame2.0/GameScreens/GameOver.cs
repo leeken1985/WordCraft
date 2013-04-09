@@ -19,6 +19,7 @@ namespace TestGame2._0.GameScreens
         private Texture2D texture;
         private Rectangle rect1, rect2, rect3;
         private Texture2D infiniteBackground;
+        private KeyboardState lastState;
 
         public GameOver(Game1 game)
         {
@@ -34,6 +35,11 @@ namespace TestGame2._0.GameScreens
 
         public void Update(GameTime gameTime)
         {
+            KeyboardState currentState = Keyboard.GetState();
+            if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter))
+            {
+                game.restartGame();
+            }
             if (rect1.Y + infiniteBackground.Height <= 0)
             {
                 rect1.Y = rect2.Y + infiniteBackground.Height;
@@ -61,7 +67,8 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(texture, rect3, Color.White);
             spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(200, 100), Color.White);
             spriteBatch.DrawString(myFont, "Total Score", new Vector2(200, 200), Color.White);
-            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(300, 200), Color.White);
+            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(400, 200), Color.White);
+            spriteBatch.DrawString(myFont, "Press Enter to restart", new Vector2(200, 600), Color.White);
         }
     }
 }

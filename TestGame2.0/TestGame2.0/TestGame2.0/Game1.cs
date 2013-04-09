@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using TestGame2._0.GameScreens;
+using TestGame2._0.Backend;
 
 namespace TestGame2._0
 {
@@ -177,6 +178,21 @@ namespace TestGame2._0
             gameOver= new GameOver(this);
             currentScreen = Screen.GameOver;
             mainGame = null;
+        }
+
+        ///
+        public void restartGame()
+        {
+            mainMenu = new MainMenu(this);
+            currentScreen = Screen.MainMenu;
+            gameOver = null;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    GameArea.SetGameBoard(j, i, 0);
+                }
+            }
         }
     }
 }
