@@ -50,7 +50,7 @@ namespace TestGame2._0
         {
             // Displays current score and words that have been formed
             game.totalScore = mainArea.getScore();
-            thespriteBatch.DrawString(scoreBoardFont, "SCORE :    " + mainArea.getScore(), new Vector2(20, 100), Color.Red);            
+            thespriteBatch.DrawString(scoreBoardFont, "SCORE : " + mainArea.getScore(), new Vector2(15, 100), Color.Red);            
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[0] != "" ? "1.    " + (String)wordList[0] : "", new Vector2(20, 240), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[1] != "" ? "2.    " + (String)wordList[1] : "", new Vector2(20, 270), Color.White);
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[2] != "" ? "3.    " + (String)wordList[2] : "", new Vector2(20, 300), Color.White);
