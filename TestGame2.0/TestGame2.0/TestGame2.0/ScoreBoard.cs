@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using TestGame2._0.Backend;
+using TestGame2._0.GameScreens;
 
 namespace TestGame2._0
 {
@@ -30,7 +31,7 @@ namespace TestGame2._0
         /// <param name="g">Game</param>
         /// <param name="ma">Game area</param>
         /// <param name="cs">Cannon</param>
-        public ScoreBoard(Game1 g, GameArea ma, Cannon cs) 
+        public ScoreBoard(Game1 g, GameArea ma, Cannon cs)
         {
             this.game = g;
             block0 = new Block(g.Content.Load<Texture2D>("spriteSheet"), 6);
@@ -68,8 +69,6 @@ namespace TestGame2._0
             block1.SetFrame(cannonSprite.getQueue()[1]);
             block2.SetFrame(cannonSprite.getQueue()[2]);
             block3.SetFrame(cannonSprite.getStorage());
-
- 
             block0.setPosition(new Vector2(643, 140));
             block1.setPosition(new Vector2(643, 300));
             block2.setPosition(new Vector2(643, 360));
@@ -80,7 +79,6 @@ namespace TestGame2._0
             block2.Draw(thespriteBatch);
             block3.Draw(thespriteBatch);
         }
-
         /// <summary>
         /// Upated the formed word list
         /// </summary>
@@ -92,7 +90,9 @@ namespace TestGame2._0
             if (formedWord != (String)wordList[0]) 
             {
                 wordList.RemoveAt(4);
+                PauseScreen.list.RemoveAt(4);
                 wordList.Insert(0, formedWord);
+                PauseScreen.list.Insert(0, formedWord);
             }
         }
     }

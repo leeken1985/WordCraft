@@ -11,6 +11,8 @@ Content\spriteSheet.xnb
 Content\gameBoard.xnb
 Content\newGameOff.xnb
 Content\newGameOn.xnb
+Content\instructionsOFF.xnb
+Content\instructionsON.xnb
 Content\myFont.xnb
 Content\scoreBoardFont.xnb
 Content\explode.xnb
@@ -18,5 +20,3 @@ Content\travel.xnb
 Content\fire.xnb
 Content\theme1.xnb
 Content\theme1.wma
-Content\instructionsOFF.xnb
-Content\instructionsON.xnb

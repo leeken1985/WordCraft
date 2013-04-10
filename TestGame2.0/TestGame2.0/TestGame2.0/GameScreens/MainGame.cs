@@ -26,6 +26,7 @@ namespace TestGame2._0.GameScreens
         GameArea mainArea;
         SpriteFont myFont;
         ScoreBoard scoreBoard;
+        private KeyboardState lastState;
         public static SoundEffect seExplode;
         public static SoundEffect seTravel;
         public static SoundEffect seFire;
@@ -57,6 +58,13 @@ namespace TestGame2._0.GameScreens
 
         public void Update(GameTime gameTime)
         {
+            KeyboardState currentState = Keyboard.GetState();
+            if (currentState.IsKeyDown(Keys.Escape) && lastState.IsKeyUp(Keys.Escape))
+            {
+                game.pauseGame();
+            }
+            lastState = currentState;
+
             mainArea.Update(gameTime);
             cannonSprite.Update(gameTime);
             scoreBoard.Update(gameTime); // update scoreboard

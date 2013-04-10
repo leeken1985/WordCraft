@@ -115,6 +115,7 @@
     <Compile Include="GameScreens\Instructions.cs" />
     <Compile Include="GameScreens\MainGame.cs" />
     <Compile Include="GameScreens\MainMenu.cs" />
+    <Compile Include="GameScreens\PauseScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

@@ -34,6 +34,7 @@ namespace TestGame2._0.Backend
     class GameArea
     {
         private Game1 game;
+        private string formedWord = "";
         private Calculate c = new Calculate();
         private const int column = 8; //8 columns
         private const int row = 12; //12 row
@@ -44,7 +45,6 @@ namespace TestGame2._0.Backend
         private int tempRow;
         private int letterColumn;
         private int currScore = 0;
-        private string formedWord = "";
         private Dictionary<string, int> words3 = new Dictionary<string, int>();
         private Dictionary<string, int> words4 = new Dictionary<string, int>();
         private Dictionary<string, int> words5 = new Dictionary<string, int>();
@@ -266,7 +266,7 @@ namespace TestGame2._0.Backend
 
         /// <summary>
         /// Returns the word that was formed.
-        /// </summary>
+        /// </summary
         /// <returns>Word that was formed</returns>
         public string getFormedWord()
         {

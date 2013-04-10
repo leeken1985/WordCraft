@@ -18,7 +18,8 @@ namespace TestGame2._0
     {
         MainMenu,
         MainGame,
-        GameOver
+        GameOver,
+        PauseScreen
     }
 
 
@@ -30,6 +31,8 @@ namespace TestGame2._0
         MainGame mainGame;
         MainMenu mainMenu;
         GameOver gameOver;
+        MainGame pausedGame;
+        PauseScreen pauseScreen;
         SpriteBatch spriteBatch;
         Texture2D background;
         Screen currentScreen;
@@ -113,6 +116,12 @@ namespace TestGame2._0
                         mainGame.Update(gameTime);
                     }
                     break;
+                case Screen.PauseScreen:
+                    if (pauseScreen != null)
+                    {
+                        pauseScreen.Update(gameTime);
+                    }
+                    break;
                 case Screen.GameOver:
                     if (gameOver != null)
                     {
@@ -147,6 +156,12 @@ namespace TestGame2._0
                     if (mainGame != null)
                     {
                         mainGame.Draw(spriteBatch);
+                    }
+                    break;
+                case Screen.PauseScreen:
+                    if (pauseScreen != null)
+                    {
+                        pauseScreen.Draw(spriteBatch);
                     }
                     break;
                 case Screen.GameOver:
@@ -194,5 +209,20 @@ namespace TestGame2._0
                 }
             }
         }
+        public void pauseGame()
+        {
+            pausedGame = mainGame;
+            mainGame = null;
+            pauseScreen = new PauseScreen(this);
+            currentScreen = Screen.PauseScreen;
+        }
+
+        public void unpauseGame()
+        {
+            mainGame = pausedGame;
+            currentScreen = Screen.MainGame;
+            pauseScreen = null;
+        }
+
     }
 }
