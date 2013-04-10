@@ -83,21 +83,21 @@ namespace TestGame2._0.GameScreens
             scoreBoard.Draw(spriteBatch); // draw scoreboard
 
             //draw a red grid 50 x 50
-            for (float x = -4; x < 5; x++)
-            {
-                Rectangle rectangle = new Rectangle((int)(350 + x * 50), 0, 1, 750);
-                spriteBatch.Draw(gridLine, rectangle, Color.Red);
-            }
-            for (float y = -7; y < 9; y++)
-            {
-                Rectangle rectangle = new Rectangle(150, (int)(350 + y * 50), 400, 1);
-                spriteBatch.Draw(gridLine, rectangle, Color.Red);
-            }
+            //for (float x = -4; x < 5; x++)
+            //{
+            //    Rectangle rectangle = new Rectangle((int)(350 + x * 50), 0, 1, 750);
+            //    spriteBatch.Draw(gridLine, rectangle, Color.Blue);
+            //}
+            //for (float y = -7; y < 9; y++)
+            //{
+            //    Rectangle rectangle = new Rectangle(150, (int)(350 + y * 50), 400, 1);
+            //    spriteBatch.Draw(gridLine, rectangle, Color.Yellow);
+            //}
 
             //scroll the background
            
 
-            spriteBatch.Draw(gridLine, new Rectangle(150, 600, 400, 1), Color.White);
+            //spriteBatch.Draw(gridLine, new Rectangle(150, 600, 400, 1), Color.Red);
         }
     }
 }

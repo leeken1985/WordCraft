@@ -20,8 +20,11 @@ namespace TestGame2._0.GameScreens
         private KeyboardState lastState;
         private SpriteFont myFont;
         private Rectangle rect1, rect2;
-        private Texture2D newGame;
-        private Texture2D instructions;
+        private Texture2D newGameOn;
+        private Texture2D newGameOff;
+        private Texture2D instructionsOn;
+        private Texture2D instructionsOff;
+        private string highlight = "newgame";
 
         public MainMenu(Game1 game)
         {
@@ -32,18 +35,38 @@ namespace TestGame2._0.GameScreens
             infiniteBackground = game.Content.Load<Texture2D>("Space_background");
             rect1 = new Rectangle(0, 0, 1312, 887);
             rect2 = new Rectangle(0, 887, 1312, 887);
-            newGame = game.Content.Load<Texture2D>("newGameOn");
-            instructions = game.Content.Load<Texture2D>("instructionsOFF");
+            newGameOn = game.Content.Load<Texture2D>("newGameOn");
+            newGameOff = game.Content.Load<Texture2D>("newGameOff");
+            instructionsOff = game.Content.Load<Texture2D>("instructionsOFF");
+            instructionsOn = game.Content.Load<Texture2D>("instructionsON");
         }
 
         public void Update()
         {
             KeyboardState currentState = Keyboard.GetState();
-            if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter))
+            if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter) && highlight.Equals("newgame"))
             {
                 game.StartGame();
             }
+
+            if (currentState.IsKeyDown(Keys.Down))
+            {
+                if (!lastState.IsKeyDown(Keys.Down))
+                {
+                    highlight = "instructions";
+                }
+            }
+            
+            if (currentState.IsKeyDown(Keys.Up))
+            {
+                if (!lastState.IsKeyDown(Keys.Up))
+                {
+                    highlight = "newgame";
+                }
+            }
+
             lastState = currentState;
+
             //Scrolls background
             if (rect1.Y + infiniteBackground.Height <= 0)
             {
@@ -62,8 +85,16 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             spriteBatch.Draw(title, new Vector2(100, 50), Color.White);
-            spriteBatch.Draw(newGame, new Vector2(150, 300), Color.White);
-            spriteBatch.Draw(instructions, new Vector2(150, 400), Color.White);
+
+            if(highlight.Equals("newgame")){
+                spriteBatch.Draw(newGameOn, new Vector2(150, 300), Color.White);
+                spriteBatch.Draw(instructionsOff, new Vector2(150, 400), Color.White);
+            }
+
+            if(highlight.Equals("instructions")){
+                spriteBatch.Draw(instructionsOn, new Vector2(150, 400), Color.White);
+                spriteBatch.Draw(newGameOff, new Vector2(150, 300), Color.White);
+            }
             //spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(220, 600), Color.White);
         }
     }

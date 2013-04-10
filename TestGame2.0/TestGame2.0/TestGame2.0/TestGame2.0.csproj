@@ -112,6 +112,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="Cannon.cs" />
     <Compile Include="GameScreens\GameOver.cs" />
+    <Compile Include="GameScreens\Instructions.cs" />
     <Compile Include="GameScreens\MainGame.cs" />
     <Compile Include="GameScreens\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
