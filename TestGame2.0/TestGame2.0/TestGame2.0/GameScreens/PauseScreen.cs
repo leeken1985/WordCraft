@@ -52,7 +52,7 @@ namespace TestGame2._0.GameScreens
             spriteBatch.DrawString(myFont, "PAUSED", new Vector2(250, 300), Color.White);
             for (int i = 0; i < list.Count; i++)
             {
-                spriteBatch.DrawString(myFont, (String)list[i], new Vector2(325, y+i*50), Color.White);
+                spriteBatch.DrawString(myFont, (String)list[i], new Vector2(250, y+i*50), Color.White);
                 if(GameArea.getDictionary().ContainsKey(list[i].ToString()))
                     spriteBatch.DrawString(myFont, GameArea.getDictionary()[list[i].ToString()], new Vector2(250+x, y+i*50), Color.White);
             }

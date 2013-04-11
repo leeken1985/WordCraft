@@ -143,7 +143,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
-      <Time>2013-04-10T15:59:36.6777775-07:00</Time>
+      <Time>2013-04-10T18:00:36.1518079-07:00</Time>
     </Item>
     <Item>
       <Source>scoreBoardFont.spritefont</Source>
@@ -152,7 +152,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\scoreBoardFont.xnb</Output>
-      <Time>2013-04-10T15:59:52.3622074-07:00</Time>
+      <Time>2013-04-10T18:02:19.174987-07:00</Time>
     </Item>
     <Item>
       <Source>explode.wav</Source>
