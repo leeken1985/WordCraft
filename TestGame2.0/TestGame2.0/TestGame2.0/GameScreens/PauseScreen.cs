@@ -54,8 +54,16 @@ namespace TestGame2._0.GameScreens
             for (int i = 0; i < list.Count; i++)
             {
                 spriteBatch.DrawString(myFont, (String)list[i], new Vector2(15, 325+i*50), Color.White);
-                if(GameArea.getDictionary().ContainsKey(list[i].ToString()))
-                    spriteBatch.DrawString(myFont1, GameArea.getDictionary()[list[i].ToString()], new Vector2(35+x, 330+i*50), Color.White);
+                if (GameArea.getDictionary().ContainsKey(list[i].ToString()))
+                {
+                    if (GameArea.getDictionary()[list[i].ToString()].Length < 65)
+                        spriteBatch.DrawString(myFont1, GameArea.getDictionary()[list[i].ToString()], new Vector2(35 + x, 330 + i * 50), Color.White);
+                    else
+                    {
+                        spriteBatch.DrawString(myFont1, GameArea.getDictionary()[list[i].ToString()].Substring(0,65), new Vector2(35 + x, 330 + i * 50), Color.White);
+                        spriteBatch.DrawString(myFont1, GameArea.getDictionary()[list[i].ToString()].Substring(66), new Vector2(35 + x, 350 + i * 50), Color.White);
+                    }
+                }
             }
         }
     }
