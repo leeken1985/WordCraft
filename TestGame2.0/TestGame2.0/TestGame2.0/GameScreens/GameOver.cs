@@ -33,10 +33,14 @@ namespace TestGame2._0.GameScreens
             infiniteBackground = game.Content.Load<Texture2D>("Space_background");
             rect1 = new Rectangle(0, 0, 1312, 887);
             rect2 = new Rectangle(0, 887, 1312, 887);
-            rect3 = new Rectangle(600, 300, texture.Width, texture.Height);
+            rect3 = new Rectangle(600, 250, texture.Width, texture.Height);
             
         }
 
+        /// <summary>
+        /// Calls updating of Game over sprite.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
             // Press Enter to restart the game.
@@ -55,14 +59,17 @@ namespace TestGame2._0.GameScreens
             {
                 rect2.Y = rect1.Y + infiniteBackground.Height;
             }
-            if (rect3.X != 150)
+            if (rect3.X != 180)
             {
                 rect3.X--;
             }
             rect1.Y -= 2;
             rect2.Y -= 2;
         }
-
+        /// <summary>
+        /// Display Gameover streen contencts.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
             //stop the song on draw
@@ -70,10 +77,10 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             spriteBatch.Draw(texture, rect3, Color.White);
-            spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(200, 100), Color.White);
-            spriteBatch.DrawString(myFont, "Total Score", new Vector2(200, 200), Color.White);
-            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(400, 200), Color.White);
-            spriteBatch.DrawString(myFont, "Press Enter to restart", new Vector2(200, 600), Color.White);
+            spriteBatch.DrawString(myFont, "GAME OVER", new Vector2(280, 100), Color.White);
+            spriteBatch.DrawString(myFont, "Total Score", new Vector2(240, 200), Color.White);
+            spriteBatch.DrawString(myFont, game.totalScore.ToString(),new Vector2(440, 200), Color.White);
+            spriteBatch.DrawString(myFont, "Press Enter to restart", new Vector2(180, 640), Color.White);
         }
     }
 }

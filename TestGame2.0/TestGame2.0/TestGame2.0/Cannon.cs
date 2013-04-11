@@ -181,10 +181,7 @@ namespace TestGame2._0
             {
                 if (!oldState.IsKeyDown(Keys.LeftControl))
                 {
-                    if (totalTimer > timeBetweenShots)
-                    {
                         swap();
-                    }
                 }
             }
         }
