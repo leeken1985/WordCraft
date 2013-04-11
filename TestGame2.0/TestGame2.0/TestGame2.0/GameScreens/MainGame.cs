@@ -28,6 +28,7 @@ namespace TestGame2._0.GameScreens
         public static SoundEffect seExplode;
         public static SoundEffect seTravel;
         public static SoundEffect seFire;
+        public static SoundEffect seFallDown;
 
 
         /// <summary>
@@ -49,6 +50,7 @@ namespace TestGame2._0.GameScreens
             seExplode = game.Content.Load<SoundEffect>("explode");
             seTravel = game.Content.Load<SoundEffect>("travel");
             seFire = game.Content.Load<SoundEffect>("fire");
+            seFallDown = game.Content.Load<SoundEffect>("falldown");
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(game.Content.Load<Song>("theme1"));
             infiniteBackground = game.Content.Load<Texture2D>("gameBoard");
@@ -83,7 +85,6 @@ namespace TestGame2._0.GameScreens
             }
             rect1.Y -= 1;
             rect2.Y -= 1;
-
         }
 
         /// <summary>

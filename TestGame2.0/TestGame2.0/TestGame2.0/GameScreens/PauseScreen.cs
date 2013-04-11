@@ -14,7 +14,7 @@ namespace TestGame2._0.GameScreens
     {
         private Game1 game;
         private KeyboardState lastState;
-        private SpriteFont myFont;
+        private SpriteFont myFont, myFont1;
         private Texture2D texture;
         private Rectangle rect1;
         public static ArrayList list = new ArrayList{ "", "", "", "", "" };
@@ -28,6 +28,7 @@ namespace TestGame2._0.GameScreens
             rect1 = new Rectangle(0, 0, 751, 751);
             texture = game.Content.Load<Texture2D>("Space_background");
             myFont = game.Content.Load<SpriteFont>("scoreBoardFont");
+            myFont1 = game.Content.Load<SpriteFont>("pausefont");
         }
 
         public void pause(GameTime gameTime)
@@ -49,12 +50,12 @@ namespace TestGame2._0.GameScreens
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, rect1, Color.White);
-            spriteBatch.DrawString(myFont, "PAUSED", new Vector2(250, 300), Color.White);
+            spriteBatch.DrawString(myFont, "PAUSED", new Vector2(300, 250), Color.White);
             for (int i = 0; i < list.Count; i++)
             {
-                spriteBatch.DrawString(myFont, (String)list[i], new Vector2(250, y+i*50), Color.White);
+                spriteBatch.DrawString(myFont, (String)list[i], new Vector2(15, 325+i*50), Color.White);
                 if(GameArea.getDictionary().ContainsKey(list[i].ToString()))
-                    spriteBatch.DrawString(myFont, GameArea.getDictionary()[list[i].ToString()], new Vector2(250+x, y+i*50), Color.White);
+                    spriteBatch.DrawString(myFont1, GameArea.getDictionary()[list[i].ToString()], new Vector2(35+x, 330+i*50), Color.White);
             }
         }
     }

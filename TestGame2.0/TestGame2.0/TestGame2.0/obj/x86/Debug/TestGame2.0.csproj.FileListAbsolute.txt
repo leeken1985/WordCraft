@@ -112,3 +112,8 @@ C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bi
 C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsOFF.xnb
 C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsON.xnb
 C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructions_page2_2.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructions_page2_2.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\pausefont.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\opening.xnb
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\opening.wma
+C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\falldown.xnb

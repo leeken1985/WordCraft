@@ -43,6 +43,7 @@ namespace TestGame2._0.GameScreens
             newGameOff = game.Content.Load<Texture2D>("newGameOff");
             instructionsOff = game.Content.Load<Texture2D>("instructionsOFF");
             instructionsOn = game.Content.Load<Texture2D>("instructionsON");
+            MediaPlayer.Play(game.Content.Load<Song>("opening"));
         }
 
         public void Update()

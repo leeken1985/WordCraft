@@ -256,7 +256,7 @@ namespace TestGame2._0
         /// </summary>
         public void backToMain()
         {
-            mainMenu = new MainMenu(this);
+            //mainMenu = new MainMenu(this);
             currentScreen = Screen.MainMenu;
         }
 

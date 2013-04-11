@@ -143,13 +143,13 @@ namespace TestGame2._0.Backend
         /// <param name="e"></param>
         public void FallDown()
         {
+            MainGame.seFallDown.Play();
             for (int i = 0; i < 8; i++)
             {
                 if (GameBoard[11, i] != 0)
                 {
                     isGameOver = true;
                     explosion = 27;
-                    //game.endGame();
                 }
             }
             System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
@@ -796,6 +796,7 @@ namespace TestGame2._0.Backend
         {
             if (isGameOver && explosion != 30 && explosion != 31)
             {
+                MainGame.seExplode.Play();
                 toFall = false;
                 toFind = false;
                 toDestroy = false;

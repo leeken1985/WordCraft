@@ -5,12 +5,6 @@ Content\Awesome_Face.xnb
 Content\Wallpaper.xnb
 Content\spaceship.xnb
 Content\Space_background.xnb
-Content\myFont.xnb
-Content\scoreBoardFont.xnb
-Content\explode.xnb
-Content\travel.xnb
-Content\fire.xnb
-Content\theme1.xnb
 Content\title.xnb
 Content\space.xnb
 Content\spriteSheet.xnb
@@ -20,4 +14,14 @@ Content\newGameOn.xnb
 Content\instructionsOFF.xnb
 Content\instructionsON.xnb
 Content\instructions_page2_2.xnb
+Content\myFont.xnb
+Content\scoreBoardFont.xnb
+Content\explode.xnb
+Content\travel.xnb
+Content\fire.xnb
+Content\theme1.xnb
+Content\pausefont.xnb
+Content\opening.xnb
+Content\falldown.xnb
 Content\theme1.wma
+Content\opening.wma
