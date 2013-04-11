@@ -34,7 +34,6 @@ namespace TestGame2._0.Backend
     class GameArea
     {
         private Game1 game;
-        private string formedWord = "";
         private Calculate c = new Calculate();
         private const int column = 8; //8 columns
         private const int row = 12; //12 row
@@ -45,6 +44,7 @@ namespace TestGame2._0.Backend
         private int tempRow;
         private int letterColumn;
         private int currScore = 0;
+        private string formedWord = "";
         private Dictionary<string, int> words3 = new Dictionary<string, int>();
         private Dictionary<string, int> words4 = new Dictionary<string, int>();
         private Dictionary<string, int> words5 = new Dictionary<string, int>();
@@ -62,6 +62,7 @@ namespace TestGame2._0.Backend
         private bool toDestroy = false;
         private bool toFind = false;
         private bool toFall = true;
+        private bool isGameOver = false;
         // Sets default game area with all blank cells.
         private static int[,] GameBoard = {{0, 0, 0, 0, 0, 0, 0, 0},
                                            {0, 0, 0, 0, 0, 0, 0, 0},
@@ -146,18 +147,20 @@ namespace TestGame2._0.Backend
         /// <param name="e"></param>
         public void FallDown()
         {
-                for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
+            {
+                if (GameBoard[11, i] != 0)
                 {
-                    if (GameBoard[11, i] != 0)
-                    {
-                        game.endGame();
-                    }
+                    isGameOver = true;
+                    explosion = 27;
+                    //game.endGame();
                 }
-                System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
-                for (int y = 0; y < GameBoard.GetLength(1); y++)
-                {
-                    SetGameBoard(0, y, c.generateLetter());
-                }
+            }
+            System.Buffer.BlockCopy(GameBoard, 0, GameBoard, 32, 352);
+            for (int y = 0; y < GameBoard.GetLength(1); y++)
+            {
+                SetGameBoard(0, y, c.generateLetter());
+            }
         }
 
         /// <summary>
@@ -216,7 +219,7 @@ namespace TestGame2._0.Backend
             pointList.Add('.', 0);
             pointList.Add('/', 0);
         }
-        
+
         /// <summary>
         /// Sets a coordinate on the game area to be a certain block.
         /// Block keeps moving up until it hits the end of the game area or another block.
@@ -249,7 +252,12 @@ namespace TestGame2._0.Backend
             catch (Exception ex)
             {
                 // Game ends if user fires in row that is at its max.
-                game.endGame();
+                //game.endGame();
+                toFind = false;
+                toDestroy = false;
+                toFall = false;
+                isGameOver = true;
+                explosion = 27;
             }
             letterColumn = userColumn;
             teleport = 28;
@@ -266,7 +274,7 @@ namespace TestGame2._0.Backend
 
         /// <summary>
         /// Returns the word that was formed.
-        /// </summary
+        /// </summary>
         /// <returns>Word that was formed</returns>
         public string getFormedWord()
         {
@@ -342,7 +350,9 @@ namespace TestGame2._0.Backend
             }
             catch (Exception ex)
             {
-                game.endGame();
+                //game.endGame();
+                isGameOver = true;
+                explosion = 27;
             }
             return lineString;
         }
@@ -509,7 +519,9 @@ namespace TestGame2._0.Backend
             }
             catch (Exception ex)
             {
-                game.endGame();
+                //game.endGame();
+                isGameOver = true;
+                explosion = 27;
             }
 
             int maxPoints = -100;
@@ -692,6 +704,154 @@ namespace TestGame2._0.Backend
         }
 
         /// <summary>
+        /// Sets the block sprite that was shot as teleport sprites
+        /// </summary>
+        private void teleportAnimation()
+        {
+            if (toFind && teleport != 26)
+            {
+                toFall = false;
+                GameBoard[tempRow, letterColumn] = teleport;
+                teleport--;
+            }
+        }
+
+        /// <summary>
+        /// Sets the block sprite that was fired and turned into teleport sprites
+        /// as the block that was fired sprite
+        /// </summary>
+        private void teleportClear()
+        {
+            if (toFind && teleport == 26)
+            {
+                GameBoard[tempRow, letterColumn] = playerLetter;
+                toFind = false;
+                toFall = true;
+                findRowWords();
+                findColumnWords();
+            }
+        }
+
+        /// <summary>
+        /// Sets the all the block sprites that formed a word as
+        /// the explosion sprites if a valid word is formed
+        /// </summary>
+        private void destroyAnimation()
+        {
+            if (toDestroy && explosion != 30)
+            {
+                toFall = false;
+                int i = 0;
+                while (i != coordToDestroy.Count())
+                {
+                    if (coordToDestroy[i].rowCol == 0)//set row to be destroyed as explosion sprites
+                    {
+                        for (int j = coordToDestroy[i].y; j < coordToDestroy[i].y + coordToDestroy[i].value; j++)
+                        {
+                            GameBoard[coordToDestroy[i].x, j] = explosion;
+                        }
+                    }
+                    else //set column to be destroyed as explosion sprites
+                    {
+                        for (int j = coordToDestroy[i].x; j < coordToDestroy[i].x + coordToDestroy[i].value; j++)
+                        {
+                            GameBoard[j, coordToDestroy[i].y] = explosion;
+                        }
+                    }
+                    i++;
+                }
+                explosion++;
+            }
+        }
+
+        /// <summary>
+        /// Sets the block sprites that formed a word and turned into
+        /// explosion sprites as an empty sprites if a valid word is formed
+        /// </summary>
+        private void destrowClear()
+        {
+            if (toDestroy && explosion == 30)
+            {
+                int i = 0;
+                while (i != coordToDestroy.Count())
+                {
+                    if (coordToDestroy[i].rowCol == 0)//delete row
+                    {
+                        for (int j = coordToDestroy[i].y; j < coordToDestroy[i].y + coordToDestroy[i].value; j++)
+                        {
+                            GameBoard[coordToDestroy[i].x, j] = 0;
+                        }
+                        MoveUp(coordToDestroy[i].x, coordToDestroy[i].y, coordToDestroy[i].value);
+                    }
+                    else //delete column
+                    {
+                        for (int j = coordToDestroy[i].x; j < coordToDestroy[i].x + coordToDestroy[i].value; j++)
+                        {
+                            GameBoard[j, coordToDestroy[i].y] = 0;
+                        }
+                        ColumnMoveUp(coordToDestroy[i].x, coordToDestroy[i].y, coordToDestroy[i].value);
+                    }
+                    i++;
+                }
+                coordToDestroy.Clear();
+                explosion++;
+                toDestroy = false;
+                toFall = true;
+            }
+        }
+
+        /// <summary>
+        /// Sets all the block sprites currently on the screen as the
+        /// explosion sprites if game is set to over
+        /// </summary>
+        private void gameOverAnimation()
+        {
+            if (isGameOver && explosion != 30 && explosion != 31)
+            {
+                toFall = false;
+                toFind = false;
+                toDestroy = false;
+                for (int i = 0; i < GameBoard.GetLength(0); i++)
+                {
+                    for (int j = 0; j < GameBoard.GetLength(1); j++)
+                    {
+                        if (GameBoard[i, j] != 0)
+                        {
+                            GameBoard[i, j] = explosion;
+                        }
+                    }
+                }
+                explosion++;
+                timeToUpdate = 0.30f;
+            }
+        }
+
+        /// <summary>
+        /// Sets all the block sprites currently on the screen and turned
+        /// explosion sprites as empty sprites then calls the game over screen
+        /// if game is set to over
+        /// </summary>
+        private void gameOverClear()
+        {
+            if (isGameOver && explosion == 30)
+            {
+                for (int i = 0; i < GameBoard.GetLength(0); i++)
+                {
+                    for (int j = 0; j < GameBoard.GetLength(1); j++)
+                    {
+                        GameBoard[i, j] = 0;
+                    }
+                }
+                explosion++;
+            }
+            else if (isGameOver && explosion == 31)
+            {
+                System.Threading.Thread.Sleep(1000);
+                game.endGame();
+            }
+        }
+
+        /// <summary>
         /// Controls display of sprites when blocks are set and destroyed.
         /// </summary>
         /// <param name="gameTime"></param>
@@ -704,80 +864,17 @@ namespace TestGame2._0.Backend
             if (timeElapsed > timeToUpdate)
             {
                 timeElapsed -= timeToUpdate;
-                if (toFind && teleport != 26)
+                teleportAnimation();
+                teleportClear();
+                destroyAnimation();
+                destrowClear();
+                if (toFall && timeElapesedToFall > 10)
                 {
-                    toFall = false;
-                    GameBoard[tempRow, letterColumn] = teleport;
-                    teleport--;
+                    timeElapesedToFall = 0;
+                    FallDown();
                 }
-                else if (toFind && teleport == 26)
-                {
-                    GameBoard[tempRow, letterColumn] = playerLetter;
-                    toFind = false;
-                    toFall = true;
-                    findRowWords();
-                    findColumnWords();
-                }
-                if (toDestroy && explosion != 30)
-                {
-                    toFall = false;
-                    int i = 0;
-                    while (i != coordToDestroy.Count())
-                    {
-                        if (coordToDestroy[i].rowCol == 0)//set row to be destroyed as explosion sprites
-                        {
-                            for (int j = coordToDestroy[i].y; j < coordToDestroy[i].y + coordToDestroy[i].value; j++)
-                            {
-                                GameBoard[coordToDestroy[i].x, j] = explosion;
-                            }
-                        }
-                        else //set column to be destroyed as explosion sprites
-                        {
-                            for (int j = coordToDestroy[i].x; j < coordToDestroy[i].x + coordToDestroy[i].value; j++)
-                            {
-                                GameBoard[j, coordToDestroy[i].y] = explosion;
-                            }
-                        }
-                        i++;
-                    }
-                    explosion++;
-                }
-                else if (toDestroy && explosion == 30)
-                {
-                    int i = 0;
-                    while (i != coordToDestroy.Count())
-                    {
-                        if (coordToDestroy[i].rowCol == 0)//delete row
-                        {
-                            for (int j = coordToDestroy[i].y; j < coordToDestroy[i].y + coordToDestroy[i].value; j++)
-                            {
-                                GameBoard[coordToDestroy[i].x, j] = 0;
-                            }
-                            MoveUp(coordToDestroy[i].x, coordToDestroy[i].y, coordToDestroy[i].value);
-                        }
-                        else //delete column
-                        {
-                            for (int j = coordToDestroy[i].x; j < coordToDestroy[i].x + coordToDestroy[i].value; j++)
-                            {
-                                GameBoard[j, coordToDestroy[i].y] = 0;
-                            }
-                            ColumnMoveUp(coordToDestroy[i].x, coordToDestroy[i].y, coordToDestroy[i].value);
-                        }
-                        i++;
-                    }
-                    coordToDestroy.Clear();
-                    explosion++;
-                    toDestroy = false;
-                    toFall = true;
-                }
-                else
-                {
-                    if (toFall && timeElapesedToFall > 10)
-                    {
-                        timeElapesedToFall = 0;
-                        FallDown();
-                    }
-                }
+                gameOverAnimation();
+                gameOverClear();
             }
         }
     }
