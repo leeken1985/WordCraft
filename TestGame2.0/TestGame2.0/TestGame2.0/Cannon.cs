@@ -28,8 +28,8 @@ namespace TestGame2._0
         int columnPosition = 1;
         int playerLetter;
         private int storageLetter;
-        private static bool storeOption = false;
-        private static bool isShoot = false;
+        private bool storeOption = false;
+        private bool isShoot = true;
         GameArea gameArea;
         List<int> queue;
         private int totalTimer = 601;
@@ -44,7 +44,7 @@ namespace TestGame2._0
             base.LoadContent(theContentManager, "spaceship");
             calc = new Calculate();
             queue = new List<int>();
-
+  
             // Generates queue of letters for player to fire.
             for (int i = 0; i < 3; i++)
             {
@@ -60,6 +60,7 @@ namespace TestGame2._0
         public void swap()
         {
             int temp;
+
             if (isShoot == true)
             {   
                 // If Hold is empty, move first letter to hold.  And refill Queue.

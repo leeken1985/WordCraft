@@ -210,7 +210,9 @@ namespace TestGame2._0
             mainGame = null;
         }
 
-        ///
+        /// <summary>
+        /// Restarts the game
+        /// </summary>
         public void restartGame()
         {
             mainMenu = new MainMenu(this);

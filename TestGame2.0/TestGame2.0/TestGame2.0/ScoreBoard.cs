@@ -61,9 +61,9 @@ namespace TestGame2._0
             thespriteBatch.DrawString(scoreBoardFont, (String)wordList[4] != "" ? "5.   " + (String)wordList[4] : "", new Vector2(20, 360), Color.White);
 
             // Displays the strings
-            thespriteBatch.DrawString(scoreBoardFont, "READY:  ", new Vector2(558, 150), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, "NEXT:  ", new Vector2(558, 310), Color.White);
-            thespriteBatch.DrawString(scoreBoardFont, "HOLD:  ", new Vector2(558, 560), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "READY", new Vector2(558, 150), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "NEXT", new Vector2(558, 310), Color.White);
+            thespriteBatch.DrawString(scoreBoardFont, "HOLD", new Vector2(558, 560), Color.White);
             
             block0.SetFrame(cannonSprite.getQueue()[0]);
             block1.SetFrame(cannonSprite.getQueue()[1]);
