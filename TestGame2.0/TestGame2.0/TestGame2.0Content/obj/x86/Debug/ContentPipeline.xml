@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
-      <Time>2013-02-21T14:43:38.8373185-08:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\blocks.xnb</Output>
+      <Time>2013-02-21T13:04:41.376948-08:00</Time>
     </Item>
     <Item>
       <Source>background.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2013-03-21T15:18:12.348839-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2013-03-21T08:51:53.6493536-07:00</Time>
     </Item>
     <Item>
       <Source>tShape.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\tShape.xnb</Output>
-      <Time>2013-03-21T15:18:12.3638529-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\tShape.xnb</Output>
+      <Time>2013-03-21T09:21:06.0545854-07:00</Time>
     </Item>
     <Item>
       <Source>Awesome_Face.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Awesome_Face.xnb</Output>
-      <Time>2013-03-21T15:18:12.3418386-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Awesome_Face.xnb</Output>
+      <Time>2013-03-21T09:21:06.0335842-07:00</Time>
     </Item>
     <Item>
       <Source>Wallpaper.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Wallpaper.xnb</Output>
-      <Time>2013-04-01T15:28:58.7936377-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Wallpaper.xnb</Output>
+      <Time>2013-04-03T15:28:25.2304885-07:00</Time>
     </Item>
     <Item>
       <Source>spaceship.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spaceship.xnb</Output>
-      <Time>2013-04-01T23:24:45.4649031-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spaceship.xnb</Output>
+      <Time>2013-04-02T13:24:43.5721697-07:00</Time>
     </Item>
     <Item>
       <Source>Space_background.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Space_background.xnb</Output>
-      <Time>2013-04-01T23:24:45.4599001-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\Space_background.xnb</Output>
+      <Time>2013-04-02T13:24:43.5611691-07:00</Time>
     </Item>
     <Item>
       <Source>title.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\title.xnb</Output>
-      <Time>2013-04-04T11:41:37.1421332-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\title.xnb</Output>
+      <Time>2013-04-04T14:59:49.7926423-07:00</Time>
     </Item>
     <Item>
       <Source>space.jpg</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\space.xnb</Output>
-      <Time>2013-04-04T15:03:24.0557826-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\space.xnb</Output>
+      <Time>2013-04-04T15:25:35.3590436-07:00</Time>
     </Item>
     <Item>
       <Source>spriteSheet.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spriteSheet.xnb</Output>
-      <Time>2013-04-10T15:58:11.796335-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\spriteSheet.xnb</Output>
+      <Time>2013-04-08T20:15:51.9148268-07:00</Time>
     </Item>
     <Item>
       <Source>gameBoard.jpg</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\gameBoard.xnb</Output>
-      <Time>2013-04-10T15:58:11.7863296-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\gameBoard.xnb</Output>
+      <Time>2013-04-09T16:24:52.1756034-07:00</Time>
     </Item>
     <Item>
       <Source>newGameOff.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOff.xnb</Output>
-      <Time>2013-04-10T15:58:11.7883301-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOff.xnb</Output>
+      <Time>2013-04-09T16:09:03.2113258-07:00</Time>
     </Item>
     <Item>
       <Source>newGameOn.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOn.xnb</Output>
-      <Time>2013-04-10T15:58:11.789332-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOn.xnb</Output>
+      <Time>2013-04-09T16:09:03.2143259-07:00</Time>
     </Item>
     <Item>
       <Source>instructionsOFF.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsOFF.xnb</Output>
-      <Time>2013-04-10T15:58:11.7873307-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsOFF.xnb</Output>
+      <Time>2013-04-09T16:17:16.3225301-07:00</Time>
     </Item>
     <Item>
       <Source>instructionsON.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsON.xnb</Output>
-      <Time>2013-04-10T15:58:11.7873307-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsON.xnb</Output>
+      <Time>2013-04-09T16:17:16.3265304-07:00</Time>
     </Item>
     <Item>
       <Source>myFont.spritefont</Source>
@@ -142,8 +142,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
-      <Time>2013-04-10T18:00:36.1518079-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\myFont.xnb</Output>
+      <Time>2013-04-08T20:55:35.1982184-07:00</Time>
     </Item>
     <Item>
       <Source>scoreBoardFont.spritefont</Source>
@@ -151,8 +151,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\scoreBoardFont.xnb</Output>
-      <Time>2013-04-10T18:02:19.174987-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\scoreBoardFont.xnb</Output>
+      <Time>2013-04-08T20:55:35.1982184-07:00</Time>
     </Item>
     <Item>
       <Source>explode.wav</Source>
@@ -160,8 +160,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\explode.xnb</Output>
-      <Time>2013-04-04T08:41:31.2663588-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\explode.xnb</Output>
+      <Time>2013-04-04T14:59:49.75164-07:00</Time>
     </Item>
     <Item>
       <Source>travel.wav</Source>
@@ -169,8 +169,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\travel.xnb</Output>
-      <Time>2013-04-04T09:31:07.6616064-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\travel.xnb</Output>
+      <Time>2013-04-04T14:59:49.7966425-07:00</Time>
     </Item>
     <Item>
       <Source>fire.wav</Source>
@@ -178,8 +178,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\fire.xnb</Output>
-      <Time>2013-04-04T09:36:06.2179527-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\fire.xnb</Output>
+      <Time>2013-04-04T14:59:49.7556402-07:00</Time>
     </Item>
     <Item>
       <Source>theme1.mp3</Source>
@@ -187,9 +187,18 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.xnb</Output>
-      <Extra>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.wma</Extra>
-      <Time>2013-04-04T09:51:14.3907063-07:00</Time>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.xnb</Output>
+      <Extra>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\theme1.wma</Extra>
+      <Time>2013-04-04T14:59:49.7916422-07:00</Time>
+    </Item>
+    <Item>
+      <Source>instructions_page2_2.png</Source>
+      <Name>instructions_page2_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructions_page2_2.xnb</Output>
+      <Time>2013-04-10T19:58:13.040626-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -197,10 +206,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Ken\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\dkl\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -228,8 +237,8 @@
         <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-02-18T17:33:48.1619605-08:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-02-21T12:45:58.4407197-08:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

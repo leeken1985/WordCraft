@@ -20,7 +20,8 @@ namespace TestGame2._0
         MainMenu,
         MainGame,
         GameOver,
-        PauseScreen
+        PauseScreen,
+        Instructions
     }
 
 
@@ -31,6 +32,7 @@ namespace TestGame2._0
     {
         MainGame mainGame;
         MainMenu mainMenu;
+        Instructions instruct;
         GameOver gameOver;
         MainGame pausedGame;
         PauseScreen pauseScreen;
@@ -129,6 +131,12 @@ namespace TestGame2._0
                         gameOver.Update(gameTime);
                     }
                     break;
+                case Screen.Instructions:
+                    if (instruct != null)
+                    {
+                        instruct.Update();
+                    }
+                    break;
             }
 
             base.Update(gameTime);
@@ -169,6 +177,12 @@ namespace TestGame2._0
                     if (gameOver != null)
                     {
                         gameOver.Draw(spriteBatch);
+                    }
+                    break;
+                case Screen.Instructions:
+                    if (instruct != null)
+                    {
+                        instruct.Draw(spriteBatch);
                     }
                     break;
             }
@@ -226,5 +240,22 @@ namespace TestGame2._0
             pauseScreen = null;
         }
 
+        /// <summary>
+        /// Returns to main menu
+        /// </summary>
+        public void backToMain()
+        {
+            mainMenu = new MainMenu(this);
+            currentScreen = Screen.MainMenu;
+        }
+
+        /// <summary>
+        /// Displays instructions screen.
+        /// </summary>
+        public void instructions()
+        {
+            instruct = new Instructions(this);
+            currentScreen = Screen.Instructions;
+        }
     }
 }

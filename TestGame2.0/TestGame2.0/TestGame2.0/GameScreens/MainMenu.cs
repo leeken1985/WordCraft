@@ -26,6 +26,10 @@ namespace TestGame2._0.GameScreens
         private Texture2D instructionsOff;
         private string highlight = "newgame";
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="game"></param>
         public MainMenu(Game1 game)
         {
             this.game = game;
@@ -43,10 +47,16 @@ namespace TestGame2._0.GameScreens
 
         public void Update()
         {
+            // Switch between "New Game" and "Instructions"
             KeyboardState currentState = Keyboard.GetState();
             if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter) && highlight.Equals("newgame"))
             {
                 game.StartGame();
+            }
+
+            if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter) && highlight.Equals("instructions"))
+            {
+                game.instructions();
             }
 
             if (currentState.IsKeyDown(Keys.Down))
@@ -56,7 +66,7 @@ namespace TestGame2._0.GameScreens
                     highlight = "instructions";
                 }
             }
-            
+
             if (currentState.IsKeyDown(Keys.Up))
             {
                 if (!lastState.IsKeyDown(Keys.Up))
@@ -86,16 +96,18 @@ namespace TestGame2._0.GameScreens
             spriteBatch.Draw(infiniteBackground, rect2, Color.White);
             spriteBatch.Draw(title, new Vector2(100, 50), Color.White);
 
-            if(highlight.Equals("newgame")){
+            // Changes text colour to yellow if selected, white if not.
+            if (highlight.Equals("newgame"))
+            {
                 spriteBatch.Draw(newGameOn, new Vector2(150, 300), Color.White);
                 spriteBatch.Draw(instructionsOff, new Vector2(150, 400), Color.White);
             }
 
-            if(highlight.Equals("instructions")){
+            if (highlight.Equals("instructions"))
+            {
                 spriteBatch.Draw(instructionsOn, new Vector2(150, 400), Color.White);
                 spriteBatch.Draw(newGameOff, new Vector2(150, 300), Color.White);
             }
-            //spriteBatch.DrawString(myFont, "Press Enter to Start!", new Vector2(220, 600), Color.White);
         }
     }
 }

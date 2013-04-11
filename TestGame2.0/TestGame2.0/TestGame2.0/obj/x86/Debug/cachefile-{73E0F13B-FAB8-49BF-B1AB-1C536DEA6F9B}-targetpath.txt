@@ -20,3 +20,4 @@ Content\travel.xnb
 Content\fire.xnb
 Content\theme1.xnb
 Content\theme1.wma
+Content\instructions_page2_2.xnb

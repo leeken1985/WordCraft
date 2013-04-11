@@ -21,6 +21,10 @@ namespace TestGame2._0.GameScreens
         private Texture2D infiniteBackground;
         private KeyboardState lastState;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="game">Game</param>
         public GameOver(Game1 game)
         {
             this.game = game;
@@ -35,11 +39,14 @@ namespace TestGame2._0.GameScreens
 
         public void Update(GameTime gameTime)
         {
+            // Press Enter to restart the game.
             KeyboardState currentState = Keyboard.GetState();
             if (currentState.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter))
             {
                 game.restartGame();
             }
+
+            // Infinite scrolling backgrouns
             if (rect1.Y + infiniteBackground.Height <= 0)
             {
                 rect1.Y = rect2.Y + infiniteBackground.Height;
