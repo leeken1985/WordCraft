@@ -17,9 +17,7 @@ namespace TestGame2._0.GameScreens
     {
         private Game1 game;
         Cannon cannonSprite;
-        Texture2D background;
         Texture2D infiniteBackground;
-        Texture2D gridLine;
         Rectangle mainFrame;
         Rectangle rect1, rect2;
         Block block;
@@ -31,6 +29,11 @@ namespace TestGame2._0.GameScreens
         public static SoundEffect seTravel;
         public static SoundEffect seFire;
 
+
+        /// <summary>
+        /// Main game constructor. Takes a game (since some game methods will be used).
+        /// </summary>
+        /// <param name="game"></param>
         public MainGame(Game1 game)
         {
             this.game = game;
@@ -40,9 +43,6 @@ namespace TestGame2._0.GameScreens
             block = new Block(game.Content.Load<Texture2D>("spriteSheet"), 6);
             cannonSprite.setBlock(block);
             cannonSprite.setGameArea(mainArea);
-            background = game.Content.Load<Texture2D>("space");
-            gridLine = new Texture2D(game.GraphicsDevice, 1, 1);
-            gridLine.SetData(new Color[] { Color.White });
             mainFrame = new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             myFont = game.Content.Load<SpriteFont>("myFont");
             scoreBoard = new ScoreBoard(this.game, this.mainArea, this.cannonSprite);
@@ -56,6 +56,10 @@ namespace TestGame2._0.GameScreens
             rect2 = new Rectangle(0, 1024, 1024, 1024);
         }
 
+        /// <summary>
+        /// Update uses the Game1.cs update method. 
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
             KeyboardState currentState = Keyboard.GetState();
@@ -82,6 +86,11 @@ namespace TestGame2._0.GameScreens
 
         }
 
+        /// <summary>
+        /// Draw is passed into Game1.cs, which does the actual drawing.
+        /// Things below are what the Game1.cs draw method will draw.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(infiniteBackground, rect1, Color.White);
@@ -89,23 +98,6 @@ namespace TestGame2._0.GameScreens
             cannonSprite.Draw(spriteBatch);
             mainArea.CreateGameArea(spriteBatch, block);
             scoreBoard.Draw(spriteBatch); // draw scoreboard
-
-            //draw a red grid 50 x 50
-            //for (float x = -4; x < 5; x++)
-            //{
-            //    Rectangle rectangle = new Rectangle((int)(350 + x * 50), 0, 1, 750);
-            //    spriteBatch.Draw(gridLine, rectangle, Color.Blue);
-            //}
-            //for (float y = -7; y < 9; y++)
-            //{
-            //    Rectangle rectangle = new Rectangle(150, (int)(350 + y * 50), 400, 1);
-            //    spriteBatch.Draw(gridLine, rectangle, Color.Yellow);
-            //}
-
-            //scroll the background
-           
-
-            //spriteBatch.Draw(gridLine, new Rectangle(150, 600, 400, 1), Color.Red);
         }
     }
 }

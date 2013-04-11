@@ -88,12 +88,6 @@ namespace TestGame2._0
             if (frame < Rectangles.Length)
                 FrameIndex = frame;
         }
-
-        //public void LoadContent(ContentManager theContentManager)
-        //{
-        //    base.LoadContent(theContentManager, "aBlock");
-        //}
-
         /// <summary>
         /// Updates the block position when the it's fired
         /// </summary>

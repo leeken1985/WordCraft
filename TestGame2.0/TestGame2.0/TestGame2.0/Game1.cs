@@ -105,6 +105,8 @@ namespace TestGame2._0
                 this.Exit();
 
             // TODO: Add your update logic here
+
+            //following switch statement changes the game screen
             switch (currentScreen)
             {
                 case Screen.MainMenu:
@@ -134,7 +136,7 @@ namespace TestGame2._0
                 case Screen.Instructions:
                     if (instruct != null)
                     {
-                        instruct.Update();
+                        instruct.Update(gameTime);
                     }
                     break;
             }
@@ -211,7 +213,7 @@ namespace TestGame2._0
         }
 
         /// <summary>
-        /// Restarts the game
+        /// Restarts the game, sets the entire scoreboard to zero.
         /// </summary>
         public void restartGame()
         {
@@ -227,6 +229,10 @@ namespace TestGame2._0
             }
             PauseScreen.list = new ArrayList { "", "", "", "", "" };
         }
+
+        /// <summary>
+        /// Pauses the game, and sets the pause screen on.
+        /// </summary>
         public void pauseGame()
         {
             pausedGame = mainGame;
@@ -235,6 +241,9 @@ namespace TestGame2._0
             currentScreen = Screen.PauseScreen;
         }
 
+        /// <summary>
+        /// Un-pauses the game
+        /// </summary>
         public void unpauseGame()
         {
             mainGame = pausedGame;

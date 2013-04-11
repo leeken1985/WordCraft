@@ -153,7 +153,52 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\gameBoard.xnb</Output>
-      <Time>2013-04-09T15:47:03.2659916-07:00</Time>
+      <Time>2013-04-09T23:30:00.2726921-07:00</Time>
+    </Item>
+    <Item>
+      <Source>newGameOff.png</Source>
+      <Name>newGameOff</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOff.xnb</Output>
+      <Time>2013-04-09T23:30:00.275695-07:00</Time>
+    </Item>
+    <Item>
+      <Source>newGameOn.png</Source>
+      <Name>newGameOn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\newGameOn.xnb</Output>
+      <Time>2013-04-09T23:30:00.2766942-07:00</Time>
+    </Item>
+    <Item>
+      <Source>instructionsOFF.png</Source>
+      <Name>instructionsOFF</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsOFF.xnb</Output>
+      <Time>2013-04-09T23:30:00.2736937-07:00</Time>
+    </Item>
+    <Item>
+      <Source>instructionsON.png</Source>
+      <Name>instructionsON</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructionsON.xnb</Output>
+      <Time>2013-04-09T23:30:00.2746935-07:00</Time>
+    </Item>
+    <Item>
+      <Source>instructions_page2_2.png</Source>
+      <Name>instructions_page2_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructions_page2_2.xnb</Output>
+      <Time>2013-04-10T23:44:11.2273372-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

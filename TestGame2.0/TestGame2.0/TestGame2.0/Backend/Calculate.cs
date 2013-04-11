@@ -101,7 +101,7 @@ namespace TestGame2._0.Backend
             vowelList.Add('O');
             vowelList.Add('U');
 
-            //this.randomizeList();
+            this.randomizeList();
 
         }
 
@@ -110,7 +110,7 @@ namespace TestGame2._0.Backend
         private void randomizeList()
         {
             Random rnd = new Random();
-            //randList.OrderBy<char, int>((item) => rnd.Next());
+            randList.OrderBy<char, int>((item) => rnd.Next());
         }
 
         /// <summary>
@@ -131,9 +131,9 @@ namespace TestGame2._0.Backend
             int index = 0;
             //choose between consonant or vowel
 
-            int num = random.Next(2);
+            int num = random.Next(4);
             // Generate a random number
-            if (num == 0)
+            if (num != 1)
             {
                 result1 = random.Next(randList.Count);
                 char letter = randList[result1];

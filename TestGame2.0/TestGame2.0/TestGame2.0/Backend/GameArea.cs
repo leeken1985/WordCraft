@@ -30,7 +30,6 @@ namespace TestGame2._0.Backend
             rowCol = l;
         }
     }
-    //TODO: Implement gamePiece class
     class GameArea
     {
         private Game1 game;

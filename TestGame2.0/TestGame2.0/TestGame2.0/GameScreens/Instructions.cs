@@ -40,8 +40,10 @@ namespace TestGame2._0.GameScreens
             myFont = game.Content.Load<SpriteFont>("myFont");
         }
 
-
-        public void Update()
+        /// <summary>
+        /// Passed into the Game1.cs Update method.
+        /// </summary>
+        public void Update(GameTime gameTime)
         {
             // Move to first instruction page when Enter is pressed
             KeyboardState currentState = Keyboard.GetState();
@@ -66,10 +68,15 @@ namespace TestGame2._0.GameScreens
             {
                 rect2.Y = rect1.Y + infiniteBackground.Height;
             }
-            rect1.Y -= 2;
-            rect2.Y -= 2;
+            rect1.Y -= 1;
+            rect2.Y -= 1;
         }
 
+
+        /// <summary>
+        /// Passed into the Game1.cs Draw method.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
             // Display first instruction page
