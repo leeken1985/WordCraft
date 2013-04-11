@@ -54,8 +54,6 @@ namespace TestGame2._0.GameScreens
             }
             rect1.Y -= 2;
             rect2.Y -= 2;
-            
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

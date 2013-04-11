@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using TestGame2._0.GameScreens;
 using TestGame2._0.Backend;
+using System.Collections;
 
 namespace TestGame2._0
 {
@@ -208,6 +209,7 @@ namespace TestGame2._0
                     GameArea.SetGameBoard(j, i, 0);
                 }
             }
+            PauseScreen.list = new ArrayList { "", "", "", "", "" };
         }
         public void pauseGame()
         {

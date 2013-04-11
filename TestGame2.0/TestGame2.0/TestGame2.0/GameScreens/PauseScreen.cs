@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
+using TestGame2._0.Backend;
 
 namespace TestGame2._0.GameScreens
 {
@@ -17,6 +18,8 @@ namespace TestGame2._0.GameScreens
         private Texture2D texture;
         private Rectangle rect1;
         public static ArrayList list = new ArrayList{ "", "", "", "", "" };
+        private int x = 50;
+        private int y = 325;
 
         public PauseScreen(Game1 game)
         {
@@ -46,9 +49,13 @@ namespace TestGame2._0.GameScreens
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, rect1, Color.White);
-            spriteBatch.DrawString(myFont, "PAUSED", new Vector2(325, 300), Color.White);
-            for(int i = 0; i < list.Count; i++)
-                spriteBatch.DrawString(myFont, (String)list[i], new Vector2(325, 325 + i * 10), Color.White);
+            spriteBatch.DrawString(myFont, "PAUSED", new Vector2(250, 300), Color.White);
+            for (int i = 0; i < list.Count; i++)
+            {
+                spriteBatch.DrawString(myFont, (String)list[i], new Vector2(325, y+i*50), Color.White);
+                if(GameArea.getDictionary().ContainsKey(list[i].ToString()))
+                    spriteBatch.DrawString(myFont, GameArea.getDictionary()[list[i].ToString()], new Vector2(250+x, y+i*50), Color.White);
+            }
         }
     }
 }

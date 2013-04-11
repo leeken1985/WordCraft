@@ -39,16 +39,12 @@ namespace TestGame2._0.Backend
         private const int row = 12; //12 row
         private static int playerLetter;
         private Dictionary<char, int> pointList;
-        private Dictionary<string, int> dict;
+        private static Dictionary<string, string> dict;
         private List<char> letterList;
         private int tempRow;
         private int letterColumn;
         private int currScore = 0;
         private string formedWord = "";
-        private Dictionary<string, int> words3 = new Dictionary<string, int>();
-        private Dictionary<string, int> words4 = new Dictionary<string, int>();
-        private Dictionary<string, int> words5 = new Dictionary<string, int>();
-        private Dictionary<string, int> words6 = new Dictionary<string, int>();
         private List<string> possibleColumnWords = new List<string>();
         private List<string> possibleRowWords = new List<string>();
         private List<string> winList = new List<string>();
@@ -85,7 +81,7 @@ namespace TestGame2._0.Backend
         {
             this.game = game;
             pointList = new Dictionary<char, int>();
-            dict = new Dictionary<string, int>();
+            dict = new Dictionary<string, string>();
 
             // Create Point list and Dictionary
             CreatePointList();
@@ -125,20 +121,21 @@ namespace TestGame2._0.Backend
         public void CreateDictionary()
         {
             // Reads in words from a file.
-            using (StreamReader sr = new StreamReader("allWords.txt"))
+            using (StreamReader sr = new StreamReader("wordanddef.txt"))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    // Adds word into Dictionary as Key.  Value is point value of word.
-                    int points = calcPoints(line);
-                    dict.Add(line, points);
+                    // Adds word into Dictionary as Key.  Value is the definition of the words.
+                    dict.Add(line.Split('\t')[0].Trim(), line.Split('\t')[1].Trim());
                 }
             }
         }
 
-
-
+        public static Dictionary<string, string> getDictionary()
+        {
+            return dict;
+        }
 
         /// <summary>
         /// Generates a random line of blocks that is added to the top of the game area.
@@ -531,9 +528,9 @@ namespace TestGame2._0.Backend
                 // Check all substring to see if they exist in Dictionary
                 if (dict.ContainsKey(s.Replace("-", "")))
                 {
-                    if (dict[s.Replace("-", "")] > maxPoints)
+                    if (calcPoints(s.Replace("-", "")) > maxPoints)
                     {
-                        maxPoints = dict[s.Replace("-", "")];
+                        maxPoints = calcPoints(s.Replace("-", ""));
 
                         // Store the word that gives the highest point value
                         rowWord = s.Replace("-", "");
@@ -714,15 +711,7 @@ namespace TestGame2._0.Backend
                 GameBoard[tempRow, letterColumn] = teleport;
                 teleport--;
             }
-        }
-
-        /// <summary>
-        /// Sets the block sprite that was fired and turned into teleport sprites
-        /// as the block that was fired sprite
-        /// </summary>
-        private void teleportClear()
-        {
-            if (toFind && teleport == 26)
+            else if (toFind && teleport == 26)
             {
                 GameBoard[tempRow, letterColumn] = playerLetter;
                 toFind = false;
@@ -865,7 +854,6 @@ namespace TestGame2._0.Backend
             {
                 timeElapsed -= timeToUpdate;
                 teleportAnimation();
-                teleportClear();
                 destroyAnimation();
                 destrowClear();
                 if (toFall && timeElapesedToFall > 10)
