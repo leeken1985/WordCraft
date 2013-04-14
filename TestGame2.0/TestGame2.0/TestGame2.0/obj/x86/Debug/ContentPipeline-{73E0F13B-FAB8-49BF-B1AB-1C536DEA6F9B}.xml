@@ -89,7 +89,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\explode.xnb</Output>
-      <Time>2013-04-04T10:50:59.4388269-07:00</Time>
+      <Time>2013-04-11T08:36:31.3967318-07:00</Time>
     </Item>
     <Item>
       <Source>travel.wav</Source>
@@ -199,6 +199,34 @@
       <Options>None</Options>
       <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\instructions_page2_2.xnb</Output>
       <Time>2013-04-10T23:44:11.2273372-07:00</Time>
+    </Item>
+    <Item>
+      <Source>pausefont.spritefont</Source>
+      <Name>pausefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\pausefont.xnb</Output>
+      <Time>2013-04-11T08:36:31.6138775-07:00</Time>
+    </Item>
+    <Item>
+      <Source>falldown.wav</Source>
+      <Name>falldown</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\falldown.xnb</Output>
+      <Time>2013-04-11T08:36:31.4007345-07:00</Time>
+    </Item>
+    <Item>
+      <Source>opening.mp3</Source>
+      <Name>opening</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\opening.xnb</Output>
+      <Extra>C:\Users\Aaron\Documents\GitHub\WordCraft\TestGame2.0\TestGame2.0\TestGame2.0\bin\x86\Debug\Content\opening.wma</Extra>
+      <Time>2013-04-11T08:36:31.6098772-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -5,7 +5,6 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -120,7 +119,7 @@ namespace TestGame2._0.Backend
         public void CreateDictionary()
         {
             // Reads in words from a file.
-            using (StreamReader sr = new StreamReader("wordanddef.txt"))
+            using (StreamReader sr = new StreamReader("Content/wordanddef.txt"))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
